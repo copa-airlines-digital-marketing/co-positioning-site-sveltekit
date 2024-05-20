@@ -1,78 +1,66 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
+
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
- 
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
- 
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
- 
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
- 
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
- 
-    --primary: 240 5.9% 10%;
-    --primary-foreground: 0 0% 98%;
- 
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
- 
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
- 
-    --destructive: 0 72.2% 50.6%;
-    --destructive-foreground: 0 0% 98%;
- 
-    --ring: 240 10% 3.9%;
- 
-    --radius: 0.5rem;
-  }
- 
-  .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
- 
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
- 
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
- 
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
- 
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
- 
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
- 
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
- 
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
- 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
- 
-    --ring: 240 4.9% 83.9%;
-  }
-}
- 
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
+    --color-primary: rgba(0, 50, 160, 1);
+    --color-primary-light: rgba(14, 104, 255, 1);
+    --color-primary-dark: rgba(0, 40, 128, 1);
+    --color-primary-ultralight: rgba(214, 227, 255, 1);
+    --color-primary-ultradark: rgba(0, 26, 102, 1);
+    --color-primary-faded: rgba(159, 195, 255, 1);
+
+    --color-secondary: rgba(0, 163, 224, 1);
+    --color-secondary-faded: rgba(128, 209, 239, 1);
+
+    --color-tertiary: rgba(208, 180, 159, 1);
+
+    --color-background-lightblue: rgba(239, 245, 255, 1);
+    --color-background-paper: rgba(252, 252, 252, 1);
+
+    --color-alternative-pardo: rgba(134, 109, 75, 1);
+    --color-alternative-gold: rgba(173, 124, 89, 1);
+    --color-alternative-darkorange: rgba(177, 92, 55, 1);
+    --color-alternative-lightorange: rgba(226, 192, 112, 1);
+    --color-alternative-prefermemberBlue: rgba(7, 34, 65, 1);
+
+    --color-system-warning: rgba(255, 200, 44, 1);
+    --color-system-warning-faded: rgba(255, 244, 213, 1);
+    --color-system-error: rgba(213, 37, 37, 1);
+    --color-system-error-faded: rgba(255, 239, 239, 1);
+    --color-system-success: rgba(12, 126, 62, 1);
+    --color-system-success-faded: rgba(206, 229, 216, 1);
+
+    --color-grey-800: rgba(18, 18, 18, 1);
+    --color-grey-700: rgba(51, 51, 51, 1);
+    --color-grey-600: rgba(102, 102, 102, 1);
+    --color-grey-500: rgba(153, 153, 153, 1);
+    --color-grey-400: rgba(170, 170, 171, 1);
+    --color-grey-300: rgba(204, 204, 203, 1);
+    --color-grey-200: rgba(219, 218, 216, 1);
+    --color-grey-100: rgba(239, 239, 238, 1);
+    --color-grey-75: rgba(249, 249, 248, 1);
+    --color-grey-50: rgba(239, 239, 238, 1);
+
+    --color-common-black: rgba(0, 0, 0, 1);
+    --color-common-white: rgba(255, 255, 255, 1);
+
+    --color-status-member: rgba(0, 50, 160, 1);
+    --color-status-silver: rgba(6, 38, 96, 1);
+    --color-status-gold: rgba(141, 114, 73, 1);
+    --color-status-platinum: rgba(102, 102, 102, 1);
+    --color-status-presidential: rgba(18, 18, 18, 1);
+
+    --spacing-minimal: 8px;
+    --spacing-tiny: 16px;
+    --spacing-petit: 24px;
+    --spacing-normal: 32px;
+    --spacing-roomy:
+      clamp(32px, (100vw - 599px) * 99, clamp(40px, (100vw - 959px) * 99, clamp(48px, (100vw - 1367px) * 99, 56px)));;
+    --spacing-spacious:
+      clamp(40px, (100vw - 599px) * 99, clamp(48px, (100vw - 959px) * 99, clamp(56px, (100vw - 1367px) * 99, 64px)));
+    --spacing-big: clamp(56px, (100vw - 599px) * 99, clamp(64px, (100vw - 959px) * 99, clamp(72px, (100vw - 1367px) * 99, 80px)));
+    --spacing-huge: clamp(72px, (100vw - 599px) * 99, clamp(88px, (100vw - 959px) * 99, clamp(96px, (100vw - 1367px) * 99, 112px)));
   }
 }
