@@ -22,7 +22,7 @@
 		<Button href="https://www.copaair.com/es-co/" title="Ir al sitio principal">
 			<LogoCopaAirlines class={cn('w-52 h-auto')}></LogoCopaAirlines>
 		</Button>
-		<nav class="fixed md:static bottom-0 left-0 w-full md:w-auto px-8 md:px-0 bg-primary h-16">
+		<nav class="fixed md:static bottom-0 left-0 w-full md:w-auto px-8 md:px-0 bg-primary h-16 z-10">
 			<ul class={cn('flex gap-2 items-center justify-center h-full')}>
 				{#each sections as section}
 					{@const { href, text } = section}

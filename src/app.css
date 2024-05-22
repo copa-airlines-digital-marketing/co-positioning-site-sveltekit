@@ -63,4 +63,8 @@
     --spacing-big: clamp(56px, (100vw - 599px) * 99, clamp(64px, (100vw - 959px) * 99, clamp(72px, (100vw - 1367px) * 99, 80px)));
     --spacing-huge: clamp(72px, (100vw - 599px) * 99, clamp(88px, (100vw - 959px) * 99, clamp(96px, (100vw - 1367px) * 99, 112px)));
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
 }

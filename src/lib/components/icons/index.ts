@@ -9,6 +9,8 @@ import SocialLinkedin from "./social-linkedin.svelte";
 import SocialX from "./social-x.svelte";
 import SocialYoutube from "./social-youtube.svelte";
 import SocialTiktok from "./social-tiktok.svelte";
+import OutlineArrowBack from "./outline-arrow-back.svelte";
+import OutlineArrowForward from "./outline-arrow-forward.svelte";
 
 export {
   BaselinePlayArrow,
@@ -16,10 +18,12 @@ export {
   LogoStarAlliance,
   OutlineClose,
   OutlineMenu,
+  OutlineArrowBack,
+  OutlineArrowForward,
   SocialFacebook,
   SocialInstagram,
   SocialLinkedin,
   SocialTiktok,
   SocialX,
-  SocialYoutube,
+  SocialYoutube
 }
