@@ -31,7 +31,7 @@
 							<Slide.Content
 								class="col-start-1 col-span-full row-start-6 row-span-5 flex-col-reverse"
 							>
-								<Heading variant="displayNormal" class="my-2 text-common-white">
+								<Heading variant="displayNormal" tag="h1" class="my-2 text-common-white">
 									Vuelve a Conectar Con La Dicha De Volar
 								</Heading>
 								<p class="text-gray-100 max-w-96">
@@ -98,7 +98,7 @@
 				</Carousel.Container>
 			</Carousel.Content>
 			<div
-				class="absolute left-1/2 top-roomy -translate-x-1/2 col-span-full row-span-full container px-4"
+				class="absolute left-1/2 top-roomy -translate-x-1/2 col-span-full row-span-full container w-full"
 			>
 				<ul class="flex justify-end items-end gap-2">
 					{#each Array(4) as slide, i}

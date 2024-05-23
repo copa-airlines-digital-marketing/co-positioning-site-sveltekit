@@ -1,1 +1,1 @@
-<div id="nosotros" class="h-lvh w-full bg-primary-light"></div>
+<div id="nosotros" class="h-lvh w-full bg-primary-ultradark"></div>
