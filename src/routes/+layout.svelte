@@ -5,8 +5,8 @@
 </script>
 
 <ScrollArea.Root type="scroll" class="relative h-svh scroll-smooth">
-	<ScrollArea.Viewport class="h-full w-full">
-		<ScrollArea.Content class="bg-backgound-paper text-grey-600">
+	<ScrollArea.Viewport class="h-full w-full scroll-smooth">
+		<ScrollArea.Content class="bg-backgound-paper text-grey-600 scroll-smooth">
 			<main class="min-h-svh">
 				<slot />
 			</main>

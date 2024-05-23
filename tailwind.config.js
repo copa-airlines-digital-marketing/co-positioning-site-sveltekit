@@ -1,7 +1,59 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./src/**/*.{html,js,svelte,ts}'],
+  corePlugins: {
+    container: false
+  },
+  plugins: [
+    function ({
+      addComponents
+    }) {
+      addComponents({
+        '.container': {
+          maxWidth: 'calc(100% - 2rem)',
+          '@screen sm': {
+            maxWidth: '560px',
+          },
+          '@screen md': {
+            maxWidth: 'calc(100% - 144px)',
+          },
+          '@screen lg': {
+            maxWidth: '1224px',
+          }
+        },
+        ".container-grid": {
+          display: "grid",
+          gridTemplateColumns: "16px 1fr 16px",
+          "@screen sm": {
+            gridTemplateColumns: "1fr 560px 1fr",
+          },
+          "@screen md": {
+            gridTemplateColumns: "72px 1fr 72px",
+          },
+          "@screen lg": {
+            gridTemplateColumns: "1fr 1224px 1fr",
+          },
+        },
+      })
+    }
+  ],
   theme: {
+    screens: {
+      xs: {
+        max: '599px'
+      },
+      sm: '600px',
+      'sm-only': {
+        min: '600px',
+        max: '959px'
+      },
+      md: '960px',
+      'md-only': {
+        min: '960px',
+        max: '1366px'
+      },
+      lg: '1367px',
+    },
     extend: {
       colors: {
         primary: {
@@ -91,5 +143,4 @@ export default {
       }
     }
   },
-  plugins: []
 };

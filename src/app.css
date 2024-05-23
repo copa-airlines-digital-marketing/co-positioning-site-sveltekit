@@ -2,6 +2,63 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: Gilroy;
+  font-weight: 400;
+  src: url('/fonts/Gilroy-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: Gilroy;
+  font-weight: 500;
+  src: url('/fonts/Gilroy-Medium.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: Gilroy;
+  font-weight: 700;
+  src: url('/fonts/Gilroy-Bold.woff') format('woff');
+}
+
+@font-face {
+  font-family: "Suisse Int'l";
+  font-weight: 400;
+  src: url('/fonts/.woff') format('woff');
+}
+
+@font-face {
+  font-family: "Suisse Int'l";
+  font-weight: 300;
+  src: url('/fonts/SuisseIntl-Light.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: "Suisse Int'l";
+  font-weight: 400;
+  src: url('/fonts/SuisseIntl-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: "Suisse Int'l";
+  font-weight: 500;
+  src: url('/fonts/SuisseIntl-Medium.woff') format('woff');
+}
+
+@font-face {
+  font-family: "Suisse Int'l";
+  font-weight: 600;
+  src: url('/fonts/SuisseIntl-SemiBold.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: "Suisse Int'l";
+  font-weight: 700;
+  src: url('/fonts/SuisseIntl-Bold.woff') format('woff');
+}
+
 @layer base {
   :root {
     --color-primary: 221 100% 31%;
@@ -63,8 +120,8 @@
     --spacing-big: clamp(56px, (100vw - 599px) * 99, clamp(64px, (100vw - 959px) * 99, clamp(72px, (100vw - 1367px) * 99, 80px)));
     --spacing-huge: clamp(72px, (100vw - 599px) * 99, clamp(88px, (100vw - 959px) * 99, clamp(96px, (100vw - 1367px) * 99, 112px)));
   }
+}
 
-  html {
-    scroll-behavior: smooth;
-  }
+html {
+  scroll-behavior: smooth;
 }

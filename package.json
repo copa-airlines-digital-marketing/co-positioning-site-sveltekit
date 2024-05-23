@@ -43,6 +43,7 @@
 		"bits-ui": "^0.21.8",
 		"clsx": "^2.1.1",
 		"cmds-tailwind-styles": "^1.1.9",
+		"embla-carousel-autoplay": "^8.1.3",
 		"embla-carousel-svelte": "^8.1.3",
 		"tailwind-merge": "^2.3.0",
 		"tailwind-variants": "^0.2.1"

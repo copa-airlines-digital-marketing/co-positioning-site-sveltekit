@@ -5,8 +5,8 @@
 
 	const sections = [
 		{ href: '#destinos', text: 'Destinos' },
-		{ href: '#a-bordo', text: 'A bordo' },
-		{ href: '#nostros', text: 'Nosotros' }
+		{ href: '#a-bordo', text: 'A Bordo' },
+		{ href: '#nosotros', text: 'Nosotros' }
 	];
 </script>
 
