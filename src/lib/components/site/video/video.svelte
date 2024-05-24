@@ -7,7 +7,7 @@
 </script>
 
 <Dialog.Root>
-	<Dialog.Trigger>
+	<Dialog.Trigger tabindex={-1}>
 		<slot name="trigger" />
 	</Dialog.Trigger>
 	<Dialog.Portal>
@@ -21,7 +21,7 @@
 			class="fixed inset-0 z-50 shadow-xl bg-backgound-lightblue/10 overflow-hidden"
 		>
 			<slot name="video" />
-			<Dialog.Close class="absolute right-roomy top-roomy">
+			<Dialog.Close class="absolute right-roomy top-roomy" tabindex={-1}>
 				<Button variant="invert" class="rounded-full px-3">
 					<OutlineClose class="size-6"></OutlineClose>
 					<span class="sr-only">Cerrar</span>
