@@ -4,6 +4,7 @@
 	import { Heading } from '$lib/components/ui/heading';
 	import * as Carousel from '$lib/components/ui/carrusel';
 	import * as Slide from './slide';
+	import * as VideoDialog from '$lib/components/site/video';
 	import mainImage from '$lib/assets/pareja-en-clase-ejecutiva.jpg?enhanced';
 	import mapImage from '$lib/assets/mapa-de-destinos-en-colombia.jpg?enhanced';
 	import onBoardImage from '$lib/assets/refrigerio-a-bordo-de-aeronave.jpg?enhanced';
@@ -12,8 +13,6 @@
 	import { BaselinePlayArrow } from '$lib/components/icons';
 	import { onMount } from 'svelte';
 	import { OutlineArrowUpward } from '$lib/components/icons';
-	import { fly } from 'svelte/transition';
-	import { quintInOut } from 'svelte/easing';
 	import { flyAndScale } from '$lib/utils';
 
 	let showBackToTop = false;
@@ -54,14 +53,18 @@
 									¿Sientes que volar ha perdido su encanto? <br />
 									Queremos devolverle la dicha de volar a Colombia
 								</p>
-								<Button
-									variant="light"
-									size="slim"
-									class="my-5 bg-secondary border-secondary items-center"
-								>
-									Ver Video
-									<BaselinePlayArrow class="size-6" />
-								</Button>
+								<VideoDialog.Root>
+									<Button
+										variant="light"
+										size="slim"
+										class="my-5 bg-secondary border-secondary items-center"
+										slot="trigger"
+									>
+										Ver Video
+										<BaselinePlayArrow class="size-6" />
+									</Button>
+									<img src={mainImage} alt="" class="h-full w-full object-cover" slot="video" />
+								</VideoDialog.Root>
 							</Slide.Content>
 						</Slide.Root>
 					</Carousel.Item>
