@@ -11,6 +11,7 @@ import SocialYoutube from "./social-youtube.svelte";
 import SocialTiktok from "./social-tiktok.svelte";
 import OutlineArrowBack from "./outline-arrow-back.svelte";
 import OutlineArrowForward from "./outline-arrow-forward.svelte";
+import OutlineArrowUpward from "./outline-arrow-upward.svelte";
 
 export {
   BaselinePlayArrow,
@@ -20,6 +21,7 @@ export {
   OutlineMenu,
   OutlineArrowBack,
   OutlineArrowForward,
+  OutlineArrowUpward,
   SocialFacebook,
   SocialInstagram,
   SocialLinkedin,

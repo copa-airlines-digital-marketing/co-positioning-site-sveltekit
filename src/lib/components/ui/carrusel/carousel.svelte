@@ -27,18 +27,22 @@
 	$: pluginStore.set(plugins);
 	$: optionsStore.set(opts);
 
-	function scrollPrev() {
+	const scrollPrev = () => {
 		api?.scrollPrev();
-	}
+		if (api) $selectedIndexStore = api.selectedScrollSnap();
+	};
 	function scrollNext() {
 		api?.scrollNext();
+		if (api) $selectedIndexStore = api.selectedScrollSnap();
 	}
 	function scrollTo(index: number, jump?: boolean) {
 		api?.scrollTo(index, jump);
+		if (api) $selectedIndexStore = api.selectedScrollSnap();
 	}
 
 	function onSelect(api: CarouselAPI) {
 		if (!api) return;
+		$selectedIndexStore = api.selectedScrollSnap();
 		canScrollPrev.set(api.canScrollPrev());
 		canScrollNext.set(api.canScrollNext());
 	}
@@ -61,24 +65,23 @@
 
 	setEmblaContext({
 		api: apiStore,
+		orientation: orientationStore,
 		scrollPrev,
 		scrollNext,
-		orientation: orientationStore,
 		canScrollNext,
 		canScrollPrev,
 		handleKeyDown,
 		options: optionsStore,
 		plugins: pluginStore,
 		onInit,
+		scrollTo,
 		scrollSnapList: scrollSnapsStore,
-		selectedIndex: selectedIndexStore,
-		scrollTo
+		selectedIndex: selectedIndexStore
 	});
 
 	function onInit(event: CustomEvent<CarouselAPI>) {
 		api = event.detail;
 		apiStore.set(api);
-		console.log(api.selectedScrollSnap());
 		scrollSnapsStore.set(api.scrollSnapList());
 	}
 

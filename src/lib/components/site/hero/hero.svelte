@@ -10,24 +10,40 @@
 	import aboutCopa from '$lib/assets/abordaje-de-vuelo.jpg?enhanced';
 	import Autoplay from 'embla-carousel-autoplay';
 	import { BaselinePlayArrow } from '$lib/components/icons';
+	import { onMount } from 'svelte';
+	import { OutlineArrowUpward } from '$lib/components/icons';
+	import { fly } from 'svelte/transition';
+	import { quintInOut } from 'svelte/easing';
+	import { flyAndScale } from '$lib/utils';
+
+	let showBackToTop = false;
+	let section: HTMLDivElement;
+
+	onMount(() => {
+		const ob = new IntersectionObserver((payload) => (showBackToTop = !payload[0].isIntersecting));
+		ob.observe(section);
+	});
 </script>
 
 <div class="w-full h-lvh flex flex-col" id="top">
 	<Header />
-	<div class="h-full relative" id="main">
+	<div class="h-full" id="main" bind:this={section}>
 		<Carousel.Root
-			class="h-full"
+			class="h-full container-grid"
 			plugins={[
 				Autoplay({
 					delay: 5000
 				})
 			]}
 		>
-			<Carousel.Content class="h-full">
+			<div class="col-start-2 row-start-1 self-start my-roomy z-10">
+				<Carousel.Dots direction="ltr" variant="invert" class="border-0"></Carousel.Dots>
+			</div>
+			<Carousel.Content class="h-full col-span-full row-span-full">
 				<Carousel.Container class="h-full">
-					<Carousel.Item class="h-full">
+					<Carousel.Item>
 						<Slide.Root image={mainImage} class="h-full">
-							<Slide.Overlay />
+							<Slide.Overlay class="from-30%" />
 							<Slide.Content
 								class="col-start-1 col-span-full row-start-6 row-span-5 flex-col-reverse"
 							>
@@ -49,7 +65,7 @@
 							</Slide.Content>
 						</Slide.Root>
 					</Carousel.Item>
-					<Carousel.Item class="relative">
+					<Carousel.Item>
 						<Slide.Root image={mapImage} class="h-full">
 							<Slide.Content class="col-start-1 col-span-full row-span-full justify-center">
 								<Heading variant="displayNormal" class="my-2 text-common-white max-w-[480px]">
@@ -61,35 +77,50 @@
 									Armenia, Barranquilla, Bogotá, Bucaramanga, Cartagena, Cúcuta, Cali, Medellín, San
 									Andrés, Santa Marta y Pereira.
 								</p>
-								<Button variant="light" size="slim" class="my-5 bg-secondary border-secondary">
+								<Button
+									variant="light"
+									size="slim"
+									class="my-5 bg-secondary border-secondary"
+									href="#destinos"
+								>
 									Descubre Nuestros Destinos
 								</Button>
 							</Slide.Content>
 						</Slide.Root>
 					</Carousel.Item>
-					<Carousel.Item class="relative">
+					<Carousel.Item>
 						<Slide.Root image={onBoardImage} class="h-full">
-							<Slide.Overlay class="bg-gradient-to-br"></Slide.Overlay>
-							<Slide.Content class="col-start-1 col-span-full row-start-5 row-span-5">
+							<Slide.Overlay class="bg-gradient-to-br from-15%"></Slide.Overlay>
+							<Slide.Content class="col-start-1 col-span-full row-start-3 row-span-5">
 								<Heading variant="displayNormal" class="my-2 text-common-white">
-									Refrigerio <span class="text-secondary">Siempre</span> Incluido
+									Refrigerio <span class="text-secondary-faded">Siempre</span> Incluido
 								</Heading>
 								<p class="text-gray-100 max-w-prose">sin importar la tarifa o ruta que escojas</p>
-								<Button variant="light" size="slim" class="my-5 bg-secondary border-secondary">
+								<Button
+									variant="light"
+									size="slim"
+									class="my-5 bg-secondary border-secondary"
+									href="#a-bordo"
+								>
 									Conoce nuestro servicio a bordo
 								</Button>
 							</Slide.Content>
 						</Slide.Root>
 					</Carousel.Item>
-					<Carousel.Item class="relative">
+					<Carousel.Item>
 						<Slide.Root image={aboutCopa} class="h-full">
-							<Slide.Overlay class="bg-gradient-to-br" />
-							<Slide.Content class="col-start-1 col-span-full row-start-3 row-span-5 flex-col">
+							<Slide.Overlay class="bg-gradient-to-br from-20%" />
+							<Slide.Content class="col-start-1 col-span-full row-start-3 row-span-6 flex-col">
 								<Heading variant="displayNormal" class="my-2 text-common-white max-w-[560px]">
-									La Aerolínea Más Premiada Por <span class="text-secondary">Puntualidad</span> de América
-									En La Última Década
+									La Aerolínea Más Premiada Por <span class="text-secondary-faded">Puntualidad</span
+									> de América En La Última Década
 								</Heading>
-								<Button variant="light" size="slim" class="my-5 bg-secondary border-secondary">
+								<Button
+									variant="light"
+									size="slim"
+									class="my-5 bg-secondary border-secondary"
+									href="#nosotros"
+								>
 									Descubre Más de Copa Airlines
 								</Button>
 							</Slide.Content>
@@ -97,15 +128,18 @@
 					</Carousel.Item>
 				</Carousel.Container>
 			</Carousel.Content>
-			<div
-				class="absolute left-1/2 top-roomy -translate-x-1/2 col-span-full row-span-full container w-full"
-			>
-				<ul class="flex justify-end items-end gap-2">
-					{#each Array(4) as slide, i}
-						<li class="text-common-white text-lg">{'0' + (i + 1)}</li>
-					{/each}
-				</ul>
-			</div>
 		</Carousel.Root>
 	</div>
 </div>
+
+{#if showBackToTop}
+	<div
+		class="hidden md:block fixed bottom-roomy right-roomy z-10"
+		transition:flyAndScale={{ y: 50, start: 0.5 }}
+	>
+		<Button variant="invert" class="rounded-full p-3" href="#top">
+			<OutlineArrowUpward class="size-8" />
+			<span class="sr-only">Regresar al inicio</span>
+		</Button>
+	</div>
+{/if}
