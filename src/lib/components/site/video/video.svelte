@@ -7,10 +7,8 @@
 </script>
 
 <Dialog.Root>
-	<Dialog.Trigger asChild let:builder>
-		<div use:builder.action {...builder}>
-			<slot name="trigger" />
-		</div>
+	<Dialog.Trigger>
+		<slot name="trigger" />
 	</Dialog.Trigger>
 	<Dialog.Portal>
 		<Dialog.Overlay
