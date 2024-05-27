@@ -12,9 +12,11 @@ import SocialTiktok from "./social-tiktok.svelte";
 import OutlineArrowBack from "./outline-arrow-back.svelte";
 import OutlineArrowForward from "./outline-arrow-forward.svelte";
 import OutlineArrowUpward from "./outline-arrow-upward.svelte";
+import LogoCiriumOtp from "./logo-cirium-otp.svelte";
 
 export {
   BaselinePlayArrow,
+  LogoCiriumOtp,
   LogoCopaAirlines,
   LogoStarAlliance,
   OutlineClose,

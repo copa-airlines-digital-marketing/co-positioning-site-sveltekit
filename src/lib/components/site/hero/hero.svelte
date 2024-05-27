@@ -14,12 +14,12 @@
 	import mapImagePortrait from '$lib/assets/mapa-de-destinos-en-colombia-portrait.jpg?h=2160;1600;1080;900;768&format=avif;webp;jpg&as=picture&imagetools';
 	import onBoardImagePortrait from '$lib/assets/refrigerio-a-bordo-de-aeronave-portrait.jpg?h=2160;1600;1080;900;768&format=avif;webp;jpg&as=picture&imagetools';
 	import aboutCopaPortrait from '$lib/assets/abordaje-de-vuelo-portrait.jpg?h=2160;1600;1080;900;768&format=avif;webp;jpg&as=picture&imagetools';
-	import ciriumLogo from '$lib/assets/logo-cirium-2024.png?w=1200;800;400&as=picture&imagetools';
 	import Autoplay from 'embla-carousel-autoplay';
 	import { BaselinePlayArrow } from '$lib/components/icons';
 	import { onMount } from 'svelte';
 	import { OutlineArrowUpward } from '$lib/components/icons';
 	import { flyAndScale } from '$lib/utils';
+	import LogoCiriumOtp from '$lib/components/icons/logo-cirium-otp.svelte';
 
 	let showBackToTop = false;
 	let section: HTMLDivElement;
@@ -28,6 +28,25 @@
 		const ob = new IntersectionObserver((payload) => (showBackToTop = !payload[0].isIntersecting));
 		ob.observe(section);
 	});
+
+	const images: Record<string, EnhancedImage.ImageToolsPictureWithMediaQuery> = {
+		main: {
+			'(orientation: landscape)': mainImage as EnhancedImage.ImageToolsPicture,
+			'(orientation: portrait)': mainImagePortrait
+		},
+		map: {
+			'(orientation: landscape)': mapImage,
+			'(orientation: portrait)': mapImagePortrait
+		},
+		onboard: {
+			'(orientation: landscape)': onBoardImage,
+			'(orientation: portrait)': onBoardImagePortrait
+		},
+		aboutCopa: {
+			'(orientation: landscape)': aboutCopa,
+			'(orientation: portrait)': aboutCopaPortrait
+		}
+	} as const;
 </script>
 
 <div
@@ -45,19 +64,13 @@
 		]}
 		id="main"
 	>
-		<div class="col-start-2 row-start-1 self-start justify-self-start my-roomy z-10">
+		<div class="col-start-2 row-start-1 self-start justify-self-start mt-roomy z-10">
 			<Carousel.Dots direction="ltr" variant="invert" class="border-0"></Carousel.Dots>
 		</div>
 		<Carousel.Content class="h-full col-span-full row-span-full max-w-full">
 			<Carousel.Container class="h-full">
 				<Carousel.Item class="h-full">
-					<Slide.Root
-						image={{
-							'(orientation: landscape)': mainImage,
-							'(orientation: portrait)': mainImagePortrait
-						}}
-						class="h-full"
-					>
+					<Slide.Root image={images['main']} class="h-full">
 						<Slide.Overlay
 							class="bg-gradient-to-t landscape:from-30% landscape:bg-gradient-to-tr"
 						/>
@@ -90,13 +103,7 @@
 					</Slide.Root>
 				</Carousel.Item>
 				<Carousel.Item class="h-full">
-					<Slide.Root
-						image={{
-							'(orientation: landscape)': mapImage,
-							'(orientation: portrait)': mapImagePortrait
-						}}
-						class="h-full"
-					>
+					<Slide.Root image={images['map']} class="h-full">
 						<Slide.Content
 							class="col-start-1 col-span-full row-span-full justify-end py-5 lg:justify-start lg:row-start-4"
 						>
@@ -125,13 +132,7 @@
 					</Slide.Root>
 				</Carousel.Item>
 				<Carousel.Item>
-					<Slide.Root
-						image={{
-							'(orientation: landscape)': onBoardImage,
-							'(orientation: portrait)': onBoardImagePortrait
-						}}
-						class="h-full"
-					>
+					<Slide.Root image={images.onboard} class="h-full">
 						<Slide.Overlay
 							class="bg-gradient-to-t landscape:md:bg-gradient-to-br landscape:from-15%"
 						></Slide.Overlay>
@@ -156,18 +157,14 @@
 					</Slide.Root>
 				</Carousel.Item>
 				<Carousel.Item>
-					<Slide.Root
-						image={{
-							'(orientation: landscape)': aboutCopa,
-							'(orientation: portrait)': aboutCopaPortrait
-						}}
-						class="h-full"
-					>
+					<Slide.Root image={images.aboutCopa} class="h-full">
 						<Slide.Overlay class="bg-gradient-to-t md:landscape:bg-gradient-to-br from-20%" />
 						<Slide.Content
-							class="col-start-1 col-span-full row-span-full flex-col-reverse py-5 md:flex-col"
+							class="col-start-1 col-span-full row-span-full grid grid-cols-subgrid grid-rows-subgrid py-5"
 						>
-							<div>
+							<div
+								class="col-span-full row-start-13 row-end-6 md:landscape:row-start-1 md:landscape:row-end-7 self-end landscape:md:self-start landscape:lg:row-end-6"
+							>
 								<Heading
 									variant="displayNormal"
 									class="my-2 text-common-white sm:max-w-md sm:landscape:max-w-96"
@@ -184,11 +181,14 @@
 									Descubre Más de Copa Airlines
 								</Button>
 							</div>
-							<EnhancedImage.Root
-								image={{ all: ciriumLogo }}
-								alt="Logo de Cirium, la aerolínea más puntual de latinoamerica de 2023"
-								class="w-28 lg:w-48"
-							></EnhancedImage.Root>
+							<div
+								class="col-span-full row-start-1 row-end-7 landscape:row-start-7 landscape:row-end-12 landscape:self-end justify-self-end landscape:md:justify-self-start md:landscape:self-start lg:landscape:row-start-6"
+							>
+								<LogoCiriumOtp class="w-40 md:w-52 lg:w-64 text-white" />
+								<span class="sr-only">
+									Logo de Cirium, la aerolínea más puntual de latinoamerica de 2023
+								</span>
+							</div>
 						</Slide.Content>
 					</Slide.Root>
 				</Carousel.Item>
