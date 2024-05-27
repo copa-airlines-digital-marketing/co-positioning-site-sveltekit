@@ -10,7 +10,7 @@
 <div
 	role="group"
 	aria-roledescription="slide"
-	class={cn('min-w-0 shrink-0 grow-0 basis-full', className)}
+	class={cn('min-w-0 min-h-0 shrink-0 grow-0 basis-full', className)}
 	data-embla-slide=""
 	{...$$restProps}
 >

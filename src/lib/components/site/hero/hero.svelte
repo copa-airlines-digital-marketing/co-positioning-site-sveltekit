@@ -158,7 +158,7 @@
 				</Carousel.Item>
 				<Carousel.Item>
 					<Slide.Root image={images.aboutCopa} class="h-full">
-						<Slide.Overlay class="bg-gradient-to-t md:landscape:bg-gradient-to-br from-20%" />
+						<Slide.Overlay class="bg-gradient-to-t md:landscape:bg-gradient-to-r from-20%" />
 						<Slide.Content
 							class="col-start-1 col-span-full row-span-full grid grid-cols-subgrid grid-rows-subgrid py-5"
 						>

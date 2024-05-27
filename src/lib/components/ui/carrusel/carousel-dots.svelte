@@ -23,7 +23,7 @@
 	export let size: $$Props['size'] = 'default';
 	export { className as class };
 
-	const { scrollSnapList, scrollTo, selectedIndex, handleKeyDown, orientation } =
+	const { scrollSnapList, scrollTo, selectedIndex, handleKeyDown } =
 		getEmblaContext('<Carousel.Next/>');
 
 	const goToSlide = (index: number) => () => scrollTo(index, jump);
@@ -44,7 +44,7 @@
 	on:keydown={handleKeyDown}
 >
 	{#each $scrollSnapList as slide, i}
-		<li>
+		<li role="tab">
 			<Button
 				on:click={goToSlide(i)}
 				{variant}
