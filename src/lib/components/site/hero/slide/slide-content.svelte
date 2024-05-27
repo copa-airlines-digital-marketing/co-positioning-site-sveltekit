@@ -6,7 +6,7 @@
 </script>
 
 <div
-	class="relative col-span-full row-span-full container mx-auto w-full grid grid-cols-12 grid-rows-12"
+	class="relative col-span-full row-start-2 container mx-auto w-full grid grid-cols-12 grid-rows-12"
 >
 	<div class={cn('h-full flex flex-col justify-start items-start', className)}>
 		<slot />

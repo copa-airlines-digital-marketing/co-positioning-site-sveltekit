@@ -22,7 +22,9 @@
 		<Button href="https://www.copaair.com/es-co/" title="Ir al sitio principal">
 			<LogoCopaAirlines class={cn('w-52 h-auto')}></LogoCopaAirlines>
 		</Button>
-		<nav class="fixed md:static bottom-0 left-0 w-full md:w-auto bg-primary h-16 z-40">
+		<nav
+			class="portrait:fixed portrait:sm:static landscape:static bottom-0 left-0 portrait:w-full portrait:sm:w-auto landscape:w-auto bg-primary h-16 z-40"
+		>
 			<ul
 				class={cn('flex gap-2 items-center justify-center container mx-auto md:max-w-none h-full')}
 			>
