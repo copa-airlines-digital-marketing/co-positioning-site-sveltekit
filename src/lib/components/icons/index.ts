@@ -13,9 +13,11 @@ import OutlineArrowBack from "./outline-arrow-back.svelte";
 import OutlineArrowForward from "./outline-arrow-forward.svelte";
 import OutlineArrowUpward from "./outline-arrow-upward.svelte";
 import LogoCiriumOtp from "./logo-cirium-otp.svelte";
+import IstoipoCopaAirlines from "./istoipo-copa-airlines.svelte";
 
 export {
   BaselinePlayArrow,
+  IstoipoCopaAirlines,
   LogoCiriumOtp,
   LogoCopaAirlines,
   LogoStarAlliance,

@@ -18,6 +18,5 @@
 		<EnhancedImage.Root {image} class="absolute left-0 top-0 h-full w-full object-cover" alt=""
 		></EnhancedImage.Root>
 	</div>
-
 	<slot />
 </div>

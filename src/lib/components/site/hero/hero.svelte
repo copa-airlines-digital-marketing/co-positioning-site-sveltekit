@@ -3,7 +3,7 @@
 	import { Button } from '$lib/components/ui/button';
 	import { Heading } from '$lib/components/ui/heading';
 	import * as Carousel from '$lib/components/ui/carrusel';
-	import * as Slide from './slide';
+	import * as Slide from '../slide';
 	import * as EnhancedImage from '$lib/components/ui/image';
 	import * as VideoDialog from '$lib/components/site/video';
 	import mainImage from '$lib/assets/pareja-en-clase-ejecutiva.jpg?w=3840;2560;1920;1560;1366;1024;720&format=avif;webp;jpg&as=picture&imagetools';
@@ -54,8 +54,6 @@
 		duration: 250,
 		easing: cubicInOut
 	});
-
-	console.log(mainImage);
 </script>
 
 <div
@@ -105,127 +103,137 @@
 		<Carousel.Content class="h-full col-span-full row-span-full max-w-full">
 			<Carousel.Container class="h-full">
 				<Carousel.Item class="h-full">
-					<Slide.Root image={images['main']} class="h-full">
+					<Slide.Hero image={images['main']} class="h-full">
 						<Slide.Overlay
 							class="bg-gradient-to-t landscape:from-30% landscape:bg-gradient-to-tr"
 						/>
-						<Slide.Content
-							class="col-start-1 col-span-full row-span-full flex-col-reverse py-5 lg:row-start-11 lg:row-end-1"
-						>
-							<Heading
-								variant="displayNormal"
-								tag="h1"
-								class="my-2 text-common-white sm:max-w-sm md:landscape:max-w-none"
-							>
-								Vuelve a Conectar Con La Dicha De Volar
-							</Heading>
-							<p class="text-gray-100 max-w-prose text-xs sm:text-base">
-								¿Sientes que volar ha perdido su encanto? <br />
-								Queremos devolverle la dicha de volar a Colombia
-							</p>
-							<VideoDialog.Root>
-								<Button
-									variant="light"
-									size="slim"
-									class="my-5 bg-secondary border-secondary items-center"
-									slot="trigger"
-								>
-									Ver Video
-									<BaselinePlayArrow class="size-6" />
-								</Button>
-							</VideoDialog.Root>
-						</Slide.Content>
-					</Slide.Root>
-				</Carousel.Item>
-				<Carousel.Item class="h-full">
-					<Slide.Root image={images['map']} class="h-full">
-						<Slide.Content
-							class="col-start-1 col-span-full row-span-full justify-end py-5 lg:justify-start lg:row-start-4"
-						>
-							<Heading
-								variant="displayNormal"
-								class="my-2 text-common-white sm:max-w-md sm:landscape:max-w-80 md:landscape:max-w-md lg:portrait:max-w-lg lg:landscape:max-w-lg"
-							>
-								Conecta a Más de <span
-									class="text-primary portrait:sm:text-secondary landscape:text-secondary">80</span
-								> Destinos Internacionales
-							</Heading>
-							<p class="text-gray-100 text-xs max-w-prose sm:text-base">
-								En toda América y el Caribe a través del Hub de las Américas® en Panamá, desde
-								Armenia, Barranquilla, Bogotá, Bucaramanga, Cartagena, Cúcuta, Cali, Medellín, San
-								Andrés, Santa Marta y Pereira.
-							</p>
-							<Button
-								variant="light"
-								size="slim"
-								class="my-5 bg-secondary border-secondary"
-								href="#destinos"
-							>
-								Descubre Nuestros Destinos
-							</Button>
-						</Slide.Content>
-					</Slide.Root>
-				</Carousel.Item>
-				<Carousel.Item>
-					<Slide.Root image={images.onboard} class="h-full">
-						<Slide.Overlay
-							class="bg-gradient-to-t landscape:md:bg-gradient-to-br landscape:from-15%"
-						></Slide.Overlay>
-						<Slide.Content
-							class="col-start-1 col-span-full row-span-full justify-end py-5 landscape:sm:justify-end md:landscape:justify-start"
-						>
-							<Heading variant="displayNormal" class="my-2 text-common-white">
-								Refrigerio <span class="text-secondary-faded">Siempre</span> Incluido
-							</Heading>
-							<p class="text-gray-100 text-xs max-w-prose sm:text-base">
-								Sin importar la tarifa o ruta que escojas
-							</p>
-							<Button
-								variant="light"
-								size="slim"
-								class="my-5 bg-secondary border-secondary"
-								href="#a-bordo"
-							>
-								Conoce nuestro servicio a bordo
-							</Button>
-						</Slide.Content>
-					</Slide.Root>
-				</Carousel.Item>
-				<Carousel.Item>
-					<Slide.Root image={images.aboutCopa} class="h-full">
-						<Slide.Overlay class="bg-gradient-to-t md:landscape:bg-gradient-to-r from-20%" />
-						<Slide.Content
-							class="col-start-1 col-span-full row-span-full grid grid-cols-subgrid grid-rows-subgrid py-5"
-						>
+						<Slide.Content>
 							<div
-								class="col-span-full row-start-13 row-end-6 md:landscape:row-start-1 md:landscape:row-end-7 self-end landscape:md:self-start landscape:lg:row-end-6"
+								class="col-start-1 col-span-full row-span-full flex-col-reverse py-5 lg:row-start-11 lg:row-end-1"
 							>
 								<Heading
 									variant="displayNormal"
-									class="my-2 text-common-white sm:max-w-md sm:landscape:max-w-96"
+									tag="h1"
+									class="my-2 text-common-white sm:max-w-sm md:landscape:max-w-none"
 								>
-									La Aerolínea Más Premiada Por <span class="text-secondary-faded">Puntualidad</span
-									> de América En La Última Década
+									Vuelve a Conectar Con La Dicha De Volar
 								</Heading>
+								<p class="text-gray-100 max-w-prose text-xs sm:text-base">
+									¿Sientes que volar ha perdido su encanto? <br />
+									Queremos devolverle la dicha de volar a Colombia
+								</p>
+								<VideoDialog.Root>
+									<Button
+										variant="light"
+										size="slim"
+										class="my-5 bg-secondary border-secondary items-center"
+										slot="trigger"
+									>
+										Ver Video
+										<BaselinePlayArrow class="size-6" />
+									</Button>
+								</VideoDialog.Root>
+							</div>
+						</Slide.Content>
+					</Slide.Hero>
+				</Carousel.Item>
+				<Carousel.Item class="h-full">
+					<Slide.Hero image={images['map']} class="h-full">
+						<Slide.Content>
+							<div
+								class="col-start-1 col-span-full row-span-full justify-end py-5 lg:justify-start lg:row-start-4"
+							>
+								<Heading
+									variant="displayNormal"
+									class="my-2 text-common-white sm:max-w-md sm:landscape:max-w-80 md:landscape:max-w-md lg:portrait:max-w-lg lg:landscape:max-w-lg"
+								>
+									Conecta a Más de <span
+										class="text-primary portrait:sm:text-secondary landscape:text-secondary"
+										>80</span
+									> Destinos Internacionales
+								</Heading>
+								<p class="text-gray-100 text-xs max-w-prose sm:text-base">
+									En toda América y el Caribe a través del Hub de las Américas® en Panamá, desde
+									Armenia, Barranquilla, Bogotá, Bucaramanga, Cartagena, Cúcuta, Cali, Medellín, San
+									Andrés, Santa Marta y Pereira.
+								</p>
 								<Button
 									variant="light"
 									size="slim"
-									class="bg-secondary border-secondary md:my-5"
-									href="#nosotros"
+									class="my-5 bg-secondary border-secondary"
+									href="#destinos"
 								>
-									Descubre Más de Copa Airlines
+									Descubre Nuestros Destinos
 								</Button>
 							</div>
+						</Slide.Content>
+					</Slide.Hero>
+				</Carousel.Item>
+				<Carousel.Item>
+					<Slide.Hero image={images.onboard} class="h-full">
+						<Slide.Overlay
+							class="bg-gradient-to-t landscape:md:bg-gradient-to-br landscape:from-15%"
+						></Slide.Overlay>
+						<Slide.Content>
 							<div
-								class="col-span-full row-start-1 row-end-7 landscape:row-start-7 landscape:row-end-12 landscape:self-end justify-self-end landscape:md:justify-self-start md:landscape:self-start lg:landscape:row-start-6"
+								class="col-start-1 col-span-full row-span-full justify-end py-5 landscape:sm:justify-end md:landscape:justify-start"
 							>
-								<LogoCiriumOtp class="w-40 md:w-52 lg:w-64 text-white" />
-								<span class="sr-only">
-									Logo de Cirium, la aerolínea más puntual de latinoamerica de 2023
-								</span>
+								<Heading variant="displayNormal" class="my-2 text-common-white">
+									Refrigerio <span class="text-secondary-faded">Siempre</span> Incluido
+								</Heading>
+								<p class="text-gray-100 text-xs max-w-prose sm:text-base">
+									Sin importar la tarifa o ruta que escojas
+								</p>
+								<Button
+									variant="light"
+									size="slim"
+									class="my-5 bg-secondary border-secondary"
+									href="#a-bordo"
+								>
+									Conoce nuestro servicio a bordo
+								</Button>
 							</div>
 						</Slide.Content>
-					</Slide.Root>
+					</Slide.Hero>
+				</Carousel.Item>
+				<Carousel.Item>
+					<Slide.Hero image={images.aboutCopa} class="h-full">
+						<Slide.Overlay class="bg-gradient-to-t md:landscape:bg-gradient-to-r from-20%" />
+						<Slide.Content>
+							<div
+								class="col-start-1 col-span-full row-span-full grid grid-cols-subgrid grid-rows-subgrid py-5"
+							>
+								<div
+									class="col-span-full row-start-13 row-end-6 md:landscape:row-start-1 md:landscape:row-end-7 self-end landscape:md:self-start landscape:lg:row-end-6"
+								>
+									<Heading
+										variant="displayNormal"
+										class="my-2 text-common-white sm:max-w-md sm:landscape:max-w-96"
+									>
+										La Aerolínea Más Premiada Por <span class="text-secondary-faded"
+											>Puntualidad</span
+										> de América En La Última Década
+									</Heading>
+									<Button
+										variant="light"
+										size="slim"
+										class="bg-secondary border-secondary md:my-5"
+										href="#nosotros"
+									>
+										Descubre Más de Copa Airlines
+									</Button>
+								</div>
+								<div
+									class="col-span-full row-start-1 row-end-7 landscape:row-start-7 landscape:row-end-12 landscape:self-end justify-self-end landscape:md:justify-self-start md:landscape:self-start lg:landscape:row-start-6"
+								>
+									<LogoCiriumOtp class="w-40 md:w-52 lg:w-64 text-white" />
+									<span class="sr-only">
+										Logo de Cirium, la aerolínea más puntual de latinoamerica de 2023
+									</span>
+								</div>
+							</div>
+						</Slide.Content>
+					</Slide.Hero>
 				</Carousel.Item>
 			</Carousel.Container>
 		</Carousel.Content>
