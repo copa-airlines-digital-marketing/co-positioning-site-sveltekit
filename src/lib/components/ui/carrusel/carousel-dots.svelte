@@ -2,37 +2,24 @@
 	import { getEmblaContext } from './context.js';
 	import { cn } from '$lib/utils.js';
 	import type { HTMLAttributes } from 'svelte/elements';
-	import Button from '../button/button.svelte';
-	import type { Props } from '../button/index.js';
-
 	type Dots = {
-		getTextFn?: (index: number) => string;
-		jump?: boolean | undefined;
 		direction?: 'ltr' | 'rtl' | 'ttb' | 'btt';
 	};
 
-	type $$Props = HTMLAttributes<HTMLDivElement> & Dots & Props;
-
-	const defaultTextFn = (index: number) => ('0' + index).slice(-2);
+	type $$Props = HTMLAttributes<HTMLDivElement> & Dots;
 
 	let className: $$Props['class'] = undefined;
-	export let getTextFn: $$Props['getTextFn'] = defaultTextFn;
-	export let jump: $$Props['jump'] = undefined;
 	export let direction: $$Props['direction'] = 'ttb';
-	export let variant: $$Props['variant'] = 'default';
-	export let size: $$Props['size'] = 'default';
 	export { className as class };
 
-	const { scrollSnapList, scrollTo, selectedIndex, handleKeyDown } =
-		getEmblaContext('<Carousel.Next/>');
-
-	const goToSlide = (index: number) => () => scrollTo(index, jump);
+	const { scrollSnapList, selectedIndex, handleKeyDown } = getEmblaContext('<Carousel.Next/>');
 </script>
 
 <ul
 	role="tablist"
 	class={cn(
 		'flex',
+		className,
 		direction === 'ttb'
 			? 'flex-col'
 			: direction === 'btt'
@@ -45,19 +32,7 @@
 >
 	{#each $scrollSnapList as slide, i}
 		<li role="tab">
-			<Button
-				on:click={goToSlide(i)}
-				{variant}
-				{size}
-				class={cn(
-					'transition-opacity',
-					$selectedIndex === i ? 'opacity-100' : 'opacity-20',
-					className
-				)}
-			>
-				{getTextFn ? getTextFn(i + 1) : defaultTextFn}
-				<slot />
-			</Button>
+			<slot index={i} selected={$selectedIndex} />
 		</li>
 	{/each}
 </ul>

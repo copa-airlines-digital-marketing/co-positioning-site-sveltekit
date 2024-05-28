@@ -18,8 +18,10 @@
 	import { BaselinePlayArrow } from '$lib/components/icons';
 	import { onMount } from 'svelte';
 	import { OutlineArrowUpward } from '$lib/components/icons';
-	import { flyAndScale } from '$lib/utils';
+	import { cn, flyAndScale } from '$lib/utils';
 	import LogoCiriumOtp from '$lib/components/icons/logo-cirium-otp.svelte';
+	import { crossfade } from 'svelte/transition';
+	import { cubicInOut } from 'svelte/easing';
 
 	let showBackToTop = false;
 	let section: HTMLDivElement;
@@ -47,6 +49,13 @@
 			'(orientation: portrait)': aboutCopaPortrait
 		}
 	} as const;
+
+	const [send, receive] = crossfade({
+		duration: 250,
+		easing: cubicInOut
+	});
+
+	console.log(mainImage);
 </script>
 
 <div
@@ -59,13 +68,39 @@
 		class="container-grid grid-rows-[auto_1fr] flex-grow"
 		plugins={[
 			Autoplay({
-				delay: 5000
+				delay: 15000
 			})
 		]}
 		id="main"
 	>
 		<div class="col-start-2 row-start-1 self-start justify-self-start mt-roomy z-10">
-			<Carousel.Dots direction="ltr" variant="invert" class="border-0"></Carousel.Dots>
+			<Carousel.Dots direction="ltr" let:index let:selected class="gap-1">
+				<Carousel.Dot
+					slide={index}
+					class="py-1 px-3 text-secondary relative outline-none hover:bg-secondary/60 active:bg-secondary/60 focus-visible:bg-secondary/60 transition-colors"
+				>
+					<span
+						class={cn(
+							'text-sm transition-colors',
+							selected % 2 === 0
+								? 'text-primary-ultradark landscape:md:text-common-white'
+								: 'text-common-white'
+						)}
+					>
+						{('0' + (index + 1)).slice(-2)}
+					</span>
+					{#if selected === index}
+						<span
+							in:send={{ key: 'trigger' }}
+							out:receive={{ key: 'trigger' }}
+							class={cn(
+								'absolute left-0 bottom-0 h-0.5 w-full transition-colors',
+								selected === 1 ? 'bg-primary landscape:md:bg-secondary' : 'bg-secondary'
+							)}
+						></span>
+					{/if}
+				</Carousel.Dot>
+			</Carousel.Dots>
 		</div>
 		<Carousel.Content class="h-full col-span-full row-span-full max-w-full">
 			<Carousel.Container class="h-full">

@@ -16,8 +16,19 @@
 	<Carousel.Root
 		class="col-span-full row-span-full grid grid-cols-subgrid grid-rows-subgrid relative"
 	>
-		<div class="col-start-2 row-start-1 my-minimal z-10">
-			<Carousel.Dots direction="ltr" getTextFn={storyText}></Carousel.Dots>
+		<div class="col-start-2 row-start-1 my-minimal z-10 h-20">
+			<Carousel.Dots
+				direction="ltr"
+				let:index
+				class="grid auto-cols-fr grid-rows-1 grid-flow-col gap-2"
+			>
+				<Carousel.Dot
+					slide={index}
+					class="w-full h-full max-w-none p-0 m-0 bg-transparent grid grid-cols-1 grid-rows-1 border-0"
+				>
+					<div class="bg-primary-faded row-start-1 row-end-1 h-full w-full my-3"></div>
+				</Carousel.Dot>
+			</Carousel.Dots>
 		</div>
 		<Carousel.Content class="col-span-full row-span-full z-0">
 			<Carousel.Container class="h-full">
