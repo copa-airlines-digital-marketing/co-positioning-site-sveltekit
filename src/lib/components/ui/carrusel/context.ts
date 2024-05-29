@@ -32,6 +32,8 @@ type EmblaContext = {
 	orientation: Writable<"horizontal" | "vertical">;
 	scrollNext: () => void;
 	scrollPrev: () => void;
+	togglePlayStop: () => void;
+  autoPlayReset: () => void;
 	canScrollNext: Readable<boolean>;
 	canScrollPrev: Readable<boolean>;
 	handleKeyDown: (e: KeyboardEvent) => void;

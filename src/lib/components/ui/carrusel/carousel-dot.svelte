@@ -16,13 +16,16 @@
 	export let jump: $$Props['jump'] = false;
 	export { className as class };
 
-	const { scrollTo, selectedIndex } = getEmblaContext('<Carousel.Next/>');
+	const { scrollTo, selectedIndex, autoPlayReset } = getEmblaContext('<Carousel.Next/>');
 
-	const goToSlide = (index: number) => () => scrollTo(index, jump);
+	const goToSlide = (index: number) => () => {
+		scrollTo(index, jump);
+		autoPlayReset();
+	};
 </script>
 
 <Button.Root
-	class={cn(className)}
+	class={cn('touch-manipulation', className)}
 	on:click={goToSlide(slide)}
 	on:change
 	on:keydown

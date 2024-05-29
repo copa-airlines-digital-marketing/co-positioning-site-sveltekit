@@ -4,6 +4,7 @@
 	import { cn } from '$lib/utils';
 
 	const sections = [
+		{ href: '#top', text: 'Inicio' },
 		{ href: '#destinos', text: 'Destinos' },
 		{ href: '#a-bordo', text: 'A Bordo' },
 		{ href: '#nosotros', text: 'Nosotros' }
@@ -19,8 +20,8 @@
 			class={cn('absolute top-full left-0 opacity-0 focus-visible:opacity-100 z-20')}
 			>Saltar navegación</Button
 		>
-		<Button href="https://www.copaair.com/es-co/" title="Ir al sitio principal">
-			<LogoCopaAirlines class={cn('w-52 h-auto')}></LogoCopaAirlines>
+		<Button href="https://www.copaair.com/es-co/" title="Ir al sitio principal" class="shrink">
+			<LogoCopaAirlines class={cn('w-full max-w-52 h-auto')}></LogoCopaAirlines>
 		</Button>
 		<nav
 			class="portrait:fixed portrait:sm:static landscape:static bottom-0 left-0 portrait:w-full portrait:sm:w-auto landscape:w-auto bg-primary h-16 z-40"
@@ -30,7 +31,7 @@
 			>
 				{#each sections as section}
 					{@const { href, text } = section}
-					<li>
+					<li class="shrink-0">
 						<Button {href}>
 							{text}
 						</Button>

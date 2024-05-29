@@ -1,11 +1,18 @@
 <script lang="ts">
-	import { IstoipoCopaAirlines } from '$lib/components/icons';
+	import {
+		BaselinePlayArrow,
+		IstoipoCopaAirlines,
+		OutlineArrowBack,
+		OutlineArrowForward,
+		OutlinePause
+	} from '$lib/components/icons';
 	import * as Carousel from '$lib/components/ui/carrusel';
 	import * as Slide from '../slide';
 	import * as EnhancedImage from '$lib/components/ui/image';
 	import mainImage from '$lib/assets/sample.jpg?w=3840;2560;1920;1560;1366;1024;720&format=avif;webp;jpg&as=picture&imagetools';
 	import { Heading } from '$lib/components/ui/heading';
 	import { Button } from '$lib/components/ui/button';
+	import Autoplay from 'embla-carousel-autoplay';
 
 	const images: Record<string, EnhancedImage.ImageToolsPictureWithMediaQuery> = {
 		experiencia: {
@@ -41,7 +48,7 @@
 
 <div
 	id="nosotros"
-	class="min-h-svh w-full bg-primary-ultradark container-grid grid-rows-[auto_auto_1fr]"
+	class="min-h-svh w-full bg-gradient-to-b from-primary to-primary-ultradark container-grid grid-rows-[auto_auto_1fr]"
 >
 	<Heading
 		variant="h2"
@@ -55,12 +62,21 @@
 	</Heading>
 	<Carousel.Root
 		class="col-span-full row-span-full grid grid-cols-subgrid grid-rows-subgrid relative"
+		opts={{ duration: 40 }}
+		plugins={[
+			Autoplay({
+				delay: 10000,
+				playOnInit: false,
+				stopOnInteraction: true
+			})
+		]}
+		let:selected
+		let:playingState
 	>
 		<div class="col-start-2 row-start-1 mt-roomy z-10">
 			<Carousel.Dots
 				direction="ltr"
 				let:index
-				let:selected
 				class="grid auto-cols-fr grid-rows-1 grid-flow-col gap-2"
 			>
 				<Carousel.Dot
@@ -74,6 +90,29 @@
 					</div>
 				</Carousel.Dot>
 			</Carousel.Dots>
+		</div>
+		<div
+			class="col-start-2 row-start-2 justify-self-end flex justify-end items-center gap-4 md:gap-6 relative z-10"
+		>
+			<div class="flex gap-1 items-center">
+				<Carousel.Previous variant="invert" class="border-0" title="Anterior">
+					<OutlineArrowBack />
+				</Carousel.Previous>
+				<Carousel.Next variant="invert" class="border-0" title="Siguiente">
+					<OutlineArrowForward />
+				</Carousel.Next>
+			</div>
+			<Carousel.PlayPause
+				variant="invert"
+				class="border-0"
+				title={playingState === 'paused' ? 'Reproducir' : 'Detener'}
+			>
+				{#if playingState === 'paused'}
+					<BaselinePlayArrow />
+				{:else}
+					<OutlinePause />
+				{/if}
+			</Carousel.PlayPause>
 		</div>
 		<Carousel.Content class="col-span-full row-span-full z-0">
 			<Carousel.Container class="h-full">

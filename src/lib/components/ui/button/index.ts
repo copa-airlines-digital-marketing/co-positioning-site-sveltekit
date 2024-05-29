@@ -3,7 +3,7 @@ import type { Button as ButtonPrimitive } from 'bits-ui'
 import { tv, type VariantProps } from "tailwind-variants";
 
 const buttonVariants = tv({
-  base: 'max-h-16 px-4 py-3 inline-flex gap-1 border outline-offset-4 active:outline focus-visible:outline disabled:text-grey-500 transition-colors text-center text-sm font-medium',
+  base: 'max-h-16 px-4 py-3 inline-flex gap-1 border outline-offset-4 active:outline focus-visible:outline disabled:text-grey-500 disabled:cursor-not-allowed transition-colors text-center text-sm font-medium',
   variants: {
     variant: {
       default: 'bg-primary border-primary text-common-white hover:bg-primary-ultradark hover:border-primary-ultradark active:bg-primary active:border-primary active:outline-primary focus-visible:bg-primary-ultradark focus-visible:border-primary focus-visible:outline-primary-ultradark disabled:bg-grey-100 disabled:border-grey-100',

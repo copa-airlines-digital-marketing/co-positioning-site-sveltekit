@@ -1,15 +1,17 @@
 <script lang="ts">
-	import type { VariantProps } from 'tailwind-variants';
 	import { getEmblaContext } from './context.js';
 	import { cn } from '$lib/utils.js';
-	import { Button, type Props, type buttonVariants } from '$lib/components/ui/button/index.js';
+	import { Button, type Props, type Events } from '$lib/components/ui/button';
 
 	type $$Props = Props;
+	type $$Events = Events;
 
 	let className: $$Props['class'] = undefined;
 	export { className as class };
-	export let variant: VariantProps<typeof buttonVariants>['variant'] = 'default';
-	export let size: VariantProps<typeof buttonVariants>['size'] = 'default';
+
+	export let variant: $$Props['variant'] = 'default';
+	export let size: $$Props['size'] = 'default';
+
 	const { canScrollNext, scrollNext, handleKeyDown } = getEmblaContext('<Carousel.Next/>');
 </script>
 
@@ -23,5 +25,4 @@
 	{...$$restProps}
 >
 	<slot />
-	<span class="sr-only">Siguiente</span>
 </Button>

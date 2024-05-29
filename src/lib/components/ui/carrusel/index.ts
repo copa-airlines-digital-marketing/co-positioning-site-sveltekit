@@ -6,3 +6,4 @@ export { default as Previous } from "./carousel-previous.svelte";
 export { default as Next } from "./carousel-next.svelte";
 export { default as Dots } from './carousel-dots.svelte';
 export { default as Dot } from './carousel-dot.svelte';
+export { default as PlayPause } from './carousel-play.svelte'

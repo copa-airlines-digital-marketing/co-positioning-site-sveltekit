@@ -12,7 +12,7 @@
 	export let direction: $$Props['direction'] = 'ttb';
 	export { className as class };
 
-	const { scrollSnapList, selectedIndex, handleKeyDown } = getEmblaContext('<Carousel.Next/>');
+	const { scrollSnapList, handleKeyDown } = getEmblaContext('<Carousel.Next/>');
 </script>
 
 <ul
@@ -32,7 +32,7 @@
 >
 	{#each $scrollSnapList as slide, i}
 		<li role="tab">
-			<slot index={i} selected={$selectedIndex} />
+			<slot index={i} />
 		</li>
 	{/each}
 </ul>

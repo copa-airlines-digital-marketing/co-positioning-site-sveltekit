@@ -15,9 +15,14 @@
 	import onBoardImagePortrait from '$lib/assets/refrigerio-a-bordo-de-aeronave-portrait.jpg?h=2160;1600;1080;900;768&format=avif;webp;jpg&as=picture&imagetools';
 	import aboutCopaPortrait from '$lib/assets/abordaje-de-vuelo-portrait.jpg?h=2160;1600;1080;900;768&format=avif;webp;jpg&as=picture&imagetools';
 	import Autoplay from 'embla-carousel-autoplay';
-	import { BaselinePlayArrow } from '$lib/components/icons';
+	import {
+		BaselinePlayArrow,
+		OutlineArrowBack,
+		OutlineArrowForward,
+		OutlinePause,
+		OutlineArrowUpward
+	} from '$lib/components/icons';
 	import { onMount } from 'svelte';
-	import { OutlineArrowUpward } from '$lib/components/icons';
 	import { cn, flyAndScale } from '$lib/utils';
 	import LogoCiriumOtp from '$lib/components/icons/logo-cirium-otp.svelte';
 	import { crossfade } from 'svelte/transition';
@@ -57,22 +62,47 @@
 </script>
 
 <div
-	class="w-full portrait:h-[calc(100svh-64px)] portrait:sm:min-h-svh landscape:min-h-svh flex flex-col"
+	class="w-full portrait:h-[calc(100svh-64px)] portrait:sm:min-h-svh landscape:min-h-svh flex flex-col bg-gradient-to-b from-primary to-primary-ultradark"
 	id="top"
 	bind:this={section}
 >
 	<Header />
 	<Carousel.Root
 		class="container-grid grid-rows-[auto_1fr] flex-grow"
+		opts={{ duration: 40 }}
 		plugins={[
 			Autoplay({
-				delay: 15000
+				delay: 10000,
+				stopOnInteraction: true
 			})
 		]}
 		id="main"
+		let:playingState
+		let:selected
 	>
-		<div class="col-start-2 row-start-1 self-start justify-self-start mt-roomy z-10">
-			<Carousel.Dots direction="ltr" let:index let:selected class="gap-1">
+		<div
+			class="col-start-2 row-start-1 self-start justify-self-start mt-roomy flex items-center gap-2 md:gap-6 z-10"
+		>
+			<Carousel.PlayPause
+				variant="invert"
+				class="border-0"
+				title={playingState === 'paused' ? 'Reproducir' : 'Detener'}
+			>
+				{#if playingState === 'paused'}
+					<BaselinePlayArrow />
+				{:else}
+					<OutlinePause />
+				{/if}
+			</Carousel.PlayPause>
+			<div class="flex gap-1 items-center">
+				<Carousel.Previous variant="invert" class="border-0" title="Anterior">
+					<OutlineArrowBack />
+				</Carousel.Previous>
+				<Carousel.Next variant="invert" class="border-0" title="Siguiente">
+					<OutlineArrowForward />
+				</Carousel.Next>
+			</div>
+			<Carousel.Dots direction="ltr" let:index class="gap-1">
 				<Carousel.Dot
 					slide={index}
 					class="py-1 px-3 text-secondary relative outline-none hover:bg-secondary/60 active:bg-secondary/60 focus-visible:bg-secondary/60 transition-colors"
@@ -109,7 +139,7 @@
 						/>
 						<Slide.Content>
 							<div
-								class="col-start-1 col-span-full row-span-full flex-col-reverse py-5 lg:row-start-11 lg:row-end-1"
+								class="col-start-1 col-span-full row-span-full flex items-start flex-col-reverse py-5 lg:row-start-11 lg:row-end-1"
 							>
 								<Heading
 									variant="displayNormal"
@@ -141,7 +171,7 @@
 					<Slide.Hero image={images['map']} class="h-full">
 						<Slide.Content>
 							<div
-								class="col-start-1 col-span-full row-span-full justify-end py-5 lg:justify-start lg:row-start-4"
+								class="col-start-1 col-span-full flex flex-col items-start row-span-full justify-end py-5 lg:justify-start lg:row-start-4"
 							>
 								<Heading
 									variant="displayNormal"
@@ -176,7 +206,7 @@
 						></Slide.Overlay>
 						<Slide.Content>
 							<div
-								class="col-start-1 col-span-full row-span-full justify-end py-5 landscape:sm:justify-end md:landscape:justify-start"
+								class="col-start-1 col-span-full row-span-full flex flex-col items-start justify-end py-5 landscape:sm:justify-end md:landscape:justify-start"
 							>
 								<Heading variant="displayNormal" class="my-2 text-common-white">
 									Refrigerio <span class="text-secondary-faded">Siempre</span> Incluido

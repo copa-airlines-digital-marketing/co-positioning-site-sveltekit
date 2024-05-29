@@ -14,6 +14,10 @@
 	let className: $$Props['class'] = undefined;
 	export { className as class };
 
+	type Mode = 'playing' | 'paused';
+
+	let playingState: Mode = 'paused';
+
 	const apiStore = writable<CarouselAPI | undefined>(undefined);
 	const orientationStore = writable(orientation);
 	const canScrollPrev = writable(false);
@@ -29,15 +33,61 @@
 
 	const scrollPrev = () => {
 		api?.scrollPrev();
-		if (api) $selectedIndexStore = api.selectedScrollSnap();
+		if (!api) return;
+		$selectedIndexStore = api.selectedScrollSnap();
+
+		const autoplay = api.plugins()?.autoplay;
+
+		if (!autoplay) return;
+
+		const stopOnInteraction = autoplay.options.stopOnInteraction;
+
+		if (!stopOnInteraction || typeof stopOnInteraction !== 'boolean') return;
+
+		const resetOrStop = stopOnInteraction ? autoplay.stop : autoplay.false;
+
+		if (!resetOrStop || typeof resetOrStop !== 'function') return;
+
+		resetOrStop();
 	};
 	function scrollNext() {
 		api?.scrollNext();
-		if (api) $selectedIndexStore = api.selectedScrollSnap();
+
+		if (!api) return;
+		$selectedIndexStore = api.selectedScrollSnap();
+
+		const autoplay = api.plugins()?.autoplay;
+
+		if (!autoplay) return;
+
+		const stopOnInteraction = autoplay.options.stopOnInteraction;
+
+		if (!stopOnInteraction || typeof stopOnInteraction !== 'boolean') return;
+
+		const resetOrStop = stopOnInteraction ? autoplay.stop : autoplay.false;
+
+		if (!resetOrStop || typeof resetOrStop !== 'function') return;
+
+		resetOrStop();
 	}
 	function scrollTo(index: number, jump?: boolean) {
 		api?.scrollTo(index, jump);
-		if (api) $selectedIndexStore = api.selectedScrollSnap();
+		if (!api) return;
+		$selectedIndexStore = api.selectedScrollSnap();
+
+		const autoplay = api.plugins()?.autoplay;
+
+		if (!autoplay) return;
+
+		const stopOnInteraction = autoplay.options.stopOnInteraction;
+
+		if (!stopOnInteraction || typeof stopOnInteraction !== 'boolean') return;
+
+		const resetOrStop = stopOnInteraction ? autoplay.stop : autoplay.false;
+
+		if (!resetOrStop || typeof resetOrStop !== 'function') return;
+
+		resetOrStop();
 	}
 
 	function onSelect(api: CarouselAPI) {
@@ -47,10 +97,73 @@
 		canScrollNext.set(api.canScrollNext());
 	}
 
+	function togglePlayStop() {
+		if (!api) return;
+
+		const autoplay = api.plugins()?.autoplay;
+
+		if (!autoplay) return;
+
+		const isPlaying = autoplay.isPlaying;
+		const play = autoplay.play;
+		const stop = autoplay.stop;
+
+		if (!isPlaying || typeof isPlaying !== 'function') return;
+		if (!play || typeof play !== 'function') return;
+		if (!stop || typeof stop !== 'function') return;
+
+		playingState = isPlaying() ? stop() : play();
+	}
+
+	function autoPlayReset() {
+		if (!api) return;
+
+		const autoplay = api.plugins()?.autoplay;
+
+		if (!autoplay) return;
+
+		const reset = autoplay.reset;
+
+		if (!reset || typeof reset !== 'function') return;
+
+		reset();
+	}
+
+	const updatePlayingState = (api: CarouselAPI) => {
+		if (!api) return;
+
+		const autoplay = api.plugins()?.autoplay;
+
+		if (!autoplay) return;
+
+		const isPlayingFn = autoplay.isPlaying;
+
+		if (!isPlayingFn || typeof isPlayingFn !== 'function') return;
+
+		const isPlaying = isPlayingFn();
+
+		isPlaying === true ? startPlaying() : stopPlaying();
+
+		return;
+	};
+
+	const onReInit = (api: CarouselAPI) => {
+		onSelect(api);
+		updatePlayingState(api);
+	};
+
+	const stopPlaying = () => (playingState = 'paused');
+
+	const startPlaying = () => (playingState = 'playing');
+
 	$: if (api) {
 		onSelect(api);
+		updatePlayingState(api);
+		api.on('init', onReInit);
 		api.on('select', onSelect);
-		api.on('reInit', onSelect);
+		api.on('autoplay:play', startPlaying);
+		api.on('autoplay:stop', stopPlaying);
+		api.on('reInit', onReInit);
 	}
 
 	function handleKeyDown(e: KeyboardEvent) {
@@ -68,6 +181,8 @@
 		orientation: orientationStore,
 		scrollPrev,
 		scrollNext,
+		togglePlayStop,
+		autoPlayReset,
 		canScrollNext,
 		canScrollPrev,
 		handleKeyDown,
@@ -86,7 +201,13 @@
 	}
 
 	onDestroy(() => {
-		api?.off('select', onSelect);
+		if (!api) return;
+
+		api.off('init', onReInit);
+		api.off('select', onSelect);
+		api.off('autoplay:play', updatePlayingState);
+		api.off('autoplay:stop', updatePlayingState);
+		api.off('reInit', onReInit);
 	});
 </script>
 
@@ -98,5 +219,5 @@
 	aria-roledescription="carousel"
 	{...$$restProps}
 >
-	<slot />
+	<slot {playingState} selected={$selectedIndexStore} />
 </div>
