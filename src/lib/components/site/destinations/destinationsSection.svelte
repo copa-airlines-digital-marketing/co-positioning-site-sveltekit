@@ -109,7 +109,7 @@
 								class="row-span-full col-span-full text-common-white mb-roomy flex flex-col justify-end items-start landscape:justify-start"
 							>
 								<Heading variant="displayNormal" tag="h3" class="text-common-white max-w-md">
-									A Más de <span class="text-secondary-faded">80 destinos</span> Internacionales
+									A más de <span class="text-secondary-faded">80 destinos</span> Internacionales
 								</Heading>
 								<p class="my-2 max-w-prose sm:max-w-sm">
 									Contamos con más de 350 vuelos diarios desde el Hub de las Américas® en Panamá a

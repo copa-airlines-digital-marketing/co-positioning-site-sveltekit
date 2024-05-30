@@ -146,7 +146,7 @@
 									tag="h1"
 									class="my-2 text-common-white sm:max-w-sm md:landscape:max-w-none"
 								>
-									Vuelve a Conectar Con La Dicha De Volar
+									Vuelve a conectar con la dicha de volar
 								</Heading>
 								<p class="text-gray-100 max-w-prose text-xs sm:text-base">
 									¿Sientes que volar ha perdido su encanto? <br />
@@ -159,7 +159,7 @@
 										class="my-5 bg-secondary border-secondary items-center"
 										slot="trigger"
 									>
-										Ver Video
+										Ver video
 										<BaselinePlayArrow class="size-6" />
 									</Button>
 								</VideoDialog.Root>
@@ -177,10 +177,10 @@
 									variant="displayNormal"
 									class="my-2 text-common-white sm:max-w-md sm:landscape:max-w-80 md:landscape:max-w-md lg:portrait:max-w-lg lg:landscape:max-w-lg"
 								>
-									Conecta a Más de <span
+									Conecta a más de <span
 										class="text-primary portrait:sm:text-secondary landscape:text-secondary"
 										>80</span
-									> Destinos Internacionales
+									> destinos internacionales
 								</Heading>
 								<p class="text-gray-100 text-xs max-w-prose sm:text-base">
 									En toda América y el Caribe a través del Hub de las Américas® en Panamá, desde
@@ -193,7 +193,7 @@
 									class="my-5 bg-secondary border-secondary"
 									href="#destinos"
 								>
-									Descubre Nuestros Destinos
+									Descubre nuestros destinos
 								</Button>
 							</div>
 						</Slide.Content>
@@ -209,7 +209,7 @@
 								class="col-start-1 col-span-full row-span-full flex flex-col items-start justify-end py-5 landscape:sm:justify-end md:landscape:justify-start"
 							>
 								<Heading variant="displayNormal" class="my-2 text-common-white">
-									Refrigerio <span class="text-secondary-faded">Siempre</span> Incluido
+									Refrigerio <span class="text-secondary-faded">siempre</span> incluido
 								</Heading>
 								<p class="text-gray-100 text-xs max-w-prose sm:text-base">
 									Sin importar la tarifa o ruta que escojas
@@ -240,9 +240,9 @@
 										variant="displayNormal"
 										class="my-2 text-common-white sm:max-w-md sm:landscape:max-w-96"
 									>
-										La Aerolínea Más Premiada Por <span class="text-secondary-faded"
-											>Puntualidad</span
-										> de América En La Última Década
+										La aerolínea más premiada por <span class="text-secondary-faded"
+											>puntualidad</span
+										> de América en la última década
 									</Heading>
 									<Button
 										variant="light"
@@ -250,7 +250,7 @@
 										class="bg-secondary border-secondary md:my-5"
 										href="#nosotros"
 									>
-										Descubre Más de Copa Airlines
+										Descubre más de Copa Airlines
 									</Button>
 								</div>
 								<div

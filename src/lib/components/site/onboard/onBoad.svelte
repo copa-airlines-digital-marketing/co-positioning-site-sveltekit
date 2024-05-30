@@ -166,7 +166,7 @@
 								class="row-span-full col-span-full mb-roomy text-common-white flex flex-col justify-end items-start"
 							>
 								<Heading variant="displayNormal" tag="h3" class="text-common-white max-w-md">
-									Clase Ejecutiva en <span class="text-secondary-faded">todos</span> nuestros vuelos
+									Clase ejecutiva en <span class="text-secondary-faded">todos</span> nuestros vuelos
 								</Heading>
 								<p class="my-2 max-w-sm">
 									Disfruta de la exclusividad y comodidad de Clase Ejecutiva en todas nuestras

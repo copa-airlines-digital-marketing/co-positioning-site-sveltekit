@@ -156,9 +156,9 @@
 									variant="displayNormal"
 									tag="h3"
 									class="text-common-white landscape:md:max-w-sm"
-									>La Aerolínea Más Premiada Por <span class="text-secondary-faded"
-										>Puntualidad</span
-									> En La Última Década</Heading
+									>La aerolínea más premiada por <span class="text-secondary-faded"
+										>puntualidad</span
+									> en la última década</Heading
 								>
 								<p class="my-2 max-w-prose landscape:md:max-w-sm">
 									Hemos sido reconocidos por Cirium como la aerolínea más puntual de Latinoamérica
@@ -181,7 +181,7 @@
 									variant="displayNormal"
 									tag="h3"
 									class="text-common-white landscape:md:max-w-sm landscape:lg:max-w-lg"
-									>Conexiones Rápidas a Través Del Hub De Las Américas® En Panamá</Heading
+									>Conexiones rápidas a través del Hub de las Américas® en Panamá</Heading
 								>
 								<p class="my-2 max-w-prose landscape:md:max-w-sm">
 									Nuestras conexiones son fáciles y rápidas, sin trámites de migración ni aduana y
@@ -239,7 +239,7 @@
 						<Slide.Content class="row-start-3">
 							<div class="row-span-full col-span-full my-normal text-common-white">
 								<Heading variant="displayNormal" tag="h3" class="text-common-white"
-									><span class="text-secondary-faded">Copa Club</span>, 6 Salas en 5 Aeropuertos</Heading
+									><span class="text-secondary-faded">Copa Club</span>, 6 salas en 5 aeropuertos</Heading
 								>
 								<p class="my-2 max-w-prose">
 									En Copa Airlines entendemos que tus negocios no esperan mientras viajas, por lo
