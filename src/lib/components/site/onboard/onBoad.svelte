@@ -14,7 +14,6 @@
 	import { cubicInOut } from 'svelte/easing';
 	import Autoplay from 'embla-carousel-autoplay';
 	import { Button } from '$lib/components/ui/button';
-	import sample from '$lib/assets/sample.jpg?w=3840;2560;1920;1560;1366;1024;720&format=avif;webp;jpg&as=picture&imagetools';
 	import refrigerio from '$lib/assets/refrigerio-a-bordo-de-aeronave.jpg?w=3840;2560;1920;1560;1366;1024;720&format=avif;webp;jpg&as=picture&imagetools';
 	import refrigerioPortrait from '$lib/assets/refrigerio-a-bordo-de-aeronave-portrait.jpg?w=3840;2560;1920;1560;1366;1024;720&format=avif;webp;jpg&as=picture&imagetools';
 	import equipaje from '$lib/assets/carry-on-sobre-asientos.jpg?w=3840;2560;1920;1560;1366;1024;720&format=avif;webp;jpg&as=picture&imagetools';
