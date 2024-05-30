@@ -10,6 +10,6 @@
 	export { className as class };
 </script>
 
-<svelte:element this={tag} class={cn(headingVariants({ variant, className }))} {...$$restProps}>
+<svelte:element this={tag} class={cn(headingVariants({ variant }), className)} {...$$restProps}>
 	<slot />
 </svelte:element>
