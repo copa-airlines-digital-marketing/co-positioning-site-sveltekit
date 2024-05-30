@@ -16,12 +16,7 @@
 	import { Button } from '$lib/components/ui/button';
 	import desde from '$lib/assets/mapa-de-destinos-en-colombia.jpg?w=3840;2560;1920;1560;1366;1024;720&format=avif;webp;jpg&as=picture&imagetools';
 	import desdePortrait from '$lib/assets/mapa-de-destinos-en-colombia-portrait.jpg?w=3840;2560;1920;1560;1366;1024;720&format=avif;webp;jpg&as=picture&imagetools';
-	import equipaje from '$lib/assets/carry-on-sobre-asientos.jpg?w=3840;2560;1920;1560;1366;1024;720&format=avif;webp;jpg&as=picture&imagetools';
-	import equipajePortrait from '$lib/assets/carry-on-sobre-asientos-portrait.jpg?w=3840;2560;1920;1560;1366;1024;720&format=avif;webp;jpg&as=picture&imagetools';
-	import comodidad from '$lib/assets/persona-sentada-sonriendo-clase-economica.jpg?w=3840;2560;1920;1560;1366;1024;720&format=avif;webp;jpg&as=picture&imagetools';
-	import comodidadPortrait from '$lib/assets/persona-sentada-sonriendo-clase-economica-portrait.jpg?w=3840;2560;1920;1560;1366;1024;720&format=avif;webp;jpg&as=picture&imagetools';
-	import ejecutiva from '$lib/assets/disfrutando-clase-ejecutiva.jpg?w=3840;2560;1920;1560;1366;1024;720&format=avif;webp;jpg&as=picture&imagetools';
-	import ejecutivaPortrait from '$lib/assets/disfrutando-clase-ejecutiva-portrait.jpg?w=3840;2560;1920;1560;1366;1024;720&format=avif;webp;jpg&as=picture&imagetools';
+	import mainImage from '$lib/assets/sample.jpg?w=3840;2560;1920;1560;1366;1024;720&format=avif;webp;jpg&as=picture&imagetools';
 
 	const [send, receive] = crossfade({
 		duration: 250,
@@ -29,25 +24,15 @@
 	});
 
 	const images: Record<string, EnhancedImage.ImageToolsPictureWithMediaQuery> = {
-		refrigerio: {
+		desde: {
 			'(orientation: portrait)': desdePortrait,
 			'(orientation: portait) and (min-width: 1367px)': desde,
 			'(orientation: landscape)': desde
 		},
-		equipaje: {
-			'(orientation: portrait)': equipajePortrait,
-			'(orientation: portait) and (min-width: 1367px)': equipaje,
-			'(orientation: landscape)': equipaje
-		},
-		comodidad: {
-			'(orientation: portrait)': comodidadPortrait,
-			'(orientation: portait) and (min-width: 1367px)': comodidad,
-			'(orientation: landscape)': comodidad
-		},
-		ejecutiva: {
-			'(orientation: portrait)': ejecutivaPortrait,
-			'(orientation: portait) and (min-width: 1367px)': ejecutiva,
-			'(orientation: landscape)': ejecutiva
+		hacia: {
+			'(orientation: portrait)': mainImage,
+			'(orientation: portait) and (min-width: 1367px)': mainImage,
+			'(orientation: landscape)': mainImage
 		}
 	} as const;
 </script>
@@ -76,7 +61,7 @@
 		<Carousel.Content class="col-span-full row-span-full z-0">
 			<Carousel.Container class="h-full">
 				<Carousel.Item>
-					<Slide.OnBoard image={images['refrigerio']}>
+					<Slide.OnBoard image={images['desde']}>
 						<Slide.Content class="row-start-2">
 							<div
 								class="row-span-full col-span-full text-common-white flex flex-col justify-end items-start md:justify-start mb-roomy"
@@ -102,7 +87,7 @@
 					<div></div>
 				</Carousel.Item>
 				<Carousel.Item>
-					<Slide.OnBoard image={images['equipaje']}>
+					<Slide.OnBoard image={images['hacia']}>
 						<Slide.Overlay class="bg-gradient-to-t landscape:bg-gradient-to-br" />
 						<Slide.Content class="row-start-2">
 							<div

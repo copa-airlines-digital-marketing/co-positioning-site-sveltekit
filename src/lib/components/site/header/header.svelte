@@ -7,7 +7,8 @@
 		{ href: '#top', text: 'Inicio' },
 		{ href: '#destinos', text: 'Destinos' },
 		{ href: '#a-bordo', text: 'A Bordo' },
-		{ href: '#nosotros', text: 'Nosotros' }
+		{ href: '#nosotros', text: 'Nosotros' },
+		{ href: '#reserva', text: 'Reserva' }
 	];
 </script>
 
@@ -26,13 +27,11 @@
 		<nav
 			class="portrait:fixed portrait:sm:static landscape:static bottom-0 left-0 portrait:w-full portrait:sm:w-auto landscape:w-auto bg-primary h-16 z-40"
 		>
-			<ul
-				class={cn('flex gap-2 items-center justify-center container mx-auto md:max-w-none h-full')}
-			>
+			<ul class={cn('flex items-center justify-center container mx-auto md:max-w-none h-full')}>
 				{#each sections as section}
 					{@const { href, text } = section}
 					<li class="shrink-0">
-						<Button {href}>
+						<Button {href} class="text-xs">
 							{text}
 						</Button>
 					</li>
