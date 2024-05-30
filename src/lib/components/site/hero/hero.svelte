@@ -139,7 +139,7 @@
 						/>
 						<Slide.Content>
 							<div
-								class="col-start-1 col-span-full row-span-full flex items-start flex-col-reverse py-5 lg:row-start-11 lg:row-end-1"
+								class="col-start-1 col-span-full row-span-full flex items-start flex-col justify-end py-5 lg:row-start-11 lg:row-end-1"
 							>
 								<Heading
 									variant="displayNormal"

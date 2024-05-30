@@ -150,7 +150,7 @@
 						/>
 						<Slide.Content class="row-start-3">
 							<div
-								class="row-start-12 row-end-1 landscape:row-start-13 portrait:sm:flex-col landscape:md:flex-col col-span-full my-normal text-common-white flex flex-col-reverse"
+								class="row-start-12 row-end-1 landscape:row-start-13 portrait:sm:justify-start landscape:md:justify-start col-span-full my-normal text-common-white flex flex-col justify-end"
 							>
 								<Heading
 									variant="displayNormal"
@@ -175,7 +175,7 @@
 						/>
 						<Slide.Content class="row-start-3">
 							<div
-								class="row-start-12 row-end-1 col-span-full my-normal text-common-white flex flex-col landscape:flex-col-reverse landscape:row-start-13 landscape:md:flex-col landscape:md:from-15%"
+								class="row-start-12 row-end-1 col-span-full my-normal text-common-white flex flex-col landscape:justify-end landscape:row-start-13 landscape:md:justify-start landscape:md:from-15%"
 							>
 								<Heading
 									variant="displayNormal"
@@ -193,18 +193,15 @@
 				</Carousel.Item>
 				<Carousel.Item>
 					<Slide.About image={images['connectmiles']} class="relative">
-						<Slide.Overlay class="bg-gradient-to-b to-30% landscape:md:to-25%" />
-						<Slide.Overlay
-							class="bg-gradient-to-t from-15% landscape:md:from-0% landscape:md:to-30%"
-						/>
+						<Slide.Overlay class="bg-gradient-to-t landscape:bg-gradient-to-tr from-30%" />
 						<Slide.Content class="row-start-3">
 							<div
-								class="row-start-12 row-end-1 col-span-full my-normal text-common-white flex flex-col-reverse items-start landscape:md:row-start-13"
+								class="row-start-12 row-end-1 col-span-full my-normal text-common-white flex flex-col justify-end items-start landscape:sm:row-start-13"
 							>
 								<Heading variant="displayNormal" tag="h3" class="text-common-white"
 									>Acumula y redime millas</Heading
 								>
-								<p class="my-2 max-w-prose">
+								<p class="my-2 max-w-sm">
 									Únete gratis a nuestro Programa de Lealtad <strong>ConnectMiles</strong> y acumula
 									y redime millas en las +25 aerolíneas miembro de Star Alliance.
 								</p>

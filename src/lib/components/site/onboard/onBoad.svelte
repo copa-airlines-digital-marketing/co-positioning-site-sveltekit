@@ -80,25 +80,30 @@
 			<Carousel.Container class="h-full">
 				<Carousel.Item>
 					<Slide.OnBoard image={images['refrigerio']}>
-						<Slide.Overlay class="bg-gradient-to-t from-35% md:bg-gradient-to-br md:from-20%" />
+						<Slide.Overlay
+							class="bg-gradient-to-t from-50% sm:from-35% sm:bg-gradient-to-r portrait:sm:bg-gradient-to-tr portrait:sm:from-25% md:bg-gradient-to-br md:from-20%"
+						/>
 						<Slide.Content class="row-start-2">
 							<div
-								class="row-span-full col-span-full text-common-white flex flex-col-reverse items-start landscape:sm:items-end landscape:sm:text-right landscape:md:text-left landscape:md:items-start md:flex-col mb-roomy"
+								class="row-span-full col-span-full text-common-white flex flex-col justify-end items-start md:justify-start mb-roomy"
 							>
-								<Heading variant="displayNormal" tag="h3" class="text-common-white">
+								<Heading
+									variant="displayNormal"
+									tag="h3"
+									class="text-common-white sm:max-w-xs md:max-w-md"
+								>
 									Refrigerio <span class="text-secondary-faded">siempre</span> incluido
 								</Heading>
-								<p class="my-2 max-w-prose sm:max-w-sm">
+								<p class="my-2 max-w-prose sm:max-w-xs">
 									Ofrecemos servicio a bordo sin costo en todos nuestros vuelos sin importar la
-									tarifa o ruta que escojas. Disfruta de refrigerios, snacks o comidas calientes a
-									bordo de nuestros vuelos.
+									tarifa o ruta que escojas.
 								</p>
 								<p class="my-2 text-xs sm:max-w-sm">
 									*El servicio de alimentos y bebidas ofrecido a bordo varía dependiendo del
 									destino, la duración y el horario del vuelo.
 								</p>
 								<Button
-									class="bg-secondary border-secondary my-4"
+									class="bg-secondary border-secondary mt-4"
 									href="https://www.copaair.com/es-co/descubre-copa-airlines/experiencia-a-bordo/comida-a-bordo/"
 									>Conoce más</Button
 								>
@@ -109,12 +114,12 @@
 				</Carousel.Item>
 				<Carousel.Item>
 					<Slide.OnBoard image={images['equipaje']}>
-						<Slide.Overlay class="bg-gradient-to-t lg:bg-gradient-to-br" />
+						<Slide.Overlay class="bg-gradient-to-t landscape:bg-gradient-to-br" />
 						<Slide.Content class="row-start-2">
 							<div
-								class="row-span-full col-span-full text-common-white mb-roomy flex flex-col-reverse items-start landscape:sm:items-end landscape:sm:text-right landscape:md:items-start landscape:md:text-left landscape:lg:flex-col"
+								class="row-span-full col-span-full text-common-white mb-roomy flex flex-col justify-end items-start landscape:justify-start"
 							>
-								<Heading variant="displayNormal" tag="h3" class="text-common-white">
+								<Heading variant="displayNormal" tag="h3" class="text-common-white max-w-md">
 									Equipaje de mano <span class="text-secondary-faded">siempre</span> incluido
 								</Heading>
 								<p class="my-2 max-w-prose sm:max-w-sm">
@@ -122,7 +127,7 @@
 									nuestras rutas y tarifas.
 								</p>
 								<Button
-									class="bg-secondary border-secondary my-4"
+									class="bg-secondary border-secondary mt-4"
 									href="https://www.copaair.com/es-co/informacion-al-viajar/informacion-de-equipaje/"
 									>Conoce más</Button
 								>
@@ -132,22 +137,21 @@
 				</Carousel.Item>
 				<Carousel.Item>
 					<Slide.OnBoard image={images['comodidad']}>
-						<Slide.Overlay
-							class="bg-gradient-to-t from-40% landscape:sm:bg-gradient-to-tl landscape:md:bg-gradient-to-tr"
-						/>
+						<Slide.Overlay class="bg-gradient-to-t from-40% sm:bg-gradient-to-tr" />
 						<Slide.Content class="row-start-2">
 							<div
-								class="row-span-full col-span-full text-common-white flex flex-col items-start justify-end mb-roomy landscape:sm:flex-col-reverse landscape:sm:items-end landscape:sm:text-right landscape:md:flex-col landscape:md:items-start landscape:md:text-left"
+								class="row-span-full col-span-full text-common-white flex flex-col items-start justify-end mb-roomy"
 							>
 								<Heading variant="displayNormal" tag="h3" class="text-common-white max-w-md">
-									Asientos reclinables y buen espacio para tus piernas
+									Asientos <span class="text-secondary-faded">reclinables</span> y buen
+									<span class="text-secondary-faded">espacio</span> para tus piernas
 								</Heading>
 								<p class="my-2 max-w-sm">
 									En todos nuestros aviones encontrarás asientos reclinables y con buen espacio para
 									tus piernas para una experiencia de viaje cómoda.
 								</p>
 								<Button
-									class="bg-secondary border-secondary my-6"
+									class="bg-secondary border-secondary mt-4"
 									href="https://www.copaair.com/es-co/descubre-copa-airlines/experiencia-a-bordo/"
 									>Conoce más</Button
 								>
@@ -163,14 +167,14 @@
 								class="row-span-full col-span-full mb-roomy text-common-white flex flex-col justify-end items-start"
 							>
 								<Heading variant="displayNormal" tag="h3" class="text-common-white max-w-md">
-									Clase Ejecutiva en todos nuestros vuelos
+									Clase Ejecutiva en <span class="text-secondary-faded">todos</span> nuestros vuelos
 								</Heading>
 								<p class="my-2 max-w-sm">
 									Disfruta de la exclusividad y comodidad de Clase Ejecutiva en todas nuestras
 									rutas.
 								</p>
 								<Button
-									class="bg-secondary border-secondary my-6"
+									class="bg-secondary border-secondary mt-4"
 									href="https://www.copaair.com/es-co/descubre-copa-airlines/experiencia-a-bordo/"
 									>Conoce más</Button
 								>
@@ -181,7 +185,7 @@
 			</Carousel.Container>
 		</Carousel.Content>
 		<div
-			class="mb-roomy col-start-2 row-start-3 text-common-white flex items-center justify-between z-10"
+			class="mb-roomy col-start-2 row-start-3 text-common-white flex items-center gap-2 md:gap-4 z-10"
 		>
 			<div class="flex gap-1 items-center">
 				<Carousel.Previous variant="invert" class="border-0" title="Anterior">
