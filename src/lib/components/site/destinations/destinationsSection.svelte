@@ -79,7 +79,7 @@
 								</p>
 								<p class="my-2 text-xs sm:max-w-sm">
 									*Vuelos a través del Hub de las Américas ® en Panamá. Vuelos sujetos a
-									restricciones y cambios.
+									restricciones y cambios
 								</p>
 							</div>
 						</Slide.Content>
