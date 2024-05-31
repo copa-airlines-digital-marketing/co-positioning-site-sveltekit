@@ -11,7 +11,6 @@
 	import SocialTiktok from '$lib/components/icons/social-tiktok.svelte';
 	import Button from '$lib/components/ui/button/button.svelte';
 	import { Separator } from 'bits-ui';
-	import { Root } from 'postcss';
 
 	const year = new Date().getFullYear();
 
