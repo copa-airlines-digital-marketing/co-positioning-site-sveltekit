@@ -3,13 +3,7 @@
 	import * as Carousel from '$lib/components/ui/carrusel';
 	import * as Slide from '../slide';
 	import * as EnhancedImage from '$lib/components/ui/image';
-	import {
-		BaselinePlayArrow,
-		OutlineArrowBack,
-		OutlineArrowForward,
-		OutlinePause
-	} from '$lib/components/icons';
-	import { cn } from '$lib/utils';
+	import { OutlineArrowBack, OutlineArrowForward } from '$lib/components/icons';
 	import { crossfade } from 'svelte/transition';
 	import { cubicInOut } from 'svelte/easing';
 	import Autoplay from 'embla-carousel-autoplay';
