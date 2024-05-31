@@ -4,18 +4,11 @@
 	import * as Slide from '../slide';
 	import * as EnhancedImage from '$lib/components/ui/image';
 	import { OutlineArrowBack, OutlineArrowForward } from '$lib/components/icons';
-	import { crossfade } from 'svelte/transition';
-	import { cubicInOut } from 'svelte/easing';
 	import Autoplay from 'embla-carousel-autoplay';
 	import { Button } from '$lib/components/ui/button';
 	import desde from '$lib/assets/mapa-de-destinos-en-colombia.jpg?w=3840;2560;1920;1560;1366;1024;720&format=avif;webp;jpg&as=picture&imagetools';
 	import desdePortrait from '$lib/assets/mapa-de-destinos-en-colombia-portrait.jpg?w=3840;2560;1920;1560;1366;1024;720&format=avif;webp;jpg&as=picture&imagetools';
 	import mainImage from '$lib/assets/sample.jpg?w=3840;2560;1920;1560;1366;1024;720&format=avif;webp;jpg&as=picture&imagetools';
-
-	const [send, receive] = crossfade({
-		duration: 250,
-		easing: cubicInOut
-	});
 
 	const images: Record<string, EnhancedImage.ImageToolsPictureWithMediaQuery> = {
 		desde: {
