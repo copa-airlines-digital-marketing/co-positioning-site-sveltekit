@@ -17,7 +17,7 @@
 		"format": "prettier --write .",
 		"test:integration": "playwright test",
 		"test:unit": "vitest",
-		"start": "node build/index.js"
+		"start": "node build"
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.28.1",
