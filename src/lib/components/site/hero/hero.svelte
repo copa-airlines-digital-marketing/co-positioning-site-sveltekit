@@ -133,7 +133,7 @@
 		<Carousel.Content class="h-full col-span-full row-span-full max-w-full">
 			<Carousel.Container class="h-full">
 				<Carousel.Item class="h-full">
-					<Slide.Hero image={images['main']} class="h-full">
+					<Slide.Hero image={images['main']} loading="eager" class="h-full">
 						<Slide.Overlay
 							class="bg-gradient-to-t landscape:from-30% landscape:bg-gradient-to-tr"
 						/>

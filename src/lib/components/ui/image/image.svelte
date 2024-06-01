@@ -11,6 +11,7 @@
 	let className: $$Props['class'] = undefined;
 	export let image: $$Props['image'];
 	export let alt: $$Props['alt'] = '';
+	export let loading: $$Props['loading'] = 'lazy';
 	export { className as class };
 
 	let firstImage = image[Object.keys(image)[0]];
@@ -33,5 +34,6 @@
 		width={firstImage.img.w}
 		height={firstImage.img.h}
 		class={className}
+		{loading}
 	/>
 </picture>
