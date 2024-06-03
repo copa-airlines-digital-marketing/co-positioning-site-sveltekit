@@ -72,7 +72,7 @@
 					{#each socials as social}
 						{@const { icon, href, title } = social}
 						<li>
-							<Button variant="transparent" size="large" {href} {title}>
+							<Button variant="transparent" size="large" {href} {title} target="_blank">
 								<svelte:component this={icon}></svelte:component>
 							</Button>
 						</li>

@@ -21,7 +21,12 @@
 			class={cn('absolute top-full left-0 opacity-0 focus-visible:opacity-100 z-20')}
 			>Saltar navegación</Button
 		>
-		<Button href="https://www.copaair.com/es-co/" title="Ir al sitio principal" class="shrink">
+		<Button
+			href="https://www.copaair.com/es-co/"
+			target="_blank"
+			title="Ir al sitio principal"
+			class="shrink"
+		>
 			<LogoCopaAirlines class={cn('w-full max-w-52 h-auto')}></LogoCopaAirlines>
 		</Button>
 		<nav

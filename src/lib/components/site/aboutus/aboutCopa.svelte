@@ -342,7 +342,7 @@
 								<Button
 									class="bg-secondary"
 									href="https://www.copaair.com/es-co/descubre-copa-airlines/reconocimientos/"
-									>Conoce nuestros reconocimientos</Button
+									target="_blank">Conoce nuestros reconocimientos</Button
 								>
 							</div>
 						</Slide.Content>

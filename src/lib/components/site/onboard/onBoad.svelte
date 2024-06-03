@@ -105,7 +105,7 @@
 									class="bg-secondary border-secondary mt-4"
 									size="slim"
 									href="https://www.copaair.com/es-co/descubre-copa-airlines/experiencia-a-bordo/comida-a-bordo/"
-									>Conoce más</Button
+									target="_blank">Conoce más</Button
 								>
 							</div>
 						</Slide.Content>
@@ -130,7 +130,7 @@
 									class="bg-secondary border-secondary mt-4"
 									size="slim"
 									href="https://www.copaair.com/es-co/informacion-al-viajar/informacion-de-equipaje/"
-									>Conoce más</Button
+									target="_blank">Conoce más</Button
 								>
 							</div>
 						</Slide.Content>
@@ -157,7 +157,7 @@
 									class="bg-secondary border-secondary mt-4"
 									size="slim"
 									href="https://www.copaair.com/es-co/descubre-copa-airlines/experiencia-a-bordo/"
-									>Conoce más</Button
+									target="_blank">Conoce más</Button
 								>
 							</div>
 						</Slide.Content>
@@ -181,7 +181,7 @@
 									class="bg-secondary border-secondary mt-4"
 									size="slim"
 									href="https://www.copaair.com/es-co/descubre-copa-airlines/experiencia-a-bordo/"
-									>Conoce más</Button
+									target="_blank">Conoce más</Button
 								>
 							</div>
 						</Slide.Content>

@@ -182,16 +182,14 @@
 									variant="displayNormal"
 									class="my-2 text-common-white sm:max-w-md sm:landscape:max-w-80 md:landscape:max-w-md lg:portrait:max-w-lg lg:landscape:max-w-lg"
 								>
-									Conecta a más de <span
-										class="text-primary portrait:sm:text-secondary landscape:text-secondary"
-										>80</span
-									> destinos internacionales
+									Conecta desde <strong class="text-common-white md:text-secondary-faded"
+										>11&nbsp;ciudades</strong
+									>
+									en Colombia hacia más de
+									<span class="text-common-white md:text-secondary-faded"
+										>80&nbsp;destinos internacionales</span
+									>
 								</Heading>
-								<p class="text-gray-100 text-xs max-w-prose sm:text-base">
-									En toda América y el Caribe a través del Hub de las Américas<sup>®</sup> en Panamá,
-									desde Armenia, Barranquilla, Bogotá, Bucaramanga, Cartagena, Cúcuta, Cali, Medellín,
-									San Andrés, Santa Marta y Pereira.
-								</p>
 								<Button
 									variant="light"
 									size="slim"
