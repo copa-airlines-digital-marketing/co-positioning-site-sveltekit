@@ -2,6 +2,7 @@
 	import {
 		BaselinePlayArrow,
 		IstoipoCopaAirlines,
+		LogoCiriumOtp,
 		OutlineArrowBack,
 		OutlineArrowForward,
 		OutlinePause
@@ -168,32 +169,42 @@
 				<Carousel.Item>
 					<Slide.About image={images['puntualidad']} class="relative" position="top">
 						<Slide.Overlay
-							class="bg-gradient-to-t from-20% portrait:sm:bg-gradient-to-b landscape:md:bg-gradient-to-r"
+							class="bg-gradient-to-b from-20% portrait:sm:bg-gradient-to-b landscape:md:bg-gradient-to-r"
 						/>
 						<Slide.Content class="row-start-3">
 							<div
-								class="row-start-13 row-end-1 portrait:sm:justify-start landscape:md:justify-start items-start col-span-full my-normal text-common-white flex flex-col justify-end"
+								class="col-span-full mb-roomy row-span-full flex flex-col sm:flex-col portrait:sm:flex-row justify-between"
 							>
-								<Heading
-									variant="displayNormal"
-									tag="h3"
-									class="text-common-white landscape:md:max-w-sm"
-									>La aerolínea más premiada por <span class="text-secondary-faded"
-										>puntualidad</span
-									> en la última década</Heading
+								<div>
+									<Heading
+										variant="displayNormal"
+										class="my-2 text-common-white sm:max-w-xs md:max-w-md"
+									>
+										La aerolínea más premiada por <span class="text-secondary-faded"
+											>puntualidad</span
+										> en América en la última década
+									</Heading>
+									<p class="hidden md:block my-2 max-w-sm text-common-white">
+										Hemos sido reconocidos por Cirium como la aerolínea más puntual de Latinoamérica
+										en 9 ocasiones durante la última década.
+									</p>
+									<Button
+										class="bg-secondary border-secondary mt-4"
+										size="slim"
+										href="https://www.copaair.com/es-co/noticias/cirium-reconoce-a-copa-airlines-como-la-aerolinea-mas-puntual-de-latinoamerica/"
+										target="_blank"
+									>
+										Conoce más
+									</Button>
+								</div>
+								<div
+									class="bg-common-black/80 sm:bg-transparent p-4 rounded-full size-28 sm:size-44 md:size-52 lg:size-64"
 								>
-								<p class="my-2 max-w-prose landscape:md:max-w-sm">
-									Hemos sido reconocidos por Cirium como la aerolínea más puntual de Latinoamérica
-									en 9 ocasiones durante la última década.
-								</p>
-								<Button
-									class="bg-secondary border-secondary"
-									size="slim"
-									href="https://www.copaair.com/es-co/noticias/cirium-reconoce-a-copa-airlines-como-la-aerolinea-mas-puntual-de-latinoamerica/"
-									target="_blank"
-								>
-									Conoce más
-								</Button>
+									<LogoCiriumOtp class="w-full text-white mt-0.5" />
+									<span class="sr-only">
+										Logo de Cirium, la aerolínea más puntual de latinoamerica de 2023
+									</span>
+								</div>
 							</div>
 						</Slide.Content>
 					</Slide.About>
@@ -211,7 +222,7 @@
 									variant="displayNormal"
 									tag="h3"
 									class="text-common-white landscape:md:max-w-sm landscape:lg:max-w-lg"
-									>Conexiones rápidas a través del Hub de las Américas® en Panamá</Heading
+									>Conexiones rápidas a través del Hub de las Américas<sup>®</sup> en Panamá</Heading
 								>
 								<p class="my-2 max-w-prose landscape:md:max-w-sm">
 									Nuestras conexiones son fáciles y rápidas, sin trámites de migración ni aduana y

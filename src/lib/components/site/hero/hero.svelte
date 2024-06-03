@@ -188,10 +188,9 @@
 									> destinos internacionales
 								</Heading>
 								<p class="text-gray-100 text-xs max-w-prose sm:text-base">
-									En toda América y el Caribe a través del Hub de las Américas<sup class="text-sm"
-										>®</sup
-									> en Panamá, desde Armenia, Barranquilla, Bogotá, Bucaramanga, Cartagena, Cúcuta, Cali,
-									Medellín, San Andrés, Santa Marta y Pereira.
+									En toda América y el Caribe a través del Hub de las Américas<sup>®</sup> en Panamá,
+									desde Armenia, Barranquilla, Bogotá, Bucaramanga, Cartagena, Cúcuta, Cali, Medellín,
+									San Andrés, Santa Marta y Pereira.
 								</p>
 								<Button
 									variant="light"
@@ -254,7 +253,7 @@
 										class="bg-secondary border-secondary md:my-5"
 										href="#nosotros"
 									>
-										Descubre más de Copa Airlines
+										Descubre más
 									</Button>
 								</div>
 								<div

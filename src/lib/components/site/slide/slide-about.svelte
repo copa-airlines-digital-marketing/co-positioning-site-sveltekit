@@ -24,7 +24,7 @@
 			{loading}
 			{image}
 			class={cn(
-				'absolute left-0 top-0 h-full w-full object-cover object-top',
+				'absolute left-0 top-0 h-full w-full object-cover',
 				position === 'center' ? 'object-center' : 'object-top'
 			)}
 			alt=""
