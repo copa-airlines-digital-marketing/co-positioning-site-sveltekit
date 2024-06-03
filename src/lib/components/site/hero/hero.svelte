@@ -133,7 +133,7 @@
 		<Carousel.Content class="h-full col-span-full row-span-full max-w-full">
 			<Carousel.Container class="h-full">
 				<Carousel.Item class="h-full">
-					<Slide.Hero image={images['main']} loading="eager" class="h-full">
+					<Slide.Hero image={images['main']} loading="eager" class="h-full min-h-[480px]">
 						<Slide.Overlay
 							class="bg-gradient-to-t landscape:from-30% landscape:bg-gradient-to-tr"
 						/>
@@ -228,17 +228,15 @@
 				</Carousel.Item>
 				<Carousel.Item>
 					<Slide.Hero image={images.aboutCopa} class="h-full">
-						<Slide.Overlay class="bg-gradient-to-t md:landscape:bg-gradient-to-r from-20%" />
+						<Slide.Overlay class="bg-gradient-to-t landscape:bg-gradient-to-r from-20%" />
 						<Slide.Content>
 							<div
-								class="col-start-1 col-span-full row-span-full grid grid-cols-subgrid grid-rows-subgrid py-5"
+								class="col-span-full mb-roomy row-span-full flex flex-col-reverse sm:flex-col portrait:sm:flex-row portrait:sm:self-end justify-between"
 							>
-								<div
-									class="col-span-full row-start-13 row-end-6 md:landscape:row-start-1 md:landscape:row-end-7 self-end landscape:md:self-start landscape:lg:row-end-6"
-								>
+								<div>
 									<Heading
 										variant="displayNormal"
-										class="my-2 text-common-white sm:max-w-md sm:landscape:max-w-96"
+										class="my-2 text-common-white sm:max-w-xs md:max-w-md"
 									>
 										La aerolínea más premiada por <span class="text-secondary-faded"
 											>puntualidad</span
@@ -253,10 +251,8 @@
 										Descubre más de Copa Airlines
 									</Button>
 								</div>
-								<div
-									class="col-span-full row-start-1 row-end-7 landscape:row-start-7 landscape:row-end-12 landscape:self-end justify-self-end landscape:md:justify-self-start md:landscape:self-start lg:landscape:row-start-6"
-								>
-									<LogoCiriumOtp class="w-40 md:w-52 lg:w-64 text-white" />
+								<div class="self-end portrait:sm:self-end sm:self-start mt-6">
+									<LogoCiriumOtp class="w-36 md:w-52 lg:w-64 text-white" />
 									<span class="sr-only">
 										Logo de Cirium, la aerolínea más puntual de latinoamerica de 2023
 									</span>

@@ -26,7 +26,7 @@
 
 <div
 	id="destinos"
-	class="w-full portrait:min-h-[700px] portrait:h-[calc(100svh-64px)] portrait:sm:min-h-svh landscape:min-h-svh bg-gradient-to-b from-primary to-primary-ultradark container-grid grid-rows-[auto_1fr_auto] relative"
+	class="w-full portrait:h-[calc(100svh-64px)] portrait:sm:min-h-svh landscape:min-h-svh bg-gradient-to-b from-primary to-primary-ultradark container-grid grid-rows-[auto_auto_1fr] relative"
 >
 	<Heading
 		variant="displayTiny"
@@ -37,46 +37,60 @@
 	<Carousel.Root
 		class="col-span-full row-span-full grid-cols-subgrid grid-rows-subgrid grid"
 		opts={{ duration: 40 }}
-		plugins={[
-			Autoplay({
-				delay: 10000,
-				playOnInit: false,
-				stopOnInteraction: true
-			})
-		]}
 	>
+		<div
+			class="col-start-2 row-start-2 text-common-white flex items-center gap-2 md:gap-4 relative justify-between z-10"
+		>
+			<Carousel.Previous
+				variant="invert"
+				class="border-0 items-center text-left px-0"
+				title="Anterior"
+			>
+				Desde Colombia
+			</Carousel.Previous>
+			<Carousel.Next
+				variant="invert"
+				class="border-0 items-center text-right px-0"
+				title="Siguiente"
+			>
+				A Tu Próximo Destino
+			</Carousel.Next>
+		</div>
 		<Carousel.Content class="col-span-full row-span-full z-0">
 			<Carousel.Container class="h-full">
 				<Carousel.Item>
-					<Slide.OnBoard image={images['desde']}>
-						<Slide.Content class="row-start-2">
+					<Slide.About image={images['desde']} class="relative mb-roomy min-h-[480px]">
+						<Slide.Content class="row-start-3">
 							<div
-								class="row-span-full col-span-full text-common-white flex flex-col justify-end items-start md:justify-start mb-roomy"
+								class="row-span-full col-span-full text-common-white flex flex-col justify-end md:justify-center items-start mb-roomy"
 							>
 								<Heading
 									variant="displayNormal"
 									tag="h3"
-									class="text-common-white sm:max-w-xs md:max-w-lg"
+									class="text-common-white max-w-sm landscape:max-w-sm"
 								>
-									Conecta <span class="text-secondary-faded">desde 11 ciudades</span> en Colombia
+									Conecta <span class="text-common-white sm:text-secondary-faded"
+										>desde 11 ciudades</span
+									> en Colombia
 								</Heading>
 								<p class="my-2 max-w-prose sm:max-w-md">
 									Conectamos mejor desde y hacia 11 destinos: Armenia, Barranquilla, Bogotá,
 									Bucaramanga, Cartagena, Cúcuta, Cali, Medellín, San Andrés, Santa Marta y Pereira.
 								</p>
-								<p class="my-2 text-xs sm:max-w-sm">
-									*Vuelos a través del Hub de las Américas ® en Panamá. Vuelos sujetos a
-									restricciones y cambios
-								</p>
+								<Button
+									class="bg-secondary border-secondary mt-4"
+									href="https://destinationsguide.copaair.com/es-co/vuelos-desde-colombia"
+									target="blank">Descubre nuestros vuelos</Button
+								>
 							</div>
 						</Slide.Content>
-					</Slide.OnBoard>
+					</Slide.About>
 					<div></div>
 				</Carousel.Item>
 				<Carousel.Item>
-					<Slide.OnBoard image={images['hacia']}>
+					<Slide.About image={images['hacia']} class="relative">
 						<Slide.Overlay class="bg-gradient-to-t landscape:bg-gradient-to-br" />
-						<Slide.Content class="row-start-2">
+						<Slide.Content class="row-start-3">
 							<div
 								class="row-span-full col-span-full text-common-white mb-roomy flex flex-col justify-end items-start landscape:justify-start"
 							>
@@ -89,24 +103,14 @@
 								</p>
 								<Button
 									class="bg-secondary border-secondary mt-4"
-									href="https://www.copaair.com/es-co/informacion-al-viajar/informacion-de-equipaje/"
-									>Conoce más</Button
+									href="https://destinationsguide.copaair.com/es-co/vuelos-desde-colombia"
+									target="blank">Descubre nuestros vuelos</Button
 								>
 							</div>
 						</Slide.Content>
-					</Slide.OnBoard>
+					</Slide.About>
 				</Carousel.Item>
 			</Carousel.Container>
 		</Carousel.Content>
-		<div
-			class="mb-roomy col-start-2 row-start-3 text-common-white flex items-center gap-2 md:gap-4 justify-between z-10"
-		>
-			<Carousel.Previous variant="invert" class="border-0 items-center text-left" title="Anterior">
-				<OutlineArrowBack /> Desde Colombia
-			</Carousel.Previous>
-			<Carousel.Next variant="invert" class="border-0 items-center text-right" title="Siguiente">
-				A Tu Próximo Destino<OutlineArrowForward />
-			</Carousel.Next>
-		</div>
 	</Carousel.Root>
 </div>

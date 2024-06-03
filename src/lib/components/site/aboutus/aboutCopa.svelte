@@ -21,6 +21,8 @@
 	import reconocimientosPortrait from '$lib/assets/pilotos-con-avion-de-fondo-portrait.jpg?h=2160;1600;1080;900;768&format=avif;webp;jpg&as=picture&imagetools';
 	import avion from '$lib/assets/avion-de-copa-volando.jpg?w=1920;1560;1366;1024;720&format=avif;webp;jpg&as=picture&imagetools';
 	import avionPortrait from '$lib/assets/avion-de-copa-volando-portrait.jpg?h=1600;1080;900;768&format=avif;webp;jpg&as=picture&imagetools';
+	import starAlliance from '$lib/assets/pasajero-saliendo-del-avion-con-banner-de-preferaccess.jpg?w=1920;1560;1366;1024;720&format=avif;webp;jpg&as=picture&imagetools';
+	import starAlliancePortrait from '$lib/assets/pasajero-saliendo-del-avion-con-banner-de-preferaccess-portrait.jpg?h=1600;1080;900;768&format=avif;webp;jpg&as=picture&imagetools';
 
 	import { Heading } from '$lib/components/ui/heading';
 	import { Button } from '$lib/components/ui/button';
@@ -33,9 +35,9 @@
 			'(orientation: landscape)': avion
 		},
 		staralliance: {
-			'(orientation: portrait)': avionPortrait,
-			'(orientation: portait) and (min-width: 1367px)': avion,
-			'(orientation: landscape)': avion
+			'(orientation: portrait)': starAlliancePortrait,
+			'(orientation: portait) and (min-width: 1367px)': starAlliance,
+			'(orientation: landscape)': starAlliance
 		},
 		connectmiles: {
 			'(orientation: portrait)': connectmilesPortrait,
@@ -250,18 +252,20 @@
 				</Carousel.Item>
 				<Carousel.Item class="h-full">
 					<Slide.About image={images['staralliance']} class="relative">
-						<Slide.Overlay />
+						<Slide.Overlay
+							class="bg-gradient-to-t from-25% portrait:sm:from-10% landscape:md:bg-gradient-to-r"
+						/>
 						<Slide.Content class="row-start-3">
-							<div class="row-span-full col-span-full my-normal text-common-white">
+							<div
+								class="row-span-full col-span-full my-normal text-common-white flex flex-col items-start justify-end landscape:md:justify-start"
+							>
 								<Heading variant="displayNormal" tag="h3" class="text-common-white"
 									>Miembro de Star Alliance</Heading
 								>
-								<p class="my-2 max-w-prose">
-									Somos parte de Star Alliance, líder de la red global de aerolíneas. Puedes ganar y
-									redimir millas aéreas en más de 25 aerolíneas miembros de la red, y tus millas
-									acumuladas te ayudan a mejorar tu status y disfrutar de todos los beneficios
-									agregados en cualquier lugar del mundo donde haya una aerolínea miembro de Star
-									Alliance.
+								<p class="my-2 max-w-prose landscape:md:max-w-md">
+									Somos parte de Star Alliance, líder de la red global de aerolíneas. Puedes
+									disfrutar de todos los beneficios agregados en cualquier lugar del mundo donde
+									haya una aerolínea miembro de Star Alliance.
 								</p>
 								<Button
 									class="bg-secondary border-secondary"
