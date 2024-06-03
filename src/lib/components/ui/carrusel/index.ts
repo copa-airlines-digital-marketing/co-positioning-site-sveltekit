@@ -7,3 +7,4 @@ export { default as Next } from "./carousel-next.svelte";
 export { default as Dots } from './carousel-dots.svelte';
 export { default as Dot } from './carousel-dot.svelte';
 export { default as PlayPause } from './carousel-play.svelte'
+export { default as NextAndPlay } from './carousel-next-play.svelte'

@@ -9,13 +9,18 @@
 	import * as Carousel from '$lib/components/ui/carrusel';
 	import * as Slide from '../slide';
 	import * as EnhancedImage from '$lib/components/ui/image';
-	import mainImage from '$lib/assets/sample.jpg?w=3840;2560;1920;1560;1366;1024;720&format=avif;webp;jpg&as=picture&imagetools';
 	import puntualidad from '$lib/assets/abordaje-de-vuelo.jpg?w=3840;2560;1920;1560;1366;1024;720&format=avif;webp;jpg&as=picture&imagetools';
-	import puntualidadPortrait from '$lib/assets/abordaje-de-vuelo-portrait.jpg?w=3840;2560;1920;1560;1366;1024;720&format=avif;webp;jpg&as=picture&imagetools';
+	import puntualidadPortrait from '$lib/assets/abordaje-de-vuelo-portrait.jpg?h=2160;1600;1080;900;768&format=avif;webp;jpg&as=picture&imagetools';
 	import conectividad from '$lib/assets/persona-revisando-celular-con-tabla-de-vuelos-detras.jpg?w=3840;2560;1920;1560;1366;1024;720&format=avif;webp;jpg&as=picture&imagetools';
-	import conectividadPortrait from '$lib/assets/persona-revisando-celular-con-tabla-de-vuelos-detras-portrait.jpg?w=3840;2560;1920;1560;1366;1024;720&format=avif;webp;jpg&as=picture&imagetools';
+	import conectividadPortrait from '$lib/assets/persona-revisando-celular-con-tabla-de-vuelos-detras-portrait.jpg?h=2160;1600;1080;900;768&format=avif;webp;jpg&as=picture&imagetools';
 	import connectmiles from '$lib/assets/counter-copa-airlines-revision-de-documentos.jpg?w=3840;2560;1920;1560;1366;1024;720&format=avif;webp;jpg&as=picture&imagetools';
-	import connectmilesPortrait from '$lib/assets/counter-copa-airlines-revision-de-documentos-portrait.jpg?w=3840;2560;1920;1560;1366;1024;720&format=avif;webp;jpg&as=picture&imagetools';
+	import connectmilesPortrait from '$lib/assets/counter-copa-airlines-revision-de-documentos-portrait.jpg?h=2160;1600;1080;900;768&format=avif;webp;jpg&as=picture&imagetools';
+	import copaClub from '$lib/assets/pareja-en-el-copa-club.jpg?w=3840;2560;1920;1560;1366;1024;720&format=avif;webp;jpg&as=picture&imagetools';
+	import copaClubPortrait from '$lib/assets/pareja-en-el-copa-club-portrait.jpg?h=2160;1600;1080;900;768&format=avif;webp;jpg&as=picture&imagetools';
+	import reconocimientos from '$lib/assets/pilotos-con-avion-de-fondo.jpg?w=3840;2560;1920;1560;1366;1024;720&format=avif;webp;jpg&as=picture&imagetools';
+	import reconocimientosPortrait from '$lib/assets/pilotos-con-avion-de-fondo-portrait.jpg?h=2160;1600;1080;900;768&format=avif;webp;jpg&as=picture&imagetools';
+	import avion from '$lib/assets/avion-de-copa-volando.jpg?w=1920;1560;1366;1024;720&format=avif;webp;jpg&as=picture&imagetools';
+	import avionPortrait from '$lib/assets/avion-de-copa-volando-portrait.jpg?h=1600;1080;900;768&format=avif;webp;jpg&as=picture&imagetools';
 
 	import { Heading } from '$lib/components/ui/heading';
 	import { Button } from '$lib/components/ui/button';
@@ -23,12 +28,14 @@
 
 	const images: Record<string, EnhancedImage.ImageToolsPictureWithMediaQuery> = {
 		experiencia: {
-			'(orientation: landscape)': mainImage,
-			'(orientation: portrait)': mainImage
+			'(orientation: portrait)': avionPortrait,
+			'(orientation: portait) and (min-width: 1367px)': avion,
+			'(orientation: landscape)': avion
 		},
 		staralliance: {
-			'(orientation: landscape)': mainImage,
-			'(orientation: portrait)': mainImage
+			'(orientation: portrait)': avionPortrait,
+			'(orientation: portait) and (min-width: 1367px)': avion,
+			'(orientation: landscape)': avion
 		},
 		connectmiles: {
 			'(orientation: portrait)': connectmilesPortrait,
@@ -41,8 +48,9 @@
 			'(orientation: landscape)': puntualidad
 		},
 		copaClub: {
-			'(orientation: landscape)': mainImage,
-			'(orientation: portrait)': mainImage
+			'(orientation: portrait)': copaClubPortrait,
+			'(orientation: portait) and (min-width: 1367px)': copaClub,
+			'(orientation: landscape)': copaClub
 		},
 		conectividad: {
 			'(orientation: portrait)': conectividadPortrait,
@@ -50,15 +58,16 @@
 			'(orientation: landscape)': conectividad
 		},
 		reconocimientos: {
-			'(orientation: landscape)': mainImage,
-			'(orientation: portrait)': mainImage
+			'(orientation: portrait)': reconocimientosPortrait,
+			'(orientation: portait) and (min-width: 1367px)': reconocimientos,
+			'(orientation: landscape)': reconocimientos
 		}
 	} as const;
 </script>
 
 <div
 	id="nosotros"
-	class="min-h-svh w-full bg-gradient-to-b from-primary to-primary-ultradark container-grid grid-rows-[auto_auto_1fr]"
+	class="portrait:h-[calc(100svh-64px)] portrait:sm:min-h-svh landscape:min-h-svh w-full bg-gradient-to-b from-primary to-primary-ultradark container-grid grid-rows-[auto_auto_1fr]"
 >
 	<Heading
 		variant="h2"
@@ -126,19 +135,30 @@
 		</div>
 		<Carousel.Content class="col-span-full row-span-full z-0">
 			<Carousel.Container class="h-full">
-				<Carousel.Item class="h-full">
+				<Carousel.Item class="h-full min-h-[480px]">
 					<Slide.About image={images['experiencia']} class="relative">
-						<Slide.Overlay />
+						<Slide.Overlay
+							class="bg-gradient-to-t from-20% portrait:sm:bg-gradient-to-b portrait:sm:to-40% portrait:sm:from-10% landscape:bg-gradient-to-br"
+						/>
 						<Slide.Content class="row-start-3">
-							<div class="row-span-full col-span-full my-normal text-common-white">
-								<Heading variant="displayNormal" tag="h3" class="text-common-white">
+							<div
+								class="row-start-13 row-end-1 flex flex-col justify-end portrait:sm:justify-start landscape:justify-start items-start col-span-full my-normal text-common-white"
+							>
+								<Heading
+									variant="displayNormal"
+									tag="h3"
+									class="text-common-white max-w-xs sm:max-w-md"
+								>
 									Más De <span class="text-secondary-faded">75 Años</span> Volando Los Cielos De Las
 									Américas
 								</Heading>
-								<p class="my-2 max-w-prose">
+								<p class="my-2 max-w-sm">
 									Hemos estado conectando las Américas por 75 años y aqui hay algunas razones por
 									las que somos los mejores
 								</p>
+								<Carousel.NextAndPlay class="bg-secondary border-secondary"
+									>Conce más</Carousel.NextAndPlay
+								>
 							</div>
 						</Slide.Content>
 					</Slide.About>
@@ -150,7 +170,7 @@
 						/>
 						<Slide.Content class="row-start-3">
 							<div
-								class="row-start-12 row-end-1 landscape:row-start-13 portrait:sm:justify-start landscape:md:justify-start col-span-full my-normal text-common-white flex flex-col justify-end"
+								class="row-start-13 row-end-1 portrait:sm:justify-start landscape:md:justify-start items-start col-span-full my-normal text-common-white flex flex-col justify-end"
 							>
 								<Heading
 									variant="displayNormal"
@@ -164,6 +184,13 @@
 									Hemos sido reconocidos por Cirium como la aerolínea más puntual de Latinoamérica
 									en 9 ocasiones durante la última década.
 								</p>
+								<Button
+									class="bg-secondary border-secondary"
+									href="https://www.copaair.com/es-co/noticias/cirium-reconoce-a-copa-airlines-como-la-aerolinea-mas-puntual-de-latinoamerica/"
+									target="_blank"
+								>
+									Conoce más
+								</Button>
 							</div>
 						</Slide.Content>
 					</Slide.About>
@@ -175,7 +202,7 @@
 						/>
 						<Slide.Content class="row-start-3">
 							<div
-								class="row-start-12 row-end-1 col-span-full my-normal text-common-white flex flex-col landscape:justify-end landscape:row-start-13 landscape:md:justify-start landscape:md:from-15%"
+								class="row-start-12 row-end-1 col-span-full my-normal text-common-white flex flex-col items-start landscape:justify-end landscape:row-start-13 landscape:md:justify-start landscape:md:from-15%"
 							>
 								<Heading
 									variant="displayNormal"
@@ -187,6 +214,13 @@
 									Nuestras conexiones son fáciles y rápidas, sin trámites de migración ni aduana y
 									con el equipaje registrado hasta tu destino final.
 								</p>
+								<Button
+									class="bg-secondary border-secondary"
+									href="https://www.copaair.com/es-co/noticias/copa-operacion-t2-internacional/"
+									target="_blank"
+								>
+									Conoce más
+								</Button>
 							</div>
 						</Slide.Content>
 					</Slide.About>
@@ -196,7 +230,7 @@
 						<Slide.Overlay class="bg-gradient-to-t landscape:bg-gradient-to-tr from-30%" />
 						<Slide.Content class="row-start-3">
 							<div
-								class="row-start-12 row-end-1 col-span-full my-normal text-common-white flex flex-col justify-end items-start landscape:sm:row-start-13"
+								class="row-start-13 row-end-1 col-span-full my-normal text-common-white flex flex-col justify-end items-start landscape:sm:row-start-13"
 							>
 								<Heading variant="displayNormal" tag="h3" class="text-common-white"
 									>Acumula y redime millas</Heading
@@ -229,70 +263,70 @@
 									agregados en cualquier lugar del mundo donde haya una aerolínea miembro de Star
 									Alliance.
 								</p>
+								<Button
+									class="bg-secondary border-secondary"
+									href="https://www.copaair.com/es-co/mas-de-copa-airlines/staralliance/"
+									target="_blank"
+								>
+									Conoce más
+								</Button>
 							</div>
 						</Slide.Content>
 					</Slide.About>
 				</Carousel.Item>
 				<Carousel.Item>
 					<Slide.About image={images['copaClub']} class="relative">
-						<Slide.Overlay />
+						<Slide.Overlay
+							class="bg-gradient-to-t from-40% portrait:sm:from-20% landscape:md:from-20% landscape:md:bg-gradient-to-r"
+						/>
 						<Slide.Content class="row-start-3">
-							<div class="row-span-full col-span-full my-normal text-common-white">
-								<Heading variant="displayNormal" tag="h3" class="text-common-white"
+							<div
+								class="row-span-full col-span-full flex flex-col items-start justify-end my-normal text-common-white"
+							>
+								<Heading
+									variant="displayNormal"
+									tag="h3"
+									class="text-common-white landscape:md:max-w-md"
 									><span class="text-secondary-faded">Copa Club</span>, 6 salas en 5 aeropuertos</Heading
 								>
-								<p class="my-2 max-w-prose">
-									En Copa Airlines entendemos que tus negocios no esperan mientras viajas, por lo
-									que te brindamos facilidades para atenderte cómodamente, teniendo a su vez, la
-									oportunidad de relajarte y descansar en un ambiente exclusivo. <br /> <br />
-									Podrás disfrutar de nuestros Copa Clubs en Ciudad de Panamá, Bogotá, Ciudad de Guatemala,
-									San José Costa Rica, y en Santo Domingo República Dominicana
+								<p class="my-2 max-w-prose landscape:md:max-w-md">
+									Disfruta de nuestras exclusivas salas VIP en los aeropuertos, diseñadas para
+									brindarte confort y lujo antes de tu vuelo. Relájate en un ambiente tranquilo con
+									servicios premium que harán tu espera más placentera.
 								</p>
 
 								<Button
 									class="my-4 bg-secondary border-secondary"
 									href="https://www.copaair.com/es-co/descubre-copa-airlines/experiencia-en-aeropuerto/copa-club/"
-									target="_blank">Conoce más</Button
+									target="_blank">Conoce nuestras salas</Button
 								>
 							</div>
 						</Slide.Content>
 					</Slide.About>
 				</Carousel.Item>
 				<Carousel.Item>
-					<Slide.About image={images['experiencia']} class="relative">
-						<Slide.Overlay />
+					<Slide.About image={images['reconocimientos']} class="relative">
+						<Slide.Overlay
+							class="bg-gradient-to-t from-40% portrait:sm:from-20% landscape:md:bg-gradient-to-r landscape:md:from-20%"
+						/>
 						<Slide.Content class="row-start-3">
-							<div class="row-span-full col-span-full my-normal text-common-white">
+							<div
+								class="row-span-full col-span-full flex flex-col items-start justify-end landscape:md:justify-start my-normal text-common-white"
+							>
 								<Heading variant="displayNormal" tag="h3" class="text-common-white"
 									>Reconocimientos</Heading
 								>
-								<p class="mt-3 mb-6 max-w-prose">
-									<!-- 									Hemos sido premiados por nuestro <strong
-										>exitoso trabajo, excelencia operacional y puntualidad</strong
-									>
-									por varias organizaciones prestigiosas.<br /><br /><strong>2023</strong><br /> -
-									Reconocidos como “La mejor aerolínea de Centroamérica y el Caribe” según Skytrax,
-									por octavo año consecutivo.<br /> - Reconocidos como la “Aerolínea más puntual de
-									Latinoamérica” por OAG.<br /><br /><strong>2022</strong><br /> - Somos la “Mejor
-									Aerolínea de Centroamérica y Caribe”, según Skytrax.<br /> - Reconocidos como
-									“Mejor Personal de Aerolínea en Centroamérica y Caribe” según Skytrax, por séptimo
-									año consecutivo<br /><br /><strong>2021</strong><br /> - Somos la aerolínea más
-									puntual de Latinoamérica. Honor recibido por ocho años consecutivos por Cirium.<br
-									/>
-									- Reconocidos como los mejores en mantenimiento de motor por GE &amp; Embraer.<br
-									/><br /> <strong>2020</strong><br /> - Somos la aerolínea más puntual de
-									Latinoamérica. Honor recibido por siete años consecutivos por Cirium. También
-									somos la aerolínea más puntual del mundo, según OAG.<br /> - Flight Global:
-									Recipiente del Premio a la Excelencia de la Década de aerolíneas para la región de
-									América Latina.<br /><br /> <strong>2019</strong><br /> - Nombrada “la aerolínea
-									más puntual del mundo” por OAG.<br /> - Nombrada “La aerolínea más puntual de
-									América Latina” por FlightStats por seis años consecutivos.<br /> - Honrada como
-									APEX Five Star Major Airline 2020.<br /> - Honrada por Skytrax como la “Mejor
-									Aerolínea de Centroamérica y el Caribe” por quinto año consecutivo.<br /> -
-									Nombrada por kayak.com “La Mejor Aerolínea del año en Latinoamérica”.<br /> -
-									Nombrada “la aerolínea más puntual del mundo” por OAG.<br /> - Nombrada “La aerolínea
-									más puntual de América Latina” por FlightStats por seis años consecutivos. -->
+								<p class="mt-3 mb-6 max-w-prose landscape:md:max-w-md">
+									Somos la aerolínea más puntual de América Latina y la mejor de Centroamérica y el
+									Caribe. Nuestros reconocimientos reflejan nuestro compromiso con darte la mejor
+									experiencia en tu vuelo. ¡Descubre todos nuestros premios y elige volar con los
+									mejores!
 								</p>
+								<Button
+									class="bg-secondary"
+									href="https://www.copaair.com/es-co/descubre-copa-airlines/reconocimientos/"
+									>Conoce nuestros reconocimientos</Button
+								>
 							</div>
 						</Slide.Content>
 					</Slide.About>
