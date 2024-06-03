@@ -96,8 +96,9 @@
 									A más de <span class="text-secondary-faded">80 destinos</span> Internacionales
 								</Heading>
 								<p class="my-2 max-w-prose sm:max-w-sm">
-									Contamos con más de 350 vuelos diarios desde el Hub de las Américas® en Panamá a
-									más de 15 destinos en Estados Unidos y más de 20 destinos en el Caribe.
+									Contamos con más de 350 vuelos diarios desde el Hub de las Américas<sup
+										class="text-sm">®</sup
+									> en Panamá a más de 15 destinos en Estados Unidos y más de 20 destinos en el Caribe.
 								</p>
 								<Button
 									class="bg-secondary border-secondary mt-4"

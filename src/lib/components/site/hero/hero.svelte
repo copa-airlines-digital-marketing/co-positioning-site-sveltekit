@@ -133,7 +133,12 @@
 		<Carousel.Content class="h-full col-span-full row-span-full max-w-full">
 			<Carousel.Container class="h-full">
 				<Carousel.Item class="h-full">
-					<Slide.Hero image={images['main']} loading="eager" class="h-full min-h-[480px]">
+					<Slide.Hero
+						image={images['main']}
+						loading="eager"
+						class="h-full min-h-[480px]"
+						position="top"
+					>
 						<Slide.Overlay
 							class="bg-gradient-to-t landscape:from-30% landscape:bg-gradient-to-tr"
 						/>
@@ -183,9 +188,10 @@
 									> destinos internacionales
 								</Heading>
 								<p class="text-gray-100 text-xs max-w-prose sm:text-base">
-									En toda América y el Caribe a través del Hub de las Américas® en Panamá, desde
-									Armenia, Barranquilla, Bogotá, Bucaramanga, Cartagena, Cúcuta, Cali, Medellín, San
-									Andrés, Santa Marta y Pereira.
+									En toda América y el Caribe a través del Hub de las Américas<sup class="text-sm"
+										>®</sup
+									> en Panamá, desde Armenia, Barranquilla, Bogotá, Bucaramanga, Cartagena, Cúcuta, Cali,
+									Medellín, San Andrés, Santa Marta y Pereira.
 								</p>
 								<Button
 									variant="light"
@@ -200,7 +206,7 @@
 					</Slide.Hero>
 				</Carousel.Item>
 				<Carousel.Item>
-					<Slide.Hero image={images.onboard} class="h-full">
+					<Slide.Hero image={images.onboard} class="h-full" position="top">
 						<Slide.Overlay
 							class="bg-gradient-to-t landscape:md:bg-gradient-to-br landscape:from-15%"
 						></Slide.Overlay>
@@ -227,11 +233,11 @@
 					</Slide.Hero>
 				</Carousel.Item>
 				<Carousel.Item>
-					<Slide.Hero image={images.aboutCopa} class="h-full">
-						<Slide.Overlay class="bg-gradient-to-t landscape:bg-gradient-to-r from-20%" />
+					<Slide.Hero image={images.aboutCopa} class="h-full" position="top">
+						<Slide.Overlay class="bg-gradient-to-b landscape:bg-gradient-to-r from-30%" />
 						<Slide.Content>
 							<div
-								class="col-span-full mb-roomy row-span-full flex flex-col-reverse sm:flex-col portrait:sm:flex-row portrait:sm:self-end justify-between"
+								class="col-span-full mb-roomy row-span-full flex flex-col sm:flex-col portrait:sm:flex-row justify-between"
 							>
 								<div>
 									<Heading
@@ -251,8 +257,10 @@
 										Descubre más de Copa Airlines
 									</Button>
 								</div>
-								<div class="self-end portrait:sm:self-end sm:self-start mt-6">
-									<LogoCiriumOtp class="w-36 md:w-52 lg:w-64 text-white" />
+								<div
+									class="bg-common-black/80 sm:bg-transparent p-4 rounded-full size-28 sm:size-44 md:size-52 lg:size-64"
+								>
+									<LogoCiriumOtp class="w-full text-white mt-0.5" />
 									<span class="sr-only">
 										Logo de Cirium, la aerolínea más puntual de latinoamerica de 2023
 									</span>

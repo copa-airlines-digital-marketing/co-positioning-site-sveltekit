@@ -158,7 +158,7 @@
 									Hemos estado conectando las Américas por 75 años y aqui hay algunas razones por
 									las que somos los mejores
 								</p>
-								<Carousel.NextAndPlay class="bg-secondary border-secondary"
+								<Carousel.NextAndPlay class="bg-secondary border-secondary" size="slim"
 									>Conce más</Carousel.NextAndPlay
 								>
 							</div>
@@ -166,7 +166,7 @@
 					</Slide.About>
 				</Carousel.Item>
 				<Carousel.Item>
-					<Slide.About image={images['puntualidad']} class="relative">
+					<Slide.About image={images['puntualidad']} class="relative" position="top">
 						<Slide.Overlay
 							class="bg-gradient-to-t from-20% portrait:sm:bg-gradient-to-b landscape:md:bg-gradient-to-r"
 						/>
@@ -188,6 +188,7 @@
 								</p>
 								<Button
 									class="bg-secondary border-secondary"
+									size="slim"
 									href="https://www.copaair.com/es-co/noticias/cirium-reconoce-a-copa-airlines-como-la-aerolinea-mas-puntual-de-latinoamerica/"
 									target="_blank"
 								>
@@ -198,9 +199,9 @@
 					</Slide.About>
 				</Carousel.Item>
 				<Carousel.Item>
-					<Slide.About image={images['conectividad']} class="relative">
+					<Slide.About image={images['conectividad']} class="relative" position="top">
 						<Slide.Overlay
-							class="bg-gradient-to-b landscape:bg-gradient-to-t landscape:md:bg-gradient-to-r"
+							class="bg-gradient-to-b from-50% landscape:from-30% landscape:bg-gradient-to-t landscape:md:bg-gradient-to-r"
 						/>
 						<Slide.Content class="row-start-3">
 							<div
@@ -210,9 +211,7 @@
 									variant="displayNormal"
 									tag="h3"
 									class="text-common-white landscape:md:max-w-sm landscape:lg:max-w-lg"
-									>Conexiones rápidas a través del Hub de las Américas<span class="text-base"
-										>®</span
-									> en Panamá</Heading
+									>Conexiones rápidas a través del Hub de las Américas® en Panamá</Heading
 								>
 								<p class="my-2 max-w-prose landscape:md:max-w-sm">
 									Nuestras conexiones son fáciles y rápidas, sin trámites de migración ni aduana y
@@ -220,6 +219,7 @@
 								</p>
 								<Button
 									class="bg-secondary border-secondary"
+									size="slim"
 									href="https://www.copaair.com/es-co/noticias/copa-operacion-t2-internacional/"
 									target="_blank"
 								>

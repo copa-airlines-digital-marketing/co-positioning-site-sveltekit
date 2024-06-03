@@ -78,7 +78,7 @@
 		<Carousel.Content class="col-span-full row-span-full z-0">
 			<Carousel.Container class="h-full">
 				<Carousel.Item>
-					<Slide.OnBoard image={images['refrigerio']}>
+					<Slide.OnBoard image={images['refrigerio']} position="object-top">
 						<Slide.Overlay
 							class="bg-gradient-to-t from-50% sm:from-35% sm:bg-gradient-to-r portrait:sm:bg-gradient-to-tr portrait:sm:from-25% md:bg-gradient-to-br md:from-20%"
 						/>
@@ -97,12 +97,13 @@
 									Ofrecemos servicio a bordo sin costo en todos nuestros vuelos sin importar la
 									tarifa o ruta que escojas.
 								</p>
-								<p class="my-2 text-xs sm:max-w-sm">
+								<p class="text-xs sm:max-w-sm">
 									*El servicio de alimentos y bebidas ofrecido a bordo varía dependiendo del
 									destino, la duración y el horario del vuelo.
 								</p>
 								<Button
 									class="bg-secondary border-secondary mt-4"
+									size="slim"
 									href="https://www.copaair.com/es-co/descubre-copa-airlines/experiencia-a-bordo/comida-a-bordo/"
 									>Conoce más</Button
 								>
@@ -113,7 +114,7 @@
 				</Carousel.Item>
 				<Carousel.Item>
 					<Slide.OnBoard image={images['equipaje']}>
-						<Slide.Overlay class="bg-gradient-to-t landscape:bg-gradient-to-br" />
+						<Slide.Overlay class="bg-gradient-to-t from-40% landscape:bg-gradient-to-br" />
 						<Slide.Content class="row-start-2">
 							<div
 								class="row-span-full col-span-full text-common-white mb-roomy flex flex-col justify-end items-start landscape:justify-start"
@@ -122,11 +123,12 @@
 									Equipaje de mano <span class="text-secondary-faded">siempre</span> incluido
 								</Heading>
 								<p class="my-2 max-w-prose sm:max-w-sm">
-									Tu equipaje de mano y un articulo personal, siempre están incluido en todas
+									Tu equipaje de mano y un articulo personal, siempre están incluidos en todas
 									nuestras rutas y tarifas.
 								</p>
 								<Button
 									class="bg-secondary border-secondary mt-4"
+									size="slim"
 									href="https://www.copaair.com/es-co/informacion-al-viajar/informacion-de-equipaje/"
 									>Conoce más</Button
 								>
@@ -135,8 +137,10 @@
 					</Slide.OnBoard>
 				</Carousel.Item>
 				<Carousel.Item>
-					<Slide.OnBoard image={images['comodidad']}>
-						<Slide.Overlay class="bg-gradient-to-t from-40% sm:bg-gradient-to-tr" />
+					<Slide.OnBoard image={images['comodidad']} position="object-bottom landscape:object-top">
+						<Slide.Overlay
+							class="bg-gradient-to-t from-40% to-70% md:bg-gradient-to-tr md:from-40% md:to-50%"
+						/>
 						<Slide.Content class="row-start-2">
 							<div
 								class="row-span-full col-span-full text-common-white flex flex-col items-start justify-end mb-roomy"
@@ -151,6 +155,7 @@
 								</p>
 								<Button
 									class="bg-secondary border-secondary mt-4"
+									size="slim"
 									href="https://www.copaair.com/es-co/descubre-copa-airlines/experiencia-a-bordo/"
 									>Conoce más</Button
 								>
@@ -174,6 +179,7 @@
 								</p>
 								<Button
 									class="bg-secondary border-secondary mt-4"
+									size="slim"
 									href="https://www.copaair.com/es-co/descubre-copa-airlines/experiencia-a-bordo/"
 									>Conoce más</Button
 								>
@@ -206,10 +212,7 @@
 						<span
 							in:send={{ key: 'trigger' }}
 							out:receive={{ key: 'trigger' }}
-							class={cn(
-								'absolute left-0 bottom-0 h-0.5 w-full transition-colors',
-								selected === 1 ? 'bg-primary landscape:md:bg-secondary' : 'bg-secondary'
-							)}
+							class={cn('absolute left-0 bottom-0 h-0.5 w-full transition-colors bg-secondary')}
 						></span>
 					{/if}
 				</Carousel.Dot>

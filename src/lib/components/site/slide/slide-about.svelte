@@ -6,12 +6,14 @@
 	type $$Props = HTMLAttributes<HTMLDivElement> & {
 		image: EnhancedImage.ImageToolsPictureWithMediaQuery;
 		loading?: HTMLImgAttributes['loading'];
+		position?: 'center' | 'top';
 	};
 
 	let className: $$Props['class'] = undefined;
 	export { className as class };
 	export let image: $$Props['image'];
 	export let loading: $$Props['loading'] = 'lazy';
+	export let position: $$Props['position'] = 'center';
 </script>
 
 <div class={cn('container-grid grid-rows-[auto_auto_1fr] h-full', className)}>
@@ -21,7 +23,10 @@
 		<EnhancedImage.Root
 			{loading}
 			{image}
-			class="absolute left-0 top-0 h-full w-full object-cover"
+			class={cn(
+				'absolute left-0 top-0 h-full w-full object-cover object-top',
+				position === 'center' ? 'object-center' : 'object-top'
+			)}
 			alt=""
 		></EnhancedImage.Root>
 	</div>
