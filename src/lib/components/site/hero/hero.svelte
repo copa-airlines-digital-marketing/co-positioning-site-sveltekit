@@ -240,7 +240,7 @@
 									>
 										La aerolínea más premiada por <span class="text-secondary-faded"
 											>puntualidad</span
-										> de América en la última década
+										> en América en la última década
 									</Heading>
 									<Button
 										variant="light"

@@ -151,7 +151,7 @@
 									tag="h3"
 									class="text-common-white max-w-xs sm:max-w-md"
 								>
-									Más De <span class="text-secondary-faded">75 Años</span> Volando Los Cielos De Las
+									Más de <span class="text-secondary-faded">75 años</span> volando los cielos de las
 									Américas
 								</Heading>
 								<p class="my-2 max-w-sm">
@@ -210,7 +210,9 @@
 									variant="displayNormal"
 									tag="h3"
 									class="text-common-white landscape:md:max-w-sm landscape:lg:max-w-lg"
-									>Conexiones rápidas a través del Hub de las Américas® en Panamá</Heading
+									>Conexiones rápidas a través del Hub de las Américas<span class="text-base"
+										>®</span
+									> en Panamá</Heading
 								>
 								<p class="my-2 max-w-prose landscape:md:max-w-sm">
 									Nuestras conexiones son fáciles y rápidas, sin trámites de migración ni aduana y

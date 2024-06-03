@@ -122,7 +122,7 @@
 									Equipaje de mano <span class="text-secondary-faded">siempre</span> incluido
 								</Heading>
 								<p class="my-2 max-w-prose sm:max-w-sm">
-									Tu equipaje de mano y un articulo personal, siempre está incluido en todas
+									Tu equipaje de mano y un articulo personal, siempre están incluido en todas
 									nuestras rutas y tarifas.
 								</p>
 								<Button
@@ -142,8 +142,8 @@
 								class="row-span-full col-span-full text-common-white flex flex-col items-start justify-end mb-roomy"
 							>
 								<Heading variant="displayNormal" tag="h3" class="text-common-white max-w-md">
-									Asientos <span class="text-secondary-faded">reclinables</span> y buen
-									<span class="text-secondary-faded">espacio</span> para tus piernas
+									Asientos <span class="text-secondary-faded">reclinables</span> y
+									<span class="text-secondary-faded">buen espacio</span> para tus piernas
 								</Heading>
 								<p class="my-2 max-w-sm">
 									En todos nuestros aviones encontrarás asientos reclinables y con buen espacio para
