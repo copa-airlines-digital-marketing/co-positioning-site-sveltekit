@@ -14,6 +14,13 @@
 	import mapImagePortrait from '$lib/assets/mapa-de-destinos-en-colombia-portrait.jpg?h=2160;1600;1080;900;768&format=avif;webp;jpg&as=picture&imagetools';
 	import onBoardImagePortrait from '$lib/assets/refrigerio-a-bordo-de-aeronave-portrait.jpg?h=2160;1600;1080;900;768&format=avif;webp;jpg&as=picture&imagetools';
 	import aboutCopaPortrait from '$lib/assets/abordaje-de-vuelo-portrait.jpg?h=2160;1600;1080;900;768&format=avif;webp;jpg&as=picture&imagetools';
+	import video144p from '$lib/assets/video-144.webm';
+	import video240p from '$lib/assets/video-240.webm';
+	import video360p from '$lib/assets/video-360.webm';
+	import video480p from '$lib/assets/video-480.webm';
+	import video720p from '$lib/assets/video-720.webm';
+	import video1080p from '$lib/assets/video-1080.webm';
+
 	import Autoplay from 'embla-carousel-autoplay';
 	import {
 		BaselinePlayArrow,
@@ -30,6 +37,7 @@
 
 	let showBackToTop = false;
 	let section: HTMLDivElement;
+	let videoElement: HTMLVideoElement;
 
 	onMount(() => {
 		const ob = new IntersectionObserver((payload) => (showBackToTop = !payload[0].isIntersecting));
@@ -59,6 +67,12 @@
 		duration: 250,
 		easing: cubicInOut
 	});
+
+	const videoCTAClickHandler = () => {
+		console.log('yo', videoElement);
+
+		videoElement.requestFullscreen().then(() => videoElement.play());
+	};
 </script>
 
 <div
@@ -167,6 +181,24 @@
 										Ver video
 										<BaselinePlayArrow class="size-6" />
 									</Button>
+									<video
+										slot="video"
+										controls
+										preload="none"
+										class="h-full w-full"
+										controlslist="nodownload"
+										bind:this={videoElement}
+										on:loadstart={videoCTAClickHandler}
+									>
+										<source src={video1080p} type="video/webm" media="(min-width:1280px)" />
+										<source src={video720p} type="video/webm" media="(min-width:854px)" />
+										<source src={video480p} type="video/webm" media="(min-width:640px)" />
+										<source src={video360p} type="video/webm" media="(min-width:426px)" />
+										<source src={video240p} type="video/webm" media="(min-width:280px)" />
+										<source src={video144p} type="video/webm" />
+										<track default srclang="es" kind="captions" />
+										Tu navegador no soporta video
+									</video>
 								</VideoDialog.Root>
 							</div>
 						</Slide.Content>
