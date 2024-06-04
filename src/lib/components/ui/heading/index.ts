@@ -8,7 +8,7 @@ const headingVariants = tv({
     variant: {
       h1: '',
       h2: '',
-      h3: '',
+      h3: 'text-lg leading-6 font-bold lg:text-xl lg:leading-8',
       h4: '',
       displayBig: 'text-4xl tracking-tight sm:text-6xl sm:tracking-tighter md:text-7xl',
       displayNormal: 'text-3xl tracking-tight sm:text-4xl sm:tracking-tighter lg:text-5xl',

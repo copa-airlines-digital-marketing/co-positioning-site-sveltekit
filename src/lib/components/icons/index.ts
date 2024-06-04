@@ -15,6 +15,8 @@ import OutlineArrowUpward from "./outline-arrow-upward.svelte";
 import LogoCiriumOtp from "./logo-cirium-otp.svelte";
 import IstoipoCopaAirlines from "./istoipo-copa-airlines.svelte";
 import OutlinePause from "./outline-pause.svelte";
+import OutlineSearch from "./outline-search.svelte";
+import PictogramStopover from "./pictogram-stopover.svelte";
 
 export {
   BaselinePlayArrow,
@@ -28,6 +30,8 @@ export {
   OutlineArrowForward,
   OutlineArrowUpward,
   OutlinePause,
+  OutlineSearch,
+  PictogramStopover,
   SocialFacebook,
   SocialInstagram,
   SocialLinkedin,
