@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+import vidstack from 'vidstack/tailwind.cjs';
+
 export default {
   content: ['./src/**/*.{html,js,svelte,ts}'],
   corePlugins: {
@@ -35,7 +37,9 @@ export default {
           },
         },
       })
-    }
+    },
+    vidstack({prefix: 'media',
+      webComponents: true})
   ],
   theme: {
     screens: {

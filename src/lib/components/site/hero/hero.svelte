@@ -171,35 +171,40 @@
 									¿Sientes que volar ha perdido su encanto? <br />
 									Queremos devolverle la dicha de volar a Colombia
 								</p>
-								<VideoDialog.Root>
-									<Button
-										variant="light"
-										size="slim"
-										class="my-5 bg-secondary border-secondary items-center"
-										slot="trigger"
-									>
-										Ver video
-										<BaselinePlayArrow class="size-6" />
-									</Button>
-									<video
-										slot="video"
-										controls
-										preload="none"
-										class="h-full w-full"
-										controlslist="nodownload"
-										bind:this={videoElement}
-										on:loadstart={videoCTAClickHandler}
-									>
-										<source src={video1080p} type="video/webm" media="(min-width:1280px)" />
-										<source src={video720p} type="video/webm" media="(min-width:854px)" />
-										<source src={video480p} type="video/webm" media="(min-width:640px)" />
-										<source src={video360p} type="video/webm" media="(min-width:426px)" />
-										<source src={video240p} type="video/webm" media="(min-width:280px)" />
-										<source src={video144p} type="video/webm" />
-										<track default srclang="es" kind="captions" />
-										Tu navegador no soporta video
-									</video>
-								</VideoDialog.Root>
+								{#await import('../../ui/video/Player.svelte') then { default: Player }}
+									<VideoDialog.Root>
+										<Button
+											variant="light"
+											size="slim"
+											class="my-5 bg-secondary border-secondary items-center"
+											slot="trigger"
+										>
+											Ver video
+											<BaselinePlayArrow class="size-6" />
+										</Button>
+
+										<!-- <svelte:component this={Player} slot="video" /> -->
+
+										<video
+											slot="video"
+											controls
+											preload="none"
+											class="h-full w-full"
+											controlslist="nodownload"
+											bind:this={videoElement}
+											on:loadstart={videoCTAClickHandler}
+										>
+											<source src={video1080p} type="video/webm" media="(min-width:1280px)" />
+											<source src={video720p} type="video/webm" media="(min-width:854px)" />
+											<source src={video480p} type="video/webm" media="(min-width:640px)" />
+											<source src={video360p} type="video/webm" media="(min-width:426px)" />
+											<source src={video240p} type="video/webm" media="(min-width:280px)" />
+											<source src={video144p} type="video/webm" />
+											<track default srclang="es" kind="captions" />
+											Tu navegador no soporta video
+										</video>
+									</VideoDialog.Root>
+								{/await}
 							</div>
 						</Slide.Content>
 					</Slide.Hero>
@@ -302,7 +307,6 @@
 		</Carousel.Content>
 	</Carousel.Root>
 </div>
-
 {#if showBackToTop}
 	<div
 		class="hidden sm:portrait:block md:block fixed bottom-roomy right-roomy z-20"

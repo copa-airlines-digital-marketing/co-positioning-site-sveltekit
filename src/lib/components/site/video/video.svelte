@@ -18,7 +18,7 @@
 		/>
 		<Dialog.Content
 			transition={flyAndScale}
-			class="fixed inset-0 z-50 shadow-xl bg-backgound-lightblue/10 overflow-hidden"
+			class="fixed inset-0 z-50 shadow-xl bg-backgound-lightblue/10 overflow-auto"
 		>
 			<slot name="video" />
 			<Dialog.Close class="absolute right-roomy top-roomy" tabindex={-1}>
