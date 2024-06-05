@@ -61,10 +61,27 @@
 			<LogoStarAlliance class="w-44" />
 		</div>
 		<div class="flex flex-col gap-normal md:flex-row md:justify-between md:items-end">
-			<ul>
-				{#each awards as award}
-					<li></li>
-				{/each}
+			<ul class="flex gap-2">
+				<li>
+					<Button
+						href="https://www.copaair.com/es-co/legal/terminos-y-condiciones/politica-de-privacidad/"
+						target="_blank"
+						variant="transparent"
+						size="slim"
+					>
+						Política de Privacidad
+					</Button>
+				</li>
+				<li>
+					<Button
+						href="https://www.copaair.com/es-co/legal/terminos-y-condiciones/copa-airlines/"
+						target="_blank"
+						variant="transparent"
+						size="slim"
+					>
+						Términos y condiciones de este sitio web
+					</Button>
+				</li>
 			</ul>
 			<nav>
 				<h4 class="text-primary font-bold">Siguenos</h4>
