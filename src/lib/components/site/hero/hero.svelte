@@ -7,11 +7,11 @@
 	import * as EnhancedImage from '$lib/components/ui/image';
 	import * as VideoDialog from '$lib/components/site/video';
 	import mainImage from '$lib/assets/pareja-en-clase-ejecutiva.jpg?w=3840;2560;1920;1560;1366;1024;720&format=avif;webp;jpg&as=picture&imagetools';
-	import mapImage from '$lib/assets/mapa-de-destinos-en-colombia.jpg?w=3840;2560;1920;1560;1366;1024;720&format=avif;webp;jpg&as=picture&imagetools';
+	import mapImage from '$lib/assets/mapa-de-destinos-desde-colombia.jpg?w=3840;2560;1920;1560;1366;1024;720&format=avif;webp;jpg&as=picture&imagetools';
 	import onBoardImage from '$lib/assets/refrigerio-a-bordo-de-aeronave.jpg?w=3840;2560;1920;1560;1366;1024;720&format=avif;webp;jpg&as=picture&imagetools';
 	import aboutCopa from '$lib/assets/abordaje-de-vuelo.jpg?w=3840;2560;1920;1560;1366;1024;720&format=avif;webp;jpg&as=picture&imagetools';
 	import mainImagePortrait from '$lib/assets/pareja-en-clase-ejecutiva-portrait.jpg?h=2160;1600;1080;900;768&format=avif;webp;jpg&as=picture&imagetools';
-	import mapImagePortrait from '$lib/assets/mapa-de-destinos-en-colombia-portrait.jpg?h=2160;1600;1080;900;768&format=avif;webp;jpg&as=picture&imagetools';
+	import mapImagePortrait from '$lib/assets/mapa-de-destinos-desde-colombia-portrait.jpg?h=2160;1600;1080;900;768&format=avif;webp;jpg&as=picture&imagetools';
 	import onBoardImagePortrait from '$lib/assets/refrigerio-a-bordo-de-aeronave-portrait.jpg?h=2160;1600;1080;900;768&format=avif;webp;jpg&as=picture&imagetools';
 	import aboutCopaPortrait from '$lib/assets/abordaje-de-vuelo-portrait.jpg?h=2160;1600;1080;900;768&format=avif;webp;jpg&as=picture&imagetools';
 	import video144p from '$lib/assets/video-144.webm';
@@ -151,7 +151,7 @@
 						image={images['main']}
 						loading="eager"
 						class="h-full min-h-[480px]"
-						position="top"
+						position="object-top"
 					>
 						<Slide.Overlay
 							class="bg-gradient-to-t landscape:from-30% landscape:bg-gradient-to-tr"
@@ -210,7 +210,7 @@
 					</Slide.Hero>
 				</Carousel.Item>
 				<Carousel.Item class="h-full">
-					<Slide.Hero image={images['map']} class="h-full">
+					<Slide.Hero image={images['map']} class="h-full" position="object-left-top">
 						<Slide.Content>
 							<div
 								class="col-start-1 col-span-full flex flex-col items-start row-span-full justify-end py-5 lg:justify-start lg:row-start-4"
@@ -240,7 +240,7 @@
 					</Slide.Hero>
 				</Carousel.Item>
 				<Carousel.Item>
-					<Slide.Hero image={images.onboard} class="h-full" position="top">
+					<Slide.Hero image={images.onboard} class="h-full" position="object-top">
 						<Slide.Overlay
 							class="bg-gradient-to-t landscape:md:bg-gradient-to-br landscape:from-15%"
 						></Slide.Overlay>
@@ -267,7 +267,7 @@
 					</Slide.Hero>
 				</Carousel.Item>
 				<Carousel.Item>
-					<Slide.Hero image={images.aboutCopa} class="h-full" position="top">
+					<Slide.Hero image={images.aboutCopa} class="h-full" position="object-top">
 						<Slide.Overlay class="bg-gradient-to-b landscape:bg-gradient-to-r from-30%" />
 						<Slide.Content>
 							<div

@@ -6,7 +6,8 @@
 	import { Button } from '$lib/components/ui/button';
 	import desde from '$lib/assets/mapa-de-destinos-en-colombia.jpg?w=3840;2560;1920;1560;1366;1024;720&format=avif;webp;jpg&as=picture&imagetools';
 	import desdePortrait from '$lib/assets/mapa-de-destinos-en-colombia-portrait.jpg?w=3840;2560;1920;1560;1366;1024;720&format=avif;webp;jpg&as=picture&imagetools';
-	import mainImage from '$lib/assets/sample.jpg?w=3840;2560;1920;1560;1366;1024;720&format=avif;webp;jpg&as=picture&imagetools';
+	import hacia from '$lib/assets/mapa-de-destinos-desde-colombia.jpg?w=3840;2560;1920;1560;1366;1024;720&format=avif;webp;jpg&as=picture&imagetools';
+	import haciaPortrait from '$lib/assets/mapa-de-destinos-desde-colombia-portrait.jpg?w=3840;2560;1920;1560;1366;1024;720&format=avif;webp;jpg&as=picture&imagetools';
 
 	const images: Record<string, EnhancedImage.ImageToolsPictureWithMediaQuery> = {
 		desde: {
@@ -15,9 +16,9 @@
 			'(orientation: landscape)': desde
 		},
 		hacia: {
-			'(orientation: portrait)': mainImage,
-			'(orientation: portait) and (min-width: 1367px)': mainImage,
-			'(orientation: landscape)': mainImage
+			'(orientation: portrait)': haciaPortrait,
+			'(orientation: portait) and (min-width: 1367px)': hacia,
+			'(orientation: landscape)': hacia
 		}
 	} as const;
 </script>
@@ -86,14 +87,14 @@
 					<div></div>
 				</Carousel.Item>
 				<Carousel.Item>
-					<Slide.About image={images['hacia']} class="relative">
-						<Slide.Overlay class="bg-gradient-to-t landscape:bg-gradient-to-br" />
+					<Slide.About image={images['hacia']} class="relative" position="top">
 						<Slide.Content class="row-start-3">
 							<div
-								class="row-span-full col-span-full text-common-white mb-roomy flex flex-col justify-end items-start landscape:justify-start"
+								class="row-span-full col-span-full text-common-white mb-roomy flex flex-col justify-end items-start landscape:justify-end landscape:md:justify-center"
 							>
 								<Heading variant="displayNormal" tag="h3" class="text-common-white max-w-md">
-									A más de <span class="text-secondary-faded">70 destinos</span> Internacionales
+									A más de <span class="text-commo-white md:text-secondary-faded">70 destinos</span>
+									Internacionales
 								</Heading>
 								<p class="my-2 max-w-prose sm:max-w-sm">
 									Contamos con más de 350 vuelos diarios desde el Hub de las Américas<sup>®</sup> en
