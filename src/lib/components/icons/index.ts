@@ -39,3 +39,6 @@ export {
   SocialX,
   SocialYoutube
 }
+
+export { default as OutlineAdd } from './outline-add.svelte'
+export { default as OutlineMinus } from './outline-minus.svelte'

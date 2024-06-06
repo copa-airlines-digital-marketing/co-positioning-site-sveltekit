@@ -2,7 +2,8 @@
 	import type { HTMLFormAttributes } from 'svelte/elements';
 	import { cn } from '$lib/utils';
 	import { Button } from '../button';
-	import { OutlineArrowForward, OutlineSearch, PictogramStopover } from '$lib/components/icons';
+	import { OutlineArrowForward, OutlineSearch, PictogramStopover } from '$icons';
+	import { Counter } from '$components/ui/inputs/counter';
 
 	type $$Props = HTMLFormAttributes;
 
@@ -21,7 +22,9 @@
 	<div class="px-8 py-4 flex items-center justify-between"></div>
 	<div class="h-px w-full opacity-50 bg-grey-300 caret-transparent"></div>
 	<!-- Main Inputs  -->
-	<div class="p-6"></div>
+	<div class="p-6">
+		<Counter></Counter>
+	</div>
 	<!-- Other Options -->
 	<div class="px-6 flex flex-col gap-2 place-items-center">
 		<Button
