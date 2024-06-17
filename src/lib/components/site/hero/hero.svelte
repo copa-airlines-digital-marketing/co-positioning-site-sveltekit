@@ -34,6 +34,7 @@
 	import LogoCiriumOtp from '$lib/components/icons/logo-cirium-otp.svelte';
 	import { crossfade } from 'svelte/transition';
 	import { cubicInOut } from 'svelte/easing';
+	import Nav from './nav.svelte';
 
 	let showBackToTop = false;
 	let section: HTMLDivElement;
@@ -76,13 +77,13 @@
 </script>
 
 <div
-	class="w-full portrait:h-[calc(100svh-64px)] portrait:sm:min-h-svh landscape:min-h-svh flex flex-col bg-gradient-to-b from-primary to-primary-ultradark"
+	class="w-full portrait:h-[calc(100svh-64px)] portrait:md:min-h-svh landscape:min-h-svh flex flex-col bg-gradient-to-b from-primary to-primary-ultradark"
 	id="top"
 	bind:this={section}
 >
 	<Header />
 	<Carousel.Root
-		class="container-grid grid-rows-[auto_1fr] flex-grow"
+		class="container-grid grid-rows-[auto_1fr_auto] flex-grow"
 		opts={{ duration: 40 }}
 		plugins={[
 			Autoplay({
@@ -224,14 +225,15 @@
 									>
 									en Colombia hacia más de
 									<span class="text-common-white md:text-secondary-faded"
-										>80&nbsp;destinos internacionales</span
+										>70&nbsp;destinos internacionales</span
 									>
 								</Heading>
 								<Button
 									variant="light"
 									size="slim"
 									class="my-5 bg-secondary border-secondary"
-									href="#destinos"
+									href="https://destinationsguide.copaair.com/es-co/"
+									target="_blank"
 								>
 									Descubre nuestros destinos
 								</Button>
@@ -271,12 +273,12 @@
 						<Slide.Overlay class="bg-gradient-to-b landscape:bg-gradient-to-r from-30%" />
 						<Slide.Content>
 							<div
-								class="col-span-full mb-roomy row-span-full flex flex-col sm:flex-col portrait:sm:flex-row justify-between"
+								class="col-span-full row-start-1 row-span-full h-full flex flex-col items-start md:flex-row"
 							>
-								<div>
+								<div class="md:flex-shrink-0">
 									<Heading
 										variant="displayNormal"
-										class="my-2 text-common-white sm:max-w-xs md:max-w-md"
+										class="my-2 text-common-white max-w-full sm:max-w-xs md:max-w-md"
 									>
 										La aerolínea más premiada por <span class="text-secondary-faded"
 											>puntualidad</span
@@ -291,13 +293,15 @@
 										Descubre más
 									</Button>
 								</div>
-								<div
-									class="bg-common-black/80 sm:bg-transparent p-4 rounded-full size-28 sm:size-44 md:size-52 lg:size-64"
-								>
-									<LogoCiriumOtp class="w-full text-white mt-0.5" />
-									<span class="sr-only">
-										Logo de Cirium, la aerolínea más puntual de latinoamerica de 2023
-									</span>
+								<div class="flex-grow my-2 portrait:sm:my-6 flex items-end md:justify-end w-full">
+									<div
+										class="bg-common-black/80 p-4 rounded-full aspect-square w-1/3 md:w-1/4 max-w-52"
+									>
+										<LogoCiriumOtp class="w-auto max-h-52 text-white mt-0.5" />
+										<span class="sr-only">
+											Logo de Cirium, la aerolínea más puntual de latinoamerica de 2023
+										</span>
+									</div>
 								</div>
 							</div>
 						</Slide.Content>
@@ -305,6 +309,7 @@
 				</Carousel.Item>
 			</Carousel.Container>
 		</Carousel.Content>
+		<Nav class="col-start-2 mb-roomy row-start-3 relative hidden md:block"></Nav>
 	</Carousel.Root>
 </div>
 {#if showBackToTop}

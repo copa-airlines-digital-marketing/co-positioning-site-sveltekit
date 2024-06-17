@@ -5,10 +5,10 @@
 
 	const sections = [
 		{ href: '#top', text: 'Inicio' },
-		{ href: '#destinos', text: 'Destinos' },
+		{ href: 'https://destinationsguide.copaair.com/es-co/', target: '_blank', text: 'Destinos' },
+		{ href: '#reserva', text: 'Reserva' },
 		{ href: '#a-bordo', text: 'A Bordo' },
-		{ href: '#nosotros', text: 'Nosotros' },
-		{ href: '#reserva', text: 'Reserva' }
+		{ href: '#nosotros', text: 'Nosotros' }
 	];
 </script>
 
@@ -30,13 +30,13 @@
 			<LogoCopaAirlines class={cn('w-full max-w-52 h-auto')}></LogoCopaAirlines>
 		</Button>
 		<nav
-			class="portrait:fixed portrait:sm:static landscape:static bottom-0 left-0 portrait:w-full portrait:sm:w-auto landscape:w-auto bg-primary h-16 z-40"
+			class="portrait:fixed md:hidden bottom-0 left-0 w-full landscape:w-auto bg-primary h-16 z-40"
 		>
 			<ul class={cn('flex items-center justify-center container mx-auto md:max-w-none h-full')}>
 				{#each sections as section}
-					{@const { href, text } = section}
+					{@const { href, text, target } = section}
 					<li class="shrink-0">
-						<Button {href} class="text-xs">
+						<Button {href} class="text-xs" {target}>
 							{text}
 						</Button>
 					</li>

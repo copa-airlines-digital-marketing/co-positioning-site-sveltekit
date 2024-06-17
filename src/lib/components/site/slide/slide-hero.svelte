@@ -16,7 +16,7 @@
 	export let position: $$Props['class'] = 'object-center';
 </script>
 
-<div class={cn('grid grid-cols-1 grid-rows-[auto_1fr]', className)}>
+<div class={cn('grid grid-cols-1 grid-rows-[auto_1fr_auto]', className)}>
 	<div class="h-11 mt-roomy row-start-1"></div>
 	<div class="col-span-full row-span-full relative">
 		<EnhancedImage.Root
@@ -27,4 +27,5 @@
 		></EnhancedImage.Root>
 	</div>
 	<slot />
+	<div class="mb-roomy row-start-3 col-start-2 h-16 hidden md:block"></div>
 </div>
