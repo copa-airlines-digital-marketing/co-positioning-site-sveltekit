@@ -12,7 +12,7 @@ const headingVariants = tv({
       h4: '',
       displayBig: 'text-4xl tracking-tight sm:text-6xl sm:tracking-tighter md:text-7xl',
       displayNormal: 'text-3xl tracking-tight sm:text-4xl sm:tracking-tighter lg:text-5xl',
-      displaySmall: 'font-normal text-lg sm:text-2xl md:text-3xl lg:text-4xl tracking-tight lg:-tracking-widest text-grey-700',
+      displaySmall: 'font-normal text-lg sm:text-2xl md:text-3xl lg:text-4xl tracking-[-0.63px] sm:tracking-[-0.75px] md:tracking-[-0.88px] lg:tracking-[-1px] text-grey-700',
       displayTiny: 'font-normal text-lg lg:text-xl text-grey-700'
     },
   },

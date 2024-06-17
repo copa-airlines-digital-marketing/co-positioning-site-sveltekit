@@ -28,6 +28,7 @@
 	import { Heading } from '$lib/components/ui/heading';
 	import { Button } from '$lib/components/ui/button';
 	import Autoplay from 'embla-carousel-autoplay';
+	import { cn } from '$lib/utils';
 
 	const images: Record<string, EnhancedImage.ImageToolsPictureWithMediaQuery> = {
 		experiencia: {
@@ -61,294 +62,162 @@
 			'(orientation: landscape)': conectividad
 		},
 		reconocimientos: {
-			'(orientation: portrait)': reconocimientosPortrait,
-			'(orientation: portait) and (min-width: 1367px)': reconocimientos,
-			'(orientation: landscape)': reconocimientos
+			'(orientation: portrait)': reconocimientosPortrait
 		}
 	} as const;
 </script>
 
 <div
 	id="nosotros"
-	class="portrait:h-[calc(100svh-64px)] portrait:sm:min-h-svh landscape:min-h-svh w-full bg-gradient-to-b from-primary to-primary-ultradark container-grid grid-rows-[auto_auto_1fr]"
+	class="w-full bg-gradient-to-b from-primary to-primary-ultradark container-grid auto-rows-auto"
 >
-	<Heading
-		variant="h2"
-		tag="h2"
-		class="text-sm font-normal my-minimal row-start-2 col-start-2 z-10 items-center flex gap-1"
-	>
-		<span class="rounded-full block overflow-hidden bg-common-white">
-			<IstoipoCopaAirlines class="size-6"></IstoipoCopaAirlines>
-		</span>
-		<span class="text-common-white">Descubre Copa Airlines</span>
-	</Heading>
-	<Carousel.Root
-		class="col-span-full row-span-full grid grid-cols-subgrid grid-rows-subgrid relative"
-		opts={{ duration: 40 }}
-		plugins={[
-			Autoplay({
-				delay: 10000,
-				playOnInit: false,
-				stopOnInteraction: true
-			})
-		]}
-		let:selected
-		let:playingState
-	>
-		<div class="col-start-2 row-start-1 mt-roomy z-10">
-			<Carousel.Dots
-				direction="ltr"
-				let:index
-				class="grid auto-cols-fr grid-rows-1 grid-flow-col gap-2"
-			>
-				<Carousel.Dot
-					slide={index}
-					class="w-full max-w-none p-0 m-0 bg-transparent grid grid-cols-1 grid-rows-1 border-0"
-				>
-					<div class="bg-common-white/60 row-start-1 row-end-1 h-1 w-full my-3">
-						{#if selected === index}
-							<div class="h-full w-full bg-common-white"></div>
-						{/if}
-					</div>
-				</Carousel.Dot>
-			</Carousel.Dots>
+	<div class="col-span-full row-start-1 row-end-5 relative overflow-hidden">
+		<IstoipoCopaAirlines class="absolute h-full bottom-0 w-auto text-primary-dark"
+		></IstoipoCopaAirlines>
+	</div>
+	<div class="col-start-2 row-start-1 mt-huge relative line-grid">
+		<div class="rounded-full block overflow-hidden bg-common-white text-primary self-center">
+			<IstoipoCopaAirlines class="size-8"></IstoipoCopaAirlines>
 		</div>
-		<div
-			class="col-start-2 row-start-2 justify-self-end flex justify-end items-center gap-4 md:gap-6 relative z-10"
-		>
-			<div class="flex gap-1 items-center">
-				<Carousel.Previous variant="invert" class="border-0" title="Anterior">
-					<OutlineArrowBack />
-				</Carousel.Previous>
-				<Carousel.Next variant="invert" class="border-0" title="Siguiente">
-					<OutlineArrowForward />
-				</Carousel.Next>
-			</div>
-			<Carousel.PlayPause
-				variant="invert"
-				class="border-0"
-				title={playingState === 'paused' ? 'Reproducir' : 'Detener'}
-			>
-				{#if playingState === 'paused'}
-					<BaselinePlayArrow />
-				{:else}
-					<OutlinePause />
-				{/if}
-			</Carousel.PlayPause>
-		</div>
-		<Carousel.Content class="col-span-full row-span-full z-0">
-			<Carousel.Container class="h-full">
-				<Carousel.Item class="h-full min-h-[480px]">
-					<Slide.About image={images['experiencia']} class="relative">
-						<Slide.Overlay
-							class="bg-gradient-to-t from-20% portrait:sm:bg-gradient-to-b portrait:sm:to-40% portrait:sm:from-10% landscape:bg-gradient-to-br"
-						/>
-						<Slide.Content class="row-start-3">
-							<div
-								class="row-start-13 row-end-1 flex flex-col justify-end portrait:sm:justify-start landscape:justify-start items-start col-span-full my-normal text-common-white"
-							>
-								<Heading
-									variant="displayNormal"
-									tag="h3"
-									class="text-common-white max-w-xs sm:max-w-md"
-								>
-									Más de <span class="text-secondary-faded">75 años</span> volando los cielos de las
-									Américas
-								</Heading>
-								<p class="my-2 max-w-sm">
-									Hemos estado conectando las Américas por 75 años y aqui hay algunas razones por
-									las que somos los mejores
-								</p>
-								<Carousel.NextAndPlay class="bg-secondary border-secondary" size="slim"
-									>Conce más</Carousel.NextAndPlay
-								>
-							</div>
-						</Slide.Content>
-					</Slide.About>
-				</Carousel.Item>
-				<Carousel.Item>
-					<Slide.About image={images['puntualidad']} class="relative" position="top">
-						<Slide.Overlay
-							class="bg-gradient-to-b from-20% portrait:sm:bg-gradient-to-b landscape:md:bg-gradient-to-r"
-						/>
-						<Slide.Content class="row-start-3">
-							<div
-								class="col-span-full mb-roomy row-span-full flex flex-col sm:flex-col portrait:sm:flex-row justify-between"
-							>
-								<div>
-									<Heading
-										variant="displayNormal"
-										class="my-2 text-common-white sm:max-w-xs md:max-w-md"
-									>
-										La aerolínea más premiada por <span class="text-secondary-faded"
-											>puntualidad</span
-										> en América en la última década
-									</Heading>
-									<p class="hidden md:block my-2 max-w-sm text-common-white">
-										Hemos sido reconocidos por Cirium como la aerolínea más puntual de Latinoamérica
-										en 9 ocasiones durante la última década.
-									</p>
-									<Button
-										class="bg-secondary border-secondary mt-4"
-										size="slim"
-										href="https://www.copaair.com/es-co/noticias/cirium-reconoce-a-copa-airlines-como-la-aerolinea-mas-puntual-de-latinoamerica/"
-										target="_blank"
-									>
-										Conoce más
-									</Button>
-								</div>
-								<div
-									class="bg-common-black/80 sm:bg-transparent p-4 rounded-full size-28 sm:size-44 md:size-52 lg:size-64"
-								>
-									<LogoCiriumOtp class="w-full text-white mt-0.5" />
-									<span class="sr-only">
-										Logo de Cirium, la aerolínea más puntual de latinoamerica de 2023
-									</span>
-								</div>
-							</div>
-						</Slide.Content>
-					</Slide.About>
-				</Carousel.Item>
-				<Carousel.Item>
-					<Slide.About image={images['conectividad']} class="relative" position="top">
-						<Slide.Overlay
-							class="bg-gradient-to-b from-50% landscape:from-30% landscape:bg-gradient-to-t landscape:md:bg-gradient-to-r"
-						/>
-						<Slide.Content class="row-start-3">
-							<div
-								class="row-start-12 row-end-1 col-span-full my-normal text-common-white flex flex-col items-start landscape:justify-end landscape:row-start-13 landscape:md:justify-start landscape:md:from-15%"
-							>
-								<Heading
-									variant="displayNormal"
-									tag="h3"
-									class="text-common-white landscape:md:max-w-sm landscape:lg:max-w-lg"
-									>Conexiones rápidas a través del Hub de las Américas<sup>®</sup> en Panamá</Heading
-								>
-								<p class="my-2 max-w-prose landscape:md:max-w-sm">
-									Nuestras conexiones son fáciles y rápidas, sin trámites de migración ni aduana y
-									con el equipaje registrado hasta tu destino final.
-								</p>
-								<Button
-									class="bg-secondary border-secondary"
-									size="slim"
-									href="https://www.copaair.com/es-co/noticias/copa-operacion-t2-internacional/"
-									target="_blank"
-								>
-									Conoce más
-								</Button>
-							</div>
-						</Slide.Content>
-					</Slide.About>
-				</Carousel.Item>
-				<Carousel.Item>
-					<Slide.About image={images['connectmiles']} class="relative">
-						<Slide.Overlay class="bg-gradient-to-t landscape:bg-gradient-to-tr from-30%" />
-						<Slide.Content class="row-start-3">
-							<div
-								class="row-start-13 row-end-1 col-span-full my-normal text-common-white flex flex-col justify-end items-start landscape:sm:row-start-13"
-							>
-								<Heading variant="displayNormal" tag="h3" class="text-common-white"
-									>Acumula y redime millas</Heading
-								>
-								<p class="my-2 max-w-sm">
-									Únete gratis a nuestro Programa de Lealtad <strong>ConnectMiles</strong> y acumula
-									y redime millas en las +25 aerolíneas miembro de Star Alliance.
-								</p>
-								<Button
-									class="my-3 bg-secondary border-secondary"
-									href="https://www.copaair.com/es-gs/enrollment/"
-									target="_blank">Únete ya</Button
-								>
-							</div>
-						</Slide.Content>
-					</Slide.About>
-				</Carousel.Item>
-				<Carousel.Item class="h-full">
-					<Slide.About image={images['staralliance']} class="relative">
-						<Slide.Overlay
-							class="bg-gradient-to-t from-25% portrait:sm:from-10% landscape:md:bg-gradient-to-r"
-						/>
-						<Slide.Content class="row-start-3">
-							<div
-								class="row-span-full col-span-full my-normal text-common-white flex flex-col items-start justify-end landscape:md:justify-start"
-							>
-								<Heading variant="displayNormal" tag="h3" class="text-common-white"
-									>Miembro de Star Alliance</Heading
-								>
-								<p class="my-2 max-w-prose landscape:md:max-w-md">
-									Somos parte de Star Alliance, líder de la red global de aerolíneas. Puedes
-									disfrutar de todos los beneficios agregados en cualquier lugar del mundo donde
-									haya una aerolínea miembro de Star Alliance.
-								</p>
-								<Button
-									class="bg-secondary border-secondary"
-									href="https://www.copaair.com/es-co/mas-de-copa-airlines/staralliance/"
-									target="_blank"
-								>
-									Conoce más
-								</Button>
-							</div>
-						</Slide.Content>
-					</Slide.About>
-				</Carousel.Item>
-				<Carousel.Item>
-					<Slide.About image={images['copaClub']} class="relative">
-						<Slide.Overlay
-							class="bg-gradient-to-t from-40% portrait:sm:from-20% landscape:md:from-20% landscape:md:bg-gradient-to-r"
-						/>
-						<Slide.Content class="row-start-3">
-							<div
-								class="row-span-full col-span-full flex flex-col items-start justify-end my-normal text-common-white"
-							>
-								<Heading
-									variant="displayNormal"
-									tag="h3"
-									class="text-common-white landscape:md:max-w-md"
-									><span class="text-secondary-faded">Copa Club</span>, 6 salas en 5 aeropuertos</Heading
-								>
-								<p class="my-2 max-w-prose landscape:md:max-w-md">
-									Disfruta de nuestras exclusivas salas VIP en los aeropuertos, diseñadas para
-									brindarte confort y lujo antes de tu vuelo. Relájate en un ambiente tranquilo con
-									servicios premium que harán tu espera más placentera.
-								</p>
 
-								<Button
-									class="my-4 bg-secondary border-secondary"
-									href="https://www.copaair.com/es-co/descubre-copa-airlines/experiencia-en-aeropuerto/copa-club/"
-									target="_blank">Conoce nuestras salas</Button
-								>
-							</div>
-						</Slide.Content>
-					</Slide.About>
-				</Carousel.Item>
-				<Carousel.Item>
-					<Slide.About image={images['reconocimientos']} class="relative">
-						<Slide.Overlay
-							class="bg-gradient-to-t from-40% portrait:sm:from-20% landscape:md:bg-gradient-to-r landscape:md:from-20%"
-						/>
-						<Slide.Content class="row-start-3">
-							<div
-								class="row-span-full col-span-full flex flex-col items-start justify-end landscape:md:justify-start my-normal text-common-white"
-							>
-								<Heading variant="displayNormal" tag="h3" class="text-common-white"
-									>Reconocimientos</Heading
-								>
-								<p class="mt-3 mb-6 max-w-prose landscape:md:max-w-md">
-									Somos la aerolínea más puntual de América Latina y la mejor de Centroamérica y el
-									Caribe. Nuestros reconocimientos reflejan nuestro compromiso con darte la mejor
-									experiencia en tu vuelo. ¡Descubre todos nuestros premios y elige volar con los
-									mejores!
-								</p>
-								<Button
-									class="bg-secondary"
-									href="https://www.copaair.com/es-co/descubre-copa-airlines/reconocimientos/"
-									target="_blank">Conoce nuestros reconocimientos</Button
-								>
-							</div>
-						</Slide.Content>
-					</Slide.About>
-				</Carousel.Item>
-			</Carousel.Container>
-		</Carousel.Content>
-	</Carousel.Root>
+		<Heading variant="displaySmall" tag="h2" class="col-start-2">
+			<span class="text-common-white">Descubre Copa Airlines</span>
+		</Heading>
+	</div>
+	<!-- Experiencia -->
+	<div class="col-start-2 row-start-2 relative line-grid">
+		<div class="h-full w-px bg-grey-300 opacity-50 place-self-center"></div>
+		<div class="text-common-white my-normal">
+			<Heading variant="h3" tag="h3" class="text-common-white max-w-prose">
+				Más de <span class="text-secondary-faded">75 años</span> volando los cielos de las Américas
+			</Heading>
+			<p class="my-2 max-w-prose">
+				Hemos estado conectando las Américas por 75 años y aqui hay algunas razones por las que
+				somos los mejores:
+			</p>
+		</div>
+	</div>
+	<!-- Puntualidad -->
+	<div class="col-start-2 row-start-3 relative line-grid">
+		<div class="h-full w-px bg-grey-300 opacity-50 place-self-center row-start-1 col-start-1"></div>
+		<div
+			class="row-start-1 col-start-1 mt-1.5 bg-common-white rounded-full size-4 justify-self-center z-10"
+		></div>
+		<div class="text-common-white col-start-2">
+			<Heading variant="h3" tag="h3" class="text-common-white max-w-prose">
+				Somos la aerolínea más premiada por <span class="text-secondary-faded">puntualidad</span> en
+				América en la última década
+			</Heading>
+			<p class="my-2 max-w-prose">
+				Hemos sido reconocidos por Cirium como la aerolínea más puntual de Latinoamérica en 9
+				ocasiones durante la última década.
+			</p>
+			<div class="h-48"></div>
+			<Button
+				class="bg-secondary border-secondary mt-4"
+				size="slim"
+				href="https://www.copaair.com/es-co/noticias/cirium-reconoce-a-copa-airlines-como-la-aerolinea-mas-puntual-de-latinoamerica/"
+				target="_blank"
+			>
+				Conoce más
+			</Button>
+		</div>
+	</div>
+	<div class="col-start-2 row-start-4 relative">
+		<!-- Conectividad -->
+		<div class="my-roomy text-common-white">
+			<Heading variant="h3" tag="h3" class="text-right max-w-prose ml-auto text-common-white"
+				>Conexiones rápidas a través del Hub de las Américas<sup>®</sup> en Panamá</Heading
+			>
+			<p class="my-2 max-w-prose ml-auto text-right">
+				Nuestras conexiones son fáciles y rápidas, sin trámites de migración ni aduana y con el
+				equipaje registrado hasta tu destino final.
+			</p>
+			<Button
+				class="bg-secondary border-secondary ml-auto"
+				size="slim"
+				href="https://www.copaair.com/es-co/noticias/copa-operacion-t2-internacional/"
+				target="_blank"
+			>
+				Conoce más
+			</Button>
+		</div>
+		<!-- ConnectMiles -->
+		<div
+			class="row-start-13 row-end-1 col-span-full my-normal text-common-white flex flex-col justify-end items-start landscape:sm:row-start-13"
+		>
+			<Heading variant="h3" tag="h3" class="text-common-white">Acumula y redime millas</Heading>
+			<p class="my-2 max-w-sm">
+				Únete gratis a nuestro Programa de Lealtad <strong>ConnectMiles</strong> y acumula y redime millas
+				en las +25 aerolíneas miembro de Star Alliance.
+			</p>
+			<Button
+				class="my-3 bg-secondary border-secondary"
+				href="https://www.copaair.com/es-gs/enrollment/"
+				target="_blank">Únete ya</Button
+			>
+		</div>
+		<!-- Star Alliance -->
+		<div
+			class="row-span-full col-span-full my-normal text-common-white flex flex-col items-start justify-end landscape:md:justify-start"
+		>
+			<Heading variant="h3" tag="h3" class="text-common-white">Miembro de Star Alliance</Heading>
+			<p class="my-2 max-w-prose landscape:md:max-w-md">
+				Somos parte de Star Alliance, líder de la red global de aerolíneas. Puedes disfrutar de
+				todos los beneficios agregados en cualquier lugar del mundo donde haya una aerolínea miembro
+				de Star Alliance.
+			</p>
+			<Button
+				class="bg-secondary border-secondary"
+				href="https://www.copaair.com/es-co/mas-de-copa-airlines/staralliance/"
+				target="_blank"
+			>
+				Conoce más
+			</Button>
+		</div>
+		<!-- Copa Club -->
+		<div class="text-common-white">
+			<Heading variant="h3" tag="h3" class="text-common-white max-w-prose mx-auto text-center"
+				><span class="text-secondary-faded">Copa Club,</span> 6 salas en 5 aeropuertos</Heading
+			>
+			<p class="my-2 max-w-prose mx-auto text-center">
+				Disfruta de nuestras exclusivas salas VIP en los aeropuertos, diseñadas para brindarte
+				confort y lujo antes de tu vuelo. Relájate en un ambiente tranquilo con servicios premium
+				que harán tu espera más placentera.
+			</p>
+			<Button
+				class="my-4 bg-secondary border-secondary"
+				href="https://www.copaair.com/es-co/descubre-copa-airlines/experiencia-en-aeropuerto/copa-club/"
+				target="_blank">Conoce nuestras salas</Button
+			>
+		</div>
+		<!-- Otros reconocimientos -->
+		<div class="my-huge text-common-white flex gap-6">
+			<EnhancedImage.Root
+				loading="lazy"
+				image={images['reconocimientos']}
+				class="w-52 aspect-square rounded-full object-cover object-right-top"
+				alt=""
+			></EnhancedImage.Root>
+			<div class="flex-grow">
+				<Heading variant="h3" tag="h3" class="text-common-white">Otros Reconocimientos</Heading>
+				<p class="my-2 max-w-prose">
+					Somos la aerolínea más puntual de América Latina y la mejor de Centroamérica y el Caribe.
+					Nuestros reconocimientos reflejan nuestro compromiso con darte la mejor experiencia en tu
+					vuelo. ¡Descubre todos nuestros premios y elige volar con los mejores!
+				</p>
+				<Button
+					class="bg-secondary my-6"
+					href="https://www.copaair.com/es-co/descubre-copa-airlines/reconocimientos/"
+					target="_blank">Conoce nuestros reconocimientos</Button
+				>
+			</div>
+		</div>
+	</div>
 </div>
+
+<style lang="postcss">
+	.line-grid {
+		@apply grid grid-cols-[32px_1fr] gap-2;
+	}
+</style>
