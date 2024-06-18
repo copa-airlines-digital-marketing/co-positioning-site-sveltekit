@@ -17,11 +17,13 @@ import IstoipoCopaAirlines from "./istoipo-copa-airlines.svelte";
 import OutlinePause from "./outline-pause.svelte";
 import OutlineSearch from "./outline-search.svelte";
 import PictogramStopover from "./pictogram-stopover.svelte";
+import LogoConnectmiles from "./logo-connectmiles.svelte";
 
 export {
   BaselinePlayArrow,
   IstoipoCopaAirlines,
   LogoCiriumOtp,
+  LogoConnectmiles,
   LogoCopaAirlines,
   LogoStarAlliance,
   OutlineClose,
@@ -37,7 +39,7 @@ export {
   SocialLinkedin,
   SocialTiktok,
   SocialX,
-  SocialYoutube
+  SocialYoutube,
 }
 
 export { default as OutlineAdd } from './outline-add.svelte'

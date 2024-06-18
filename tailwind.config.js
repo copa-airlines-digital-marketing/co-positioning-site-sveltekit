@@ -39,7 +39,8 @@ export default {
       })
     },
     vidstack({prefix: 'media',
-      webComponents: true})
+      webComponents: true}),
+    require("@designbycode/tailwindcss-mask-image"),
   ],
   theme: {
     screens: {

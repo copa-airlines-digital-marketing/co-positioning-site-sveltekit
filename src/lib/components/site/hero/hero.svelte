@@ -155,7 +155,7 @@
 						position="object-top"
 					>
 						<Slide.Overlay
-							class="bg-gradient-to-t landscape:from-30% landscape:bg-gradient-to-tr"
+							class="bg-gradient-to-t landscape:from-0% from-common-black landscape:bg-gradient-to-tr"
 						/>
 						<Slide.Content>
 							<div
@@ -270,7 +270,9 @@
 				</Carousel.Item>
 				<Carousel.Item>
 					<Slide.Hero image={images.aboutCopa} class="h-full" position="object-top">
-						<Slide.Overlay class="bg-gradient-to-b landscape:bg-gradient-to-r from-30%" />
+						<Slide.Overlay
+							class="bg-gradient-to-b from-black/60 landscape:bg-gradient-to-r from-30%"
+						/>
 						<Slide.Content>
 							<div
 								class="col-span-full row-start-1 row-span-full h-full flex flex-col items-start md:flex-row"
@@ -314,7 +316,7 @@
 </div>
 {#if showBackToTop}
 	<div
-		class="hidden sm:portrait:block md:block fixed bottom-roomy right-roomy z-20"
+		class="hidden md:block fixed bottom-roomy right-roomy z-20"
 		transition:flyAndScale={{ y: 50, start: 0.5 }}
 	>
 		<Button variant="invert" class="rounded-full p-3" href="#top">
