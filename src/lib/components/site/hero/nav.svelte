@@ -4,7 +4,7 @@
 
 	const sections = [
 		{
-			href: 'https://destinationsguide.copaair.com/es-co/',
+			href: '#destinos',
 			target: '_blank',
 			text: 'Nuestros Destinos'
 		},
