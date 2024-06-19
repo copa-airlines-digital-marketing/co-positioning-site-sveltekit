@@ -6,7 +6,7 @@
 	const sections = [
 		{ href: '#top', text: 'Inicio' },
 		{ href: 'https://destinationsguide.copaair.com/es-co/', target: '_blank', text: 'Destinos' },
-		{ href: '#reserva', text: 'Reserva' },
+		//{ href: '#reserva', text: 'Reserva' },
 		{ href: '#a-bordo', text: 'A Bordo' },
 		{ href: '#nosotros', text: 'Nosotros' }
 	];
