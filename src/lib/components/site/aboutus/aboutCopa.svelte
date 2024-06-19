@@ -10,7 +10,7 @@
 	import Line from './line.svelte';
 	import Holder from './holder.svelte';
 	import OtherAwards from './otherAwards.svelte';
-	import CopaClub from './copaClub.svelte';
+	import CopaClub from './copaclub/copaClub.svelte';
 	import StarAlliance from './starAlliance.svelte';
 	import ConnectMiles from './connectMiles.svelte';
 	import FastConnections from './fastConnections.svelte';
