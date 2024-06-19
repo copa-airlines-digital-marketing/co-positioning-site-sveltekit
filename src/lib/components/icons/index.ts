@@ -43,4 +43,6 @@ export {
 }
 
 export { default as OutlineAdd } from './outline-add.svelte'
+export { default as OutlineInfo } from './outline-info.svelte'
+export { default as OutlineLocationOn } from './outline-location-on.svelte'
 export { default as OutlineMinus } from './outline-minus.svelte'

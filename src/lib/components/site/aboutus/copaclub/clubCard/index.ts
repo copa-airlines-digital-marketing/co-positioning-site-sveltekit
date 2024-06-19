@@ -1,0 +1,1 @@
+export * as CopaClubCard from './components'
