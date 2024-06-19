@@ -77,7 +77,7 @@
 			espera más placentera.
 		</p>
 		<ul
-			class="my-6 grid grid-cols-1 grid-rows-6 sm:grid-cols-2 sm:grid-row-3 md:grid-cols-3 md:grid-rows-2 gap-2 sm:gap-4 md:gap-6"
+			class="my-6 grid grid-cols-1 grid-rows-5 sm:grid-cols-2 sm:grid-row-3 md:grid-cols-3 md:grid-rows-2 gap-2 sm:gap-4 md:gap-6"
 		>
 			{#each clubs as club}
 				{@const { location, details } = club}
