@@ -5,7 +5,7 @@
 
 	const sections = [
 		{ href: '#top', text: 'Inicio' },
-		{ href: '#destinos', target: '_blank', text: 'Destinos' },
+		{ href: '#destinos', text: 'Destinos' },
 		//{ href: '#reserva', text: 'Reserva' },
 		{ href: '#a-bordo', text: 'A Bordo' },
 		{ href: '#nosotros', text: 'Nosotros' }
@@ -34,9 +34,9 @@
 		>
 			<ul class={cn('flex items-center justify-center container mx-auto md:max-w-none h-full')}>
 				{#each sections as section}
-					{@const { href, text, target } = section}
+					{@const { href, text } = section}
 					<li class="shrink-0">
-						<Button {href} class="text-xs" {target}>
+						<Button {href} class="text-xs">
 							{text}
 						</Button>
 					</li>

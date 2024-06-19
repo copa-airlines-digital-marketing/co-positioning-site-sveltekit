@@ -5,7 +5,6 @@
 	const sections = [
 		{
 			href: '#destinos',
-			target: '_blank',
 			text: 'Nuestros Destinos'
 		},
 		{ href: '#a-bordo', text: 'Experiencia a Bordo' },
@@ -20,11 +19,9 @@
 <nav class={cn(className)}>
 	<ul class="grid auto-cols-fr grid-flow-col gap-2">
 		{#each sections as section}
-			{@const { href, target, text } = section}
+			{@const { href, text } = section}
 			<li class="w-full">
-				<Button {href} {target} size="large" class="w-full text-center justify-center"
-					>{text}</Button
-				>
+				<Button {href} size="large" class="w-full text-center justify-center">{text}</Button>
 			</li>
 		{/each}
 	</ul>
