@@ -14,7 +14,7 @@
 	import StarAlliance from './starAlliance/starAlliance.svelte';
 	import ConnectMiles from './connectMiles.svelte';
 	import FastConnections from './fastConnections.svelte';
-	import OnTime from './onTime.svelte';
+	import OnTime from './ontime/onTime.svelte';
 
 	const images: Record<string, EnhancedImage.ImageToolsPictureWithMediaQuery> = {
 		connectmiles: {

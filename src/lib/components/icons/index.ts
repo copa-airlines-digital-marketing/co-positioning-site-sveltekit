@@ -50,3 +50,4 @@ export { default as PictogramGanarMillas } from './pictogram-ganar-millas.svelte
 export { default as PictogramEquipaje } from './pictogram-equipaje.svelte'
 export { default as PictogramCopaClubLoungeArea } from './pictogram-copa-club-lounge-area.svelte'
 export { default as PictogramConnectMilesStatusGold } from './pictogram-connectmiles-status-gold.svelte'
+export { default as BaselineFormatQuote } from './baseline-format-quote.svelte'

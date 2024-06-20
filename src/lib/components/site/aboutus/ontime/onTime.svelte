@@ -1,9 +1,9 @@
 <script>
 	import { Heading } from '$components/ui/heading';
-	import Connector from './connector.svelte';
+	import Connector from '../connector.svelte';
 
-	import Holder from './holder.svelte';
-	import Line from './line.svelte';
+	import Holder from '../holder.svelte';
+	import Line from '../line.svelte';
 </script>
 
 <Holder class="row-start-3">
