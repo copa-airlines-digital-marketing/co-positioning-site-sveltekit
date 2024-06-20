@@ -6,11 +6,18 @@
 	import Holder from '../holder.svelte';
 	import Line from '../line.svelte';
 	import { CopaClubCard } from './clubCard';
+	import * as EnhancedImage from '$lib/components/ui/image';
+
+	import bogota from '$lib/assets/copa-club-bogota.jpg?h=1080;900;768&format=avif;webp;jpg&as=picture&imagetools';
+	import guatemala from '$lib/assets/copa-club-guatemala.jpeg?h=1080;900;768&format=avif;webp;jpg&as=picture&imagetools';
+	import panamaT1 from '$lib/assets/copa-club-panama-terminal-1.jpg?h=1080;900;768&format=avif;webp;jpg&as=picture&imagetools';
+	import panamaT2 from '$lib/assets/copa-club-panama-terminal-2.jpg?h=1080;900;768&format=avif;webp;jpg&as=picture&imagetools';
+	import dominicana from '$lib/assets/copa-club-republica-dominicana.jpg?h=1080;900;768&format=avif;webp;jpg&as=picture&imagetools';
 
 	const clubs = [
 		{
 			location: 'Ciudad de Panamá, Terminal 1',
-			image: '',
+			image: panamaT1,
 			details: {
 				dirección: 'Área internacional, Terminal 1, a un costado de la puerta 130',
 				horario: '5:30 a.m. - 9:00 p.m.',
@@ -20,7 +27,7 @@
 		},
 		{
 			location: 'Ciudad de Panamá, Terminal 2',
-			image: '',
+			image: panamaT2,
 			details: {
 				dirección:
 					'Área internacional, Terminal 2, subiendo el elevador o las escaleras automaticas cerca de aduana.',
@@ -31,7 +38,7 @@
 		},
 		{
 			location: 'Bogotá, Colombia',
-			image: '',
+			image: bogota,
 			details: {
 				dirección:
 					'Área internacional, piso mezzanine, cerca de la sala 45 bajando las escaleras eléctricas. Podrá tomar el ascensor al frente de la sala 47',
@@ -42,7 +49,7 @@
 		},
 		{
 			location: 'Ciudad de Guatemala, Guatemala',
-			image: '',
+			image: guatemala,
 			details: {
 				dirección: 'Área internacional norte, al lado de la puerta 14',
 				horario: '3:30 a.m. - 4:30 p.m.',
@@ -52,7 +59,7 @@
 		},
 		{
 			location: 'Santo Domingo, República Dominicana',
-			image: '',
+			image: dominicana,
 			details: {
 				dirección: 'Área internacional, Terminal 1, a un costado de la puerta 130',
 				horario:
@@ -80,24 +87,36 @@
 			class="my-6 grid grid-cols-1 grid-rows-5 sm:grid-cols-2 sm:grid-row-3 md:grid-cols-3 md:grid-rows-2 gap-2 sm:gap-4 md:gap-6"
 		>
 			{#each clubs as club}
-				{@const { location, details } = club}
+				{@const { location, details, image } = club}
 				<li>
 					<CopaClubCard.Root>
-						<CopaClubCard.Trigger>
+						<CopaClubCard.Trigger image={{ only: image }}>
 							{location}
 						</CopaClubCard.Trigger>
 						<CopaClubCard.Details>
-							<Heading variant="h4" tag="h4" class="max-w-prose">
-								{location}
-							</Heading>
-							<ul class="text-sm">
-								{#each Object.keys(details) as detail}
-									<li>
-										<strong class="capitalize">{detail}</strong>
-										{details[detail]}
-									</li>
-								{/each}
-							</ul>
+							<div
+								class="flex flex-col justify-stretch gap-2 landscape:flex-row landscape:items-center md:gap-4 lg:gap-6 mt-6"
+							>
+								<EnhancedImage.Root
+									loading="lazy"
+									image={{ only: image }}
+									class="aspect-[21_/_9] w-full object-cover shadow-md landscape:aspect-square landscape:max-w-60"
+									alt=""
+								/>
+								<div>
+									<Heading variant="h4" tag="h4" class="max-w-prose">
+										{location}
+									</Heading>
+									<ul class="text-sm">
+										{#each Object.keys(details) as detail}
+											<li>
+												<strong class="capitalize">{detail}</strong>
+												{details[detail]}
+											</li>
+										{/each}
+									</ul>
+								</div>
+							</div>
 						</CopaClubCard.Details>
 					</CopaClubCard.Root>
 				</li>
