@@ -8,13 +8,13 @@
 </script>
 
 <Drawer.Trigger
-	class="bg-backgound-paper shadow-md h-full w-full group hover:bg-primary transition-colors"
+	class="bg-backgound-paper shadow-md h-full w-full group hover:bg-primary transition-colors flex flex-col"
 >
 	<span class="block w-full bg-grey-100">
 		<EnhancedImage.Root loading="lazy" {image} class="aspect-[4_/_2] object-cover" alt="" />
 	</span>
 	<span
-		class="text-primary-light flex justify-between items-center py-tiny px-minimal group-hover:text-common-white transition-colors"
+		class="text-primary-light flex justify-between items-center py-tiny px-minimal group-hover:text-common-white transition-colors w-full flex-grow"
 	>
 		<span class="flex">
 			<OutlineLocationOn class="size-6" />
