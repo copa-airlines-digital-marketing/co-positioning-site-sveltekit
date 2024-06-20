@@ -11,7 +11,7 @@
 	import Holder from './holder.svelte';
 	import OtherAwards from './otherAwards.svelte';
 	import CopaClub from './copaclub/copaClub.svelte';
-	import StarAlliance from './starAlliance.svelte';
+	import StarAlliance from './starAlliance/starAlliance.svelte';
 	import ConnectMiles from './connectMiles.svelte';
 	import FastConnections from './fastConnections.svelte';
 	import OnTime from './onTime.svelte';

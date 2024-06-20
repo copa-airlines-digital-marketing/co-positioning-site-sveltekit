@@ -104,7 +104,7 @@
 									alt=""
 								/>
 								<div>
-									<Heading variant="h4" tag="h4" class="max-w-prose">
+									<Heading variant="displayTiny" tag="h4" class="max-w-prose">
 										{location}
 									</Heading>
 									<ul class="text-sm">
