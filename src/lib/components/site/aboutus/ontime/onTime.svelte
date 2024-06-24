@@ -1,45 +1,179 @@
-<script>
+<script lang="ts">
 	import { Heading } from '$components/ui/heading';
 	import Connector from '../connector.svelte';
 
 	import Holder from '../holder.svelte';
 	import Line from '../line.svelte';
+	import Card from './card.svelte';
+	import PrizeQuote from './prizeQuote.svelte';
+	import Tick from './tick.svelte';
+	import Timeline from './timeline.svelte';
+
+	import oag from '$lib/assets/OAG-logo-header-white.webp?format=avif;webp;jpg&as=picture&imagetools';
+	import cirium from '$lib/assets/logo-cirium.png?format=avif;webp;jpg&as=picture&imagetools';
+
+	type Prize = {
+		cite: string;
+		title: string;
+	};
+
+	const logos = {
+		cirium,
+		oag,
+		oagLatam: oag
+	};
+
+	const ciriumPrize = 'Aerolínea más puntual de Latinoamérica.';
+	const ciriumCite =
+		'https://www.cirium.com/resources/on-time-performance/cirium-on-time-performance-history/';
+
+	const years: Record<string, Partial<Record<keyof typeof logos, Prize>>> = {
+		'2014': {
+			cirium: {
+				cite: ciriumCite,
+				title: ciriumPrize
+			}
+		},
+		'2015': {
+			cirium: {
+				cite: ciriumCite,
+				title: ciriumPrize
+			}
+		},
+		'2016': {
+			cirium: {
+				cite: ciriumCite,
+				title: ciriumPrize
+			},
+			oagLatam: {
+				cite: 'https://info.oag.com/hubfs/Free_Reports/Punctuality_League/PunctualityLeagueReport2015.pdf',
+				title: ciriumPrize
+			},
+			oag: {
+				cite: 'https://info.oag.com/hubfs/Free_Reports/Punctuality_League/PunctualityLeagueReport2015.pdf',
+				title: '2<sup>da</sup> Aerolínea más puntual del mundo.'
+			}
+		},
+		'2017': {
+			cirium: {
+				cite: ciriumCite,
+				title: ciriumPrize
+			},
+			oagLatam: {
+				cite: 'https://www.bbc.com/mundo/noticias-38514302',
+				title: '2<sup>da</sup> Aerolínea más puntual de Latinoamérica.'
+			},
+			oag: {
+				cite: 'https://www.bbc.com/mundo/noticias-38514302',
+				title: '2<sup>da</sup> Aerolínea más puntual del mundo.'
+			}
+		},
+		'2018': {
+			cirium: {
+				cite: ciriumCite,
+				title: ciriumPrize
+			},
+			oagLatam: {
+				cite: 'https://www.oag.com/hubfs/free-reports/2018-reports/2018-punctuality-league/PunctualityReport2018.pdf',
+				title: ciriumPrize
+			},
+			oag: {
+				cite: 'https://www.oag.com/hubfs/free-reports/2018-reports/2018-punctuality-league/PunctualityReport2018.pdf',
+				title: '4<sup>ta</sup> Aerolínea más puntual del mundo.'
+			}
+		},
+		'2019': {
+			oag: {
+				cite: 'https://www.oag.com/reports/punctuality-league-2019',
+				title: '<span class="text-xl">🏆</span> Aerolínea más puntual del mundo.'
+			},
+			cirium: {
+				cite: ciriumCite,
+				title: ciriumPrize
+			},
+			oagLatam: {
+				cite: 'https://www.oag.com/reports/punctuality-league-2019',
+				title: ciriumPrize
+			}
+		},
+		'2020': {
+			cirium: {
+				cite: ciriumCite,
+				title: ciriumPrize
+			},
+			oagLatam: {
+				cite: 'https://www.oag.com/hubfs/free-reports/2020-reports/punctuality-league-2020/Punctuality-League-2020.pdf',
+				title: ciriumPrize
+			},
+			oag: {
+				cite: 'https://www.oag.com/hubfs/free-reports/2020-reports/punctuality-league-2020/Punctuality-League-2020.pdf',
+				title: '2<sup>da</sup> Aerolínea más puntual del mundo.'
+			}
+		},
+		'2021': {
+			cirium: {
+				cite: ciriumCite,
+				title: ciriumPrize
+			}
+		},
+		'2023': {
+			cirium: {
+				cite: ciriumCite,
+				title: ciriumPrize
+			},
+			oagLatam: {
+				cite: 'https://www.oag.com/hubfs/free-reports/2023/OAG-Punctuality-League-2023.pdf',
+				title: ciriumPrize
+			},
+			oag: {
+				cite: 'https://www.oag.com/hubfs/free-reports/2023/OAG-Punctuality-League-2023.pdf',
+				title: '8<sup>va</sup> Aerolínea más puntual del mundo.'
+			}
+		},
+		'2024': {
+			cirium: {
+				cite: ciriumCite,
+				title: ciriumPrize
+			}
+		}
+	} as const;
 </script>
 
 <Holder class="row-start-3">
 	<Line />
 	<Connector />
 	<div class="text-common-white mb-big">
-		<Heading variant="h3" tag="h3" class="text-common-white max-w-prose">
+		<Heading variant="h3" tag="h3" class="text-common-white max-w-prose mb-petit">
 			Somos la <span class="text-secondary-faded">aerolínea más premiada por puntualidad</span> en América
 			en la última década
 		</Heading>
-		<div class="flex gap-2 md:gap-4 lg:gap-6 flex-col md:flex-row my-petit">
-			<div>
-				<h4>CIRIUM</h4>
-				<p class="max-w-prose">
-					Hemos sido reconocidos como la aerolínea más puntual de Latinoamérica en 9 ocasiones
-					durante la última década.
-				</p>
-				<ul class="flex flex-wrap gap-2 max-w-prose my-tiny">
-					<li>2023</li>
-					<li>2021</li>
-					<li>2020</li>
-					<li>2019</li>
-					<li>2018</li>
-					<li>2017</li>
-					<li>2016</li>
-					<li>2015</li>
-					<li>2014</li>
-				</ul>
-			</div>
-			<div>
-				<h4>OAG</h4>
-				<p class="max-w-prose">En 2019 nos nombraron la "Aerolínea más puntual del mundo"</p>
-				<ul>
-					<li>dd</li>
-				</ul>
-			</div>
+		<div class="grid">
+			<Timeline>
+				{#each Object.keys(years) as year}
+					{@const prizes = years[year]}
+					<Tick>
+						<Card>
+							<Heading variant="displayTiny" tag="h4" class="text-common-white">{year}</Heading>
+							{#each Object.keys(prizes) as prize}
+								{@const { cite, title } = prizes[prize]}
+								{@const logo = logos[prize]}
+								<PrizeQuote
+									cite="https://www.cirium.com/resources/on-time-performance/cirium-on-time-performance-history/"
+									logo={logo ? { only: logos[prize] } : undefined}
+								>
+									{@html title}
+								</PrizeQuote>
+							{:else}
+								<PrizeQuote
+									cite="https://www.cirium.com/resources/on-time-performance/cirium-on-time-performance-history/"
+								>
+									No recibimos premios por puntualidad
+								</PrizeQuote>
+							{/each}
+						</Card>
+					</Tick>
+				{/each}
+			</Timeline>
 		</div>
 	</div>
 </Holder>
