@@ -3,9 +3,7 @@
 	import Line from './line.svelte';
 </script>
 
-<div
-	class="grid grid-cols-[1fr_16px_auto_16px_1fr] grid-rows-[1fr_16px_auto_16px_1fr] group items-end even:self-center"
->
+<div class="grid grid-cols-[1fr_16px_auto_16px_1fr] grid-rows-[1fr_16px_auto_16px_1fr] group">
 	<Line />
 	<Connector />
 	<div
