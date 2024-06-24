@@ -232,8 +232,7 @@
 									variant="light"
 									size="slim"
 									class="my-5 bg-secondary border-secondary"
-									href="https://destinationsguide.copaair.com/es-co/"
-									target="_blank"
+									href="#destinos"
 								>
 									Descubre nuestros destinos
 								</Button>
