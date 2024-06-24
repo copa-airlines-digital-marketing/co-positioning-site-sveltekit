@@ -5,6 +5,7 @@
 
 	type Prize = {
 		title: string;
+		cite: string;
 		logo: ImageToolsPictureWithMediaQuery;
 	};
 
@@ -13,10 +14,10 @@
 
 <ul>
 	{#each prizes as prize}
-		{@const { title, logo } = prize}
+		{@const { title, cite, logo } = prize}
 		<li>
 			<BaselineFormatQuote class="size-10 text-secondary" />
-			<blockquote>
+			<blockquote {cite}>
 				{title}
 			</blockquote>
 			<EnhancedImage.Root image={logo}></EnhancedImage.Root>
