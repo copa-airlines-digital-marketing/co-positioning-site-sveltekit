@@ -76,9 +76,10 @@
 	});
 
 	const videoCTAClickHandler = () => {
-		console.log('yo', videoElement);
-
-		videoElement.requestFullscreen().then(() => videoElement.play());
+		videoElement.requestFullscreen().then(() => {
+			window.dataLayer?.push({ event: 'video_play' });
+			videoElement.play();
+		});
 	};
 </script>
 
