@@ -226,7 +226,7 @@
 							<div class="col-start-1 row-start-1 col-span-full row-span-full relative">
 								<video
 									preload="none"
-									class="absolute w-full inset-0 object-cover"
+									class="absolute w-full h-full inset-0 object-cover"
 									controlslist="nodownload"
 									bind:this={mapVideo}
 									on:loadstart={mapVideoLoadHandler}
