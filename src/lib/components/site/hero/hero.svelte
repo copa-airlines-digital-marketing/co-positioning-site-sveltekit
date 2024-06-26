@@ -26,6 +26,8 @@
 	import videoVertical480p from '$lib/assets/video/colombia-positioning-video-vertical-480p.webm';
 	import videoVertical720p from '$lib/assets/video/colombia-positioning-video-vertical-720p.webm';
 	import videoVertical1080p from '$lib/assets/video/colombia-positioning-video-vertical-1080p.webm';
+	import videoMapaHorizontal720 from '$lib/assets/video/mapa-horizontal-1080p.webm';
+	import videoMapaVertical720 from '$lib/assets/video/mapa-vertical-720p.webm';
 
 	import Autoplay from 'embla-carousel-autoplay';
 	import {
@@ -38,13 +40,14 @@
 	import { onMount } from 'svelte';
 	import { cn, flyAndScale } from '$lib/utils';
 	import LogoCiriumOtp from '$lib/components/icons/logo-cirium-otp.svelte';
-	import { crossfade } from 'svelte/transition';
-	import { cubicInOut } from 'svelte/easing';
+	import { crossfade, fly } from 'svelte/transition';
+	import { cubicInOut, quintIn, quintOut } from 'svelte/easing';
 	import Nav from './nav.svelte';
 
 	let showBackToTop = false;
 	let section: HTMLDivElement;
 	let videoElement: HTMLVideoElement;
+	let mapVideo: HTMLVideoElement;
 
 	onMount(() => {
 		const ob = new IntersectionObserver((payload) => (showBackToTop = !payload[0].isIntersecting));
@@ -80,6 +83,10 @@
 			window.dataLayer?.push({ event: 'video_play' });
 			videoElement.play();
 		});
+	};
+
+	const mapVideoLoadHandler = () => {
+		mapVideo.play();
 	};
 </script>
 
@@ -203,12 +210,7 @@
 											on:loadstart={videoCTAClickHandler}
 										>
 											<source src={video720p} type="video/webm" media="(orientation: landscape)" />
-											<source
-												src={videoVertical720p}
-												type="video/webm"
-												media="(orientation: portrait)"
-											/>
-											<source src={video144p} type="video/webm" />
+											<source src={videoVertical720p} type="video/webm" />
 											<track default srclang="es" kind="captions" />
 											Tu navegador no soporta video
 										</video>
@@ -220,31 +222,54 @@
 				</Carousel.Item>
 				<Carousel.Item class="h-full">
 					<Slide.Hero image={images['map']} class="h-full" position="object-left-top">
-						<Slide.Content>
-							<div
-								class="col-start-1 col-span-full flex flex-col items-start row-span-full justify-end py-5 lg:justify-start lg:row-start-4"
-							>
-								<Heading
-									variant="displayNormal"
-									class="my-2 text-common-white sm:max-w-md sm:landscape:max-w-80 md:landscape:max-w-md lg:portrait:max-w-lg lg:landscape:max-w-lg"
+						{#if selected === 1}
+							<div class="col-start-1 row-start-1 col-span-full row-span-full relative">
+								<video
+									preload="none"
+									class="absolute w-full inset-0 object-cover"
+									controlslist="nodownload"
+									bind:this={mapVideo}
+									on:loadstart={mapVideoLoadHandler}
 								>
-									Conecta desde <strong class="text-common-white md:text-secondary-faded"
-										>11&nbsp;ciudades</strong
-									>
-									en Colombia hacia más de
-									<span class="text-common-white md:text-secondary-faded"
-										>70&nbsp;destinos internacionales</span
-									>
-								</Heading>
-								<Button
-									variant="light"
-									size="slim"
-									class="my-5 bg-secondary border-secondary"
-									href="#destinos"
-								>
-									Descubre nuestros destinos
-								</Button>
+									<source
+										src={videoMapaHorizontal720}
+										type="video/webm"
+										media="(orientation: landscape)"
+									/>
+									<source src={videoMapaVertical720} type="video/webm" />
+									<track default srclang="es" kind="captions" />
+									Tu navegador no soporta video
+								</video>
 							</div>
+						{/if}
+						<Slide.Content>
+							{#if selected === 1}
+								<div
+									class="col-start-1 col-span-full flex flex-col items-start row-span-full justify-end py-5 lg:justify-start lg:row-start-4 relative"
+									in:fly={{ y: 200, duration: 1000, delay: 4500, easing: quintOut }}
+								>
+									<Heading
+										variant="displayNormal"
+										class="my-2 text-common-white sm:max-w-md sm:landscape:max-w-80 md:landscape:max-w-md lg:portrait:max-w-lg lg:landscape:max-w-lg"
+									>
+										Conecta desde <strong class="text-common-white md:text-secondary-faded"
+											>11&nbsp;ciudades</strong
+										>
+										en Colombia hacia más de
+										<span class="text-common-white md:text-secondary-faded"
+											>70&nbsp;destinos internacionales</span
+										>
+									</Heading>
+									<Button
+										variant="light"
+										size="slim"
+										class="my-5 bg-secondary border-secondary"
+										href="#destinos"
+									>
+										Descubre nuestros destinos
+									</Button>
+								</div>
+							{/if}
 						</Slide.Content>
 					</Slide.Hero>
 				</Carousel.Item>
