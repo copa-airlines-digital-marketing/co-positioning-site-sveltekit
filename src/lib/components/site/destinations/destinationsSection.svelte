@@ -2,23 +2,49 @@
 	import { Heading } from '$lib/components/ui/heading';
 	import * as Carousel from '$lib/components/ui/carrusel';
 	import * as Slide from '../slide';
-	import * as EnhancedImage from '$lib/components/ui/image';
 	import { Button } from '$lib/components/ui/button';
-	import desde from '$lib/assets/mapa-de-destinos-en-colombia.jpg?w=3840;2560;1920;1560;1366;1024;720&format=avif;webp;jpg&as=picture&imagetools';
-	import desdePortrait from '$lib/assets/mapa-de-destinos-en-colombia-portrait.jpg?w=3840;2560;1920;1560;1366;1024;720&format=avif;webp;jpg&as=picture&imagetools';
-	import hacia from '$lib/assets/mapa-de-destinos-desde-colombia.jpg?w=3840;2560;1920;1560;1366;1024;720&format=avif;webp;jpg&as=picture&imagetools';
-	import haciaPortrait from '$lib/assets/mapa-de-destinos-desde-colombia-portrait.jpg?w=3840;2560;1920;1560;1366;1024;720&format=avif;webp;jpg&as=picture&imagetools';
+	import type { DirectusImage } from '$components/ui/image/image.svelte';
 
-	const images: Record<string, EnhancedImage.ImageToolsPictureWithMediaQuery> = {
-		desde: {
-			'(orientation: portrait)': desdePortrait,
-			'(orientation: portait) and (min-width: 1367px)': desde,
-			'(orientation: landscape)': desde
-		},
+	const images: Record<string, DirectusImage> = {
 		hacia: {
-			'(orientation: portrait)': haciaPortrait,
-			'(orientation: portait) and (min-width: 1367px)': hacia,
-			'(orientation: landscape)': hacia
+			image: '5cda5e9b-9a76-4b5f-8d62-9b5c84de6448',
+			queries: [
+				[
+					'(orientation: landscape)',
+					'5089daac-56e1-4fbd-b2cf-9d5091d60092',
+					{ widths: ['3840', '2560', '1920', '1560', '1366', '1024', '720'] }
+				],
+				[
+					'(orientation: portait) and (min-width: 1367px)',
+					'5089daac-56e1-4fbd-b2cf-9d5091d60092',
+					{ widths: ['3840', '2560', '1920', '1560', '1366', '1024', '720'] }
+				],
+				[
+					'(orientation: portrait)',
+					'5cda5e9b-9a76-4b5f-8d62-9b5c84de6448',
+					{ heights: ['2160', '1600', '1080', '900', '768'] }
+				]
+			]
+		},
+		desde: {
+			image: '247e931c-3a65-4a7d-954d-ca24a7421c78',
+			queries: [
+				[
+					'(orientation: landscape)',
+					'808c634a-84f3-48e4-9737-f095aefdb4ba',
+					{ widths: ['3840', '2560', '1920', '1560', '1366', '1024', '720'] }
+				],
+				[
+					'(orientation: portait) and (min-width: 1367px)',
+					'808c634a-84f3-48e4-9737-f095aefdb4ba',
+					{ widths: ['3840', '2560', '1920', '1560', '1366', '1024', '720'] }
+				],
+				[
+					'(orientation: portrait)',
+					'247e931c-3a65-4a7d-954d-ca24a7421c78',
+					{ heights: ['2160', '1600', '1080', '900', '768'] }
+				]
+			]
 		}
 	} as const;
 </script>

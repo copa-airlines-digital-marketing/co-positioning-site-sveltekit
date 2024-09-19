@@ -1,20 +1,36 @@
-<script>
+<script lang="ts">
 	import * as EnhancedImage from '$lib/components/ui/image';
 	import { Button } from '$components/ui/button';
 	import { Heading } from '$components/ui/heading';
 	import Connector from './connector.svelte';
-
 	import Holder from './holder.svelte';
 	import Line from './line.svelte';
+	import type { DirectusImage } from '$components/ui/image/image.svelte';
 
-	import conectividad from '$lib/assets/persona-revisando-celular-con-tabla-de-vuelos-detras.jpg?w=3840;2560;1920;1560;1366;1024;720&format=avif;webp;jpg&as=picture&imagetools';
-	import conectividadPortrait from '$lib/assets/persona-revisando-celular-con-tabla-de-vuelos-detras-portrait.jpg?h=2160;1600;1080;900;768&format=avif;webp;jpg&as=picture&imagetools';
-
-	let image = {
-		'(orientation: landscape) and (min-width: 960px)': conectividad,
-		'(orientation: landscape) and (max-width: 959px)': conectividad,
-		'(orientation: portait) and (min-width: 600px)': conectividadPortrait,
-		'(orientation: portrait) and (max-width: 599px)': conectividad
+	let image: DirectusImage = {
+		image: '',
+		queries: [
+			[
+				'(orientation: landscape) and (min-width: 960px)',
+				'2b22c9a4-8d0d-4b2a-a2b4-4f4b9d5ebc25',
+				{ widths: ['3840', '2560', '1920', '1560', '1366', '1024', '720'] }
+			],
+			[
+				'(orientation: landscape) and (max-width: 959px)',
+				'2b22c9a4-8d0d-4b2a-a2b4-4f4b9d5ebc25',
+				{ widths: ['3840', '2560', '1920', '1560', '1366', '1024', '720'] }
+			],
+			[
+				'(orientation: portait) and (min-width: 600px)',
+				'ab955a0e-ec8f-4b65-b63d-e0172e01b44c',
+				{ heights: ['2160', '1600', '1080', '900', '768'] }
+			],
+			[
+				'(orientation: portrait) and (max-width: 599px)',
+				'2b22c9a4-8d0d-4b2a-a2b4-4f4b9d5ebc25',
+				{ widths: ['3840', '2560', '1920', '1560', '1366', '1024', '720'] }
+			]
+		]
 	};
 </script>
 
@@ -26,7 +42,8 @@
 	>
 		<EnhancedImage.Root
 			loading="lazy"
-			{image}
+			image={image.image}
+			queries={image.queries}
 			class="w-full object-cover aspect-[4_/_3] mask-image-b landscape:aspect-[12_/_5] portrait:sm:max-w-60 portrait:sm:aspect-[9_/_16] portrait:sm:mask-image-l landscape:md:max-w-xl landscape:md:aspect-[4_/_3]  landscape:md:mask-image-l landscape:md:mask-image-start-50 landscape:lg:aspect-video landscape:lg:max-w-3xl"
 			alt=""
 		/>

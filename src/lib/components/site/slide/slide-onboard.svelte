@@ -1,10 +1,11 @@
 <script lang="ts">
+	import type { DirectusImage } from '$components/ui/image/image.svelte';
 	import * as EnhancedImage from '$lib/components/ui/image';
 	import { cn } from '$lib/utils';
 	import type { HTMLAttributes, HTMLImgAttributes } from 'svelte/elements';
 
 	type $$Props = HTMLAttributes<HTMLDivElement> & {
-		image: EnhancedImage.ImageToolsPictureWithMediaQuery;
+		image: DirectusImage;
 		loading?: HTMLImgAttributes['loading'];
 		position?: HTMLImgAttributes['class'];
 	};
@@ -21,7 +22,8 @@
 	<div class="col-span-full row-span-full">
 		<EnhancedImage.Root
 			{loading}
-			{image}
+			image={image.image}
+			queries={image.queries}
 			class={cn('absolute left-0 top-0 h-full w-full object-cover', position)}
 			alt=""
 		></EnhancedImage.Root>

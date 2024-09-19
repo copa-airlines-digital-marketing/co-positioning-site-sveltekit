@@ -1,39 +1,49 @@
-<script lang="ts">
-	import type { HTMLImgAttributes } from 'svelte/elements';
-	import type { ImageToolsPictureWithMediaQuery } from '.';
-
-	type EnhancedImage = {
-		image: ImageToolsPictureWithMediaQuery;
+<script context="module" lang="ts">
+	type DirectusImageQuery = {
+		heights?: string[] | undefined;
+		widths?: string[] | undefined;
 	};
 
-	type $$Props = HTMLImgAttributes & EnhancedImage;
+	export type DirectusImage = {
+		image: string;
+		queries: [string, string, DirectusImageQuery][];
+	};
+
+	export const getDirectusImage = (id: string) =>
+		`https://cm-marketing.directus.app/assets/${id}?access_token=uXNBjo8n02SHfhfEH_DUqkMnHu7mDB7f`;
+</script>
+
+<script lang="ts">
+	import type { HTMLImgAttributes } from 'svelte/elements';
+
+	type $$Props = HTMLImgAttributes & DirectusImage;
 
 	let className: $$Props['class'] = undefined;
 	export let image: $$Props['image'];
+	export let queries: $$Props['queries'];
 	export let alt: $$Props['alt'] = '';
 	export let loading: $$Props['loading'] = 'lazy';
 	export { className as class };
 
-	let firstImage = image[Object.keys(image)[0]];
+	const src = getDirectusImage(image);
 </script>
 
 <picture>
-	{#each Object.keys(image) as mediaQuery}
-		{@const query = image[mediaQuery]}
-		{#each Object.keys(query.sources) as format}
-			{#if Object.keys(image).length === 1}
-				<source srcset={query.sources[format]} type="image/{format}" />
+	{#each queries as [media, idByQuery, query]}
+		{@const { widths, heights } = query}
+		{@const heightsToQuery = widths && widths.map((v) => '&height=' + v)}
+		{@const widthToQuery = heights && heights.map((v) => '&width=' + v)}
+		{@const sizes = widthToQuery || heightsToQuery || []}
+		{#each sizes as s, i}
+			{@const currentWidth = widthToQuery?.[i]}
+			{@const currentHeight = heightsToQuery?.[i]}
+			{@const srcset = `${getDirectusImage(idByQuery)}${currentWidth ?? ''}${currentHeight ?? ''}`}
+			{#if media === ''}
+				<source {srcset} />
 			{:else}
-				<source media={mediaQuery} srcset={query.sources[format]} type="image/{format}" />
+				<source {media} {srcset} />
 			{/if}
 		{/each}
 	{/each}
-	<img
-		src={firstImage.img.src}
-		{alt}
-		width={firstImage.img.w}
-		height={firstImage.img.h}
-		class={className}
-		{loading}
-	/>
+	<img {src} {alt} class={className} {loading} />
 </picture>

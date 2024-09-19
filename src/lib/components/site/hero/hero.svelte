@@ -4,30 +4,7 @@
 	import { Heading } from '$lib/components/ui/heading';
 	import * as Carousel from '$lib/components/ui/carrusel';
 	import * as Slide from '../slide';
-	import * as EnhancedImage from '$lib/components/ui/image';
 	import * as VideoDialog from '$lib/components/site/video';
-	import mainImage from '$lib/assets/pareja-en-clase-ejecutiva.jpg?w=3840;2560;1920;1560;1366;1024;720&format=avif;webp;jpg&as=picture&imagetools';
-	import mapImage from '$lib/assets/mapa-de-destinos-desde-colombia.jpg?w=3840;2560;1920;1560;1366;1024;720&format=avif;webp;jpg&as=picture&imagetools';
-	import onBoardImage from '$lib/assets/refrigerio-a-bordo-de-aeronave.jpg?w=3840;2560;1920;1560;1366;1024;720&format=avif;webp;jpg&as=picture&imagetools';
-	import aboutCopa from '$lib/assets/abordaje-de-vuelo.jpg?w=3840;2560;1920;1560;1366;1024;720&format=avif;webp;jpg&as=picture&imagetools';
-	import mainImagePortrait from '$lib/assets/pareja-en-clase-ejecutiva-portrait.jpg?h=2160;1600;1080;900;768&format=avif;webp;jpg&as=picture&imagetools';
-	import mapImagePortrait from '$lib/assets/mapa-de-destinos-desde-colombia-portrait.jpg?h=2160;1600;1080;900;768&format=avif;webp;jpg&as=picture&imagetools';
-	import onBoardImagePortrait from '$lib/assets/refrigerio-a-bordo-de-aeronave-portrait.jpg?h=2160;1600;1080;900;768&format=avif;webp;jpg&as=picture&imagetools';
-	import aboutCopaPortrait from '$lib/assets/abordaje-de-vuelo-portrait.jpg?h=2160;1600;1080;900;768&format=avif;webp;jpg&as=picture&imagetools';
-	import video144p from '$lib/assets/video/colombia-positioning-video-horizontal-144p.webm';
-	import video240p from '$lib/assets/video/colombia-positioning-video-horizontal-240p.webm';
-	import video360p from '$lib/assets/video/colombia-positioning-video-horizontal-360p.webm';
-	import video480p from '$lib/assets/video/colombia-positioning-video-horizontal-480p.webm';
-	import video720p from '$lib/assets/video/colombia-positioning-video-horizontal-720p.webm';
-	import video1080p from '$lib/assets/video-1080.webm';
-	import videoVertical144p from '$lib/assets/video/colombia-positioning-video-vertical-144p.webm';
-	import videoVertical240p from '$lib/assets/video/colombia-positioning-video-vertical-240p.webm';
-	import videoVertical360p from '$lib/assets/video/colombia-positioning-video-vertical-360p.webm';
-	import videoVertical480p from '$lib/assets/video/colombia-positioning-video-vertical-480p.webm';
-	import videoVertical720p from '$lib/assets/video/colombia-positioning-video-vertical-720p.webm';
-	import videoVertical1080p from '$lib/assets/video/colombia-positioning-video-vertical-1080p.webm';
-	import videoMapaHorizontal720 from '$lib/assets/video/mapa-horizontal-1080p.webm';
-	import videoMapaVertical720 from '$lib/assets/video/mapa-vertical-720p.webm';
 
 	import Autoplay from 'embla-carousel-autoplay';
 	import {
@@ -41,8 +18,9 @@
 	import { cn, flyAndScale } from '$lib/utils';
 	import LogoCiriumOtp from '$lib/components/icons/logo-cirium-otp.svelte';
 	import { crossfade, fly } from 'svelte/transition';
-	import { cubicInOut, quintIn, quintOut } from 'svelte/easing';
+	import { cubicInOut, quintOut } from 'svelte/easing';
 	import Nav from './nav.svelte';
+	import { getDirectusImage, type DirectusImage } from '$components/ui/image/image.svelte';
 
 	let showBackToTop = false;
 	let section: HTMLDivElement;
@@ -54,22 +32,66 @@
 		ob.observe(section);
 	});
 
-	const images: Record<string, EnhancedImage.ImageToolsPictureWithMediaQuery> = {
+	const images: Record<string, DirectusImage> = {
 		main: {
-			'(orientation: landscape)': mainImage as EnhancedImage.ImageToolsPicture,
-			'(orientation: portrait)': mainImagePortrait
+			image: '706bd7a1-8639-46a4-8381-a3455128d7c7',
+			queries: [
+				[
+					'(orientation: landscape)',
+					'e4aa4c36-bb5f-44e1-81f0-9040b44321f5',
+					{ widths: ['3840', '2560', '1920', '1560', '1366', '1024', '720'] }
+				],
+				[
+					'(orientation: portrait)',
+					'706bd7a1-8639-46a4-8381-a3455128d7c7',
+					{ heights: ['2160', '1600', '1080', '900', '768'] }
+				]
+			]
 		},
 		map: {
-			'(orientation: landscape)': mapImage,
-			'(orientation: portrait)': mapImagePortrait
+			image: '5cda5e9b-9a76-4b5f-8d62-9b5c84de6448',
+			queries: [
+				[
+					'(orientation: landscape)',
+					'5089daac-56e1-4fbd-b2cf-9d5091d60092',
+					{ widths: ['3840', '2560', '1920', '1560', '1366', '1024', '720'] }
+				],
+				[
+					'(orientation: portrait)',
+					'5cda5e9b-9a76-4b5f-8d62-9b5c84de6448',
+					{ heights: ['2160', '1600', '1080', '900', '768'] }
+				]
+			]
 		},
 		onboard: {
-			'(orientation: landscape)': onBoardImage,
-			'(orientation: portrait)': onBoardImagePortrait
+			image: '348351ea-9444-4658-8384-aa305851aae8',
+			queries: [
+				[
+					'(orientation: landscape)',
+					'560561f3-e3eb-4352-90f5-d0343cfdf8ff',
+					{ widths: ['3840', '2560', '1920', '1560', '1366', '1024', '720'] }
+				],
+				[
+					'(orientation: portrait)',
+					'348351ea-9444-4658-8384-aa305851aae8',
+					{ heights: ['2160', '1600', '1080', '900', '768'] }
+				]
+			]
 		},
 		aboutCopa: {
-			'(orientation: landscape)': aboutCopa,
-			'(orientation: portrait)': aboutCopaPortrait
+			image: '16a9692c-cac8-441c-8e0d-f4e05b52b40c',
+			queries: [
+				[
+					'(orientation: landscape)',
+					'32225d90-61be-4475-aaad-54dea00529bd',
+					{ widths: ['3840', '2560', '1920', '1560', '1366', '1024', '720'] }
+				],
+				[
+					'(orientation: portrait)',
+					'16a9692c-cac8-441c-8e0d-f4e05b52b40c',
+					{ heights: ['2160', '1600', '1080', '900', '768'] }
+				]
+			]
 		}
 	} as const;
 
@@ -209,8 +231,15 @@
 											bind:this={videoElement}
 											on:loadstart={videoCTAClickHandler}
 										>
-											<source src={video720p} type="video/webm" media="(orientation: landscape)" />
-											<source src={videoVertical720p} type="video/webm" />
+											<source
+												src={getDirectusImage('79216bc0-4c13-4959-895c-4fff88653ebb')}
+												type="video/webm"
+												media="(orientation: landscape)"
+											/>
+											<source
+												src={getDirectusImage('305a8dae-dedb-4576-8c56-1221a8f697dd')}
+												type="video/webm"
+											/>
 											<track default srclang="es" kind="captions" />
 											Tu navegador no soporta video
 										</video>
@@ -232,11 +261,14 @@
 									on:loadstart={mapVideoLoadHandler}
 								>
 									<source
-										src={videoMapaHorizontal720}
+										src={getDirectusImage('79a34d32-5296-42ae-bea6-e36cf27b053a')}
 										type="video/webm"
 										media="(orientation: landscape)"
 									/>
-									<source src={videoMapaVertical720} type="video/webm" />
+									<source
+										src={getDirectusImage('fb59c830-977d-4b68-b600-d886c3a41336')}
+										type="video/webm"
+									/>
 									<track default srclang="es" kind="captions" />
 									Tu navegador no soporta video
 								</video>

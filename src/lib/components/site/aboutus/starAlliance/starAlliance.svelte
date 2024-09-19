@@ -1,37 +1,35 @@
 <script lang="ts">
-	import { Button } from '$components/ui/button';
 	import { Heading } from '$components/ui/heading';
 	import Connector from '../connector.svelte';
-
 	import Holder from '../holder.svelte';
 	import Line from '../line.svelte';
 	import * as EnhancedImage from '$lib/components/ui/image';
 
-	import aegean from '$lib/assets/airlines/Aegean Airlines.png?format=avif;webp;jpg&as=picture&imagetools';
-	import canada from '$lib/assets/airlines/Air Canada.png?format=avif;webp;jpg&as=picture&imagetools';
-	import china from '$lib/assets/airlines/Air China.png?format=avif;webp;jpg&as=picture&imagetools';
-	import india from '$lib/assets/airlines/Air India.png?format=avif;webp;jpg&as=picture&imagetools';
-	import airnz from '$lib/assets/airlines/Air New Zealand.png?format=avif;webp;jpg&as=picture&imagetools';
-	import ana from '$lib/assets/airlines/All Nippon Airways.png?format=avif;webp;jpg&as=picture&imagetools';
-	import asiana from '$lib/assets/airlines/Asiana Airlines.png?format=avif;webp;jpg&as=picture&imagetools';
-	import austrian from '$lib/assets/airlines/Austrian Airlines.png?format=avif;webp;jpg&as=picture&imagetools';
-	import avianca from '$lib/assets/airlines/Avianca.jpg?format=avif;webp;jpg&as=picture&imagetools';
-	import croatia from '$lib/assets/airlines/Croatia Airlines.png?format=avif;webp;jpg&as=picture&imagetools';
-	import egypt from '$lib/assets/airlines/Egypt Air.png?format=avif;webp;jpg&as=picture&imagetools';
-	import ethiopian from '$lib/assets/airlines/Ethiopian Airlines.png?format=avif;webp;jpg&as=picture&imagetools';
-	import eva from '$lib/assets/airlines/EVA_Airways.png?format=avif;webp;jpg&as=picture&imagetools';
-	import brussels from '$lib/assets/airlines/SN as of 2021.png?format=avif;webp;jpg&as=picture&imagetools';
-	import lot from '$lib/assets/airlines/LOT Polish Airlines.png?format=avif;webp;jpg&as=picture&imagetools';
-	import lufthansa from '$lib/assets/airlines/Lufthansa.png?format=avif;webp;jpg&as=picture&imagetools';
-	import sas from '$lib/assets/airlines/SAS Scandanavian_2017.png?format=avif;webp;jpg&as=picture&imagetools';
-	import shenzen from '$lib/assets/airlines/Shenzen.png?format=avif;webp;jpg&as=picture&imagetools';
-	import singapore from '$lib/assets/airlines/Singapore Airlines.png?format=avif;webp;jpg&as=picture&imagetools';
-	import africa from '$lib/assets/airlines/South African Airways.png?format=avif;webp;jpg&as=picture&imagetools';
-	import swiss from '$lib/assets/airlines/Swiss.png?format=avif;webp;jpg&as=picture&imagetools';
-	import tap from '$lib/assets/airlines/TAP Portugal.jpg?format=avif;webp;jpg&as=picture&imagetools';
-	import thai from '$lib/assets/airlines/Thai.png?format=avif;webp;jpg&as=picture&imagetools';
-	import turkish from '$lib/assets/airlines/Turkish Airlines.png?format=avif;webp;jpg&as=picture&imagetools';
-	import united from '$lib/assets/airlines/United.jpg?format=avif;webp;jpg&as=picture&imagetools';
+	const aegean = '97cbdd92-9e17-4a29-b7d5-c151f5e6ced6';
+	const canada = '9836cba8-cf0b-4850-b8ba-d85a702e842a';
+	const china = '72c6036c-8194-4bec-9b99-7362b9c1a129';
+	const india = 'd02511b9-c6bf-4bf6-af21-08862011da54';
+	const airnz = '088d819c-c1c2-4641-8f34-6e5285e865bf';
+	const ana = 'c8c97d1c-6b6f-422c-a25d-edc32deef320';
+	const asiana = '4321838a-b0ab-490e-a728-01a7bcbee831';
+	const austrian = 'f20ef59c-ebe9-455f-bf67-f82194f022f8';
+	const avianca = '256359f2-871e-4b45-a736-eb83a9228278';
+	const croatia = 'd28c5508-6df8-4ef0-85d9-cb1117a38fd1';
+	const egypt = '71276962-7e36-4c8e-8b3a-b86e193c4098';
+	const ethiopian = 'f25a98c1-5b80-4182-ad19-32689fc8e805';
+	const eva = 'a69e099f-c916-401b-8310-c5dde878dbc4';
+	const lot = '2a8282f9-d0a2-4c0d-8acc-8c2a544a0399';
+	const lufthansa = 'f914d3e6-f66a-4d21-859c-d68a0417c3e4';
+	const shenzen = '31bd99a6-edd0-4a69-ba7f-a4056624fa1b';
+	const singapore = '723672f9-2554-4e36-9fe6-e772e5376d4b';
+	const brussels = 'ddff2c9e-ea3c-4806-898a-214582cf347f';
+	const africa = 'ac9b9977-93d1-4892-8b49-82882fab1141';
+	const swiss = 'f52b6346-b2d9-4aa2-9e20-df921511f944';
+	const tap = 'd36405c6-2062-4ee0-b4a1-c72b4148726f';
+	const thai = '0f3f477e-a262-4e52-a0ee-ffa99f3ed488';
+	const turkish = '378f5e37-e90e-4a4e-b5a8-ae31f8c36648';
+	const united = '22e68c88-fac6-4822-9d1b-037cbf0a4677';
+
 	import {
 		PictogramConnectMilesStatusGold,
 		PictogramCopaClubLoungeArea,
@@ -56,7 +54,6 @@
 		'EVA Air': eva,
 		'LOT Polish Airlines': lot,
 		Lufthansa: lufthansa,
-		'Scandinavian Airlines': sas,
 		'Shenzhen Airlines': shenzen,
 		'Singapore Airlines': singapore,
 		'South African Airways': africa,
@@ -136,7 +133,8 @@
 				<li class="bg-common-white shadow-sm shadow-primary-ultradark p-1">
 					<EnhancedImage.Root
 						loading="lazy"
-						image={{ only: members[memberName] }}
+						image="{members[memberName]},"
+						queries={[['', members[memberName], {}]]}
 						class="w-full max-w-40"
 						alt=""
 					/>

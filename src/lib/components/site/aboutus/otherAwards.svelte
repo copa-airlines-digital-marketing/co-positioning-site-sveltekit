@@ -1,19 +1,31 @@
-<script>
+<script lang="ts">
 	import * as EnhancedImage from '$lib/components/ui/image';
 	import Holder from './holder.svelte';
 	import Line from './line.svelte';
 	import Connector from './connector.svelte';
 	import { Heading } from '$components/ui/heading';
-	import reconocimientos from '$lib/assets/pilotos-con-avion-de-fondo.jpg?w=3840;2560;1920;1560;1366;1024;720&format=avif;webp;jpg&as=picture&imagetools';
-	import reconocimientosPortrait from '$lib/assets/pilotos-con-avion-de-fondo-portrait.jpg?h=2160;1600;1080;900;768&format=avif;webp;jpg&as=picture&imagetools';
-	import skytrax from '$lib/assets/skytrax-2023.png';
-	import condeNast from '$lib/assets/condenast-2023.png';
 	import { Button } from '$components/ui/button';
+	import { getDirectusImage, type DirectusImage } from '$components/ui/image/image.svelte';
 
-	let image = {
-		'(min-width: landscape)': reconocimientos,
-		'(orientation: portait) and (min-width: 600px)': reconocimientos,
-		'(orientation: portrait) and (max-width: 599px)': reconocimientosPortrait
+	let image: DirectusImage = {
+		image: 'ae1c5d8a-ec65-45b5-b668-6bad998071c7',
+		queries: [
+			[
+				'(min-width: landscape)',
+				'cc384d28-6a56-4071-a410-ecf7f83c81bb',
+				{ widths: ['3840', '2560', '1920', '1560', '1366', '1024', '720'] }
+			],
+			[
+				'(orientation: portait) and (min-width: 600px)',
+				'cc384d28-6a56-4071-a410-ecf7f83c81bb',
+				{ widths: ['3840', '2560', '1920', '1560', '1366', '1024', '720'] }
+			],
+			[
+				'(orientation: portrait) and (max-width: 599px)',
+				'ae1c5d8a-ec65-45b5-b668-6bad998071c7',
+				{ heights: ['2160', '1600', '1080', '900', '768'] }
+			]
+		]
 	};
 </script>
 
@@ -23,7 +35,8 @@
 	>
 		<EnhancedImage.Root
 			loading="lazy"
-			{image}
+			image={image.image}
+			queries={image.queries}
 			class="w-full object-cover mask-image-t mask-image-start-80"
 			alt=""
 		></EnhancedImage.Root>
@@ -42,14 +55,14 @@
 				<ul class="flex gap-2 md:gap-4 lg:gap-6">
 					<li>
 						<img
-							src={skytrax}
+							src={getDirectusImage('79f3cd1c-312d-45e5-b3ae-713460f4e0bc')}
 							alt="Skytrax, Ganador, Premiación a las mejores aerolíneas del mundo 2023"
 							class="w-24"
 						/>
 					</li>
 					<li>
 						<img
-							src={condeNast}
+							src={getDirectusImage('02c75d36-5981-443f-88be-f1985724af95')}
 							alt="Elección de los lectores de Condé Nast Taveler, 2023"
 							class="w-24"
 						/>

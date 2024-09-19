@@ -9,12 +9,21 @@
 	import Tick from './tick.svelte';
 	import Timeline from './timeline.svelte';
 
-	import oag from '$lib/assets/OAG-logo-header-white.webp?format=avif;webp;jpg&as=picture&imagetools';
-	import cirium from '$lib/assets/logo-cirium.png?format=avif;webp;jpg&as=picture&imagetools';
+	import type { DirectusImage } from '$components/ui/image/image.svelte';
 
 	type Prize = {
 		cite: string;
 		title: string;
+	};
+
+	const oag: DirectusImage = {
+		image: '56406545-cc4b-4f81-a343-932a589186eb',
+		queries: [['', '56406545-cc4b-4f81-a343-932a589186eb', {}]]
+	};
+
+	const cirium: DirectusImage = {
+		image: 'd7e6b6ef-1fc5-40e0-b58e-b0d6258b208f',
+		queries: [['', 'd7e6b6ef-1fc5-40e0-b58e-b0d6258b208f', {}]]
 	};
 
 	const logos = {
@@ -159,7 +168,7 @@
 								{@const logo = logos[prize]}
 								<PrizeQuote
 									cite="https://www.cirium.com/resources/on-time-performance/cirium-on-time-performance-history/"
-									logo={logo ? { only: logos[prize] } : undefined}
+									logo={logo ?? undefined}
 								>
 									{@html title}
 								</PrizeQuote>

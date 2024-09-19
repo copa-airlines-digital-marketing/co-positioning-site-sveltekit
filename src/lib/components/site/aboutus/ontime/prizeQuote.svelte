@@ -1,10 +1,10 @@
 <script lang="ts">
-	import type { ImageToolsPictureWithMediaQuery } from '$components/ui/image';
+	import type { DirectusImage } from '$components/ui/image/image.svelte';
 	import { BaselineFormatQuote } from '$icons';
 	import * as EnhancedImage from '$lib/components/ui/image';
 
 	export let cite: string;
-	export let logo: ImageToolsPictureWithMediaQuery | undefined = undefined;
+	export let logo: DirectusImage;
 </script>
 
 <div class="mb-6 last:mb-0 md:flex md:items-end">
@@ -13,6 +13,10 @@
 		<slot />
 	</blockquote>
 	{#if logo}
-		<EnhancedImage.Root image={logo} class="max-w-24 mt-2 max-h-7 w-auto"></EnhancedImage.Root>
+		<EnhancedImage.Root
+			image={logo.image}
+			queries={logo.queries}
+			class="max-w-24 mt-2 max-h-7 w-auto"
+		></EnhancedImage.Root>
 	{/if}
 </div>

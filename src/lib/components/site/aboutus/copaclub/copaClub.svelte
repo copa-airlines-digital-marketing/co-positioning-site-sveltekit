@@ -2,17 +2,36 @@
 	import { Button } from '$components/ui/button';
 	import { Heading } from '$components/ui/heading';
 	import Connector from '../connector.svelte';
-
 	import Holder from '../holder.svelte';
 	import Line from '../line.svelte';
 	import { CopaClubCard } from './clubCard';
 	import * as EnhancedImage from '$lib/components/ui/image';
+	import type { DirectusImage } from '$components/ui/image/image.svelte';
 
-	import bogota from '$lib/assets/copa-club-bogota.jpg?h=1080;900;768&format=avif;webp;jpg&as=picture&imagetools';
-	import guatemala from '$lib/assets/copa-club-guatemala.jpeg?h=1080;900;768&format=avif;webp;jpg&as=picture&imagetools';
-	import panamaT1 from '$lib/assets/copa-club-panama-terminal-1.jpg?h=1080;900;768&format=avif;webp;jpg&as=picture&imagetools';
-	import panamaT2 from '$lib/assets/copa-club-panama-terminal-2.jpg?h=1080;900;768&format=avif;webp;jpg&as=picture&imagetools';
-	import dominicana from '$lib/assets/copa-club-republica-dominicana.jpg?h=1080;900;768&format=avif;webp;jpg&as=picture&imagetools';
+	const bogota: DirectusImage = {
+		image: 'b6169734-fcde-4d40-8d85-8c1d86e50042',
+		queries: [['', 'b6169734-fcde-4d40-8d85-8c1d86e50042', { heights: ['1080', '900', '768'] }]]
+	};
+
+	const guatemala: DirectusImage = {
+		image: 'bb13d01d-28eb-4570-b7db-288cb433ad77',
+		queries: [['', 'bb13d01d-28eb-4570-b7db-288cb433ad77', { heights: ['1080', '900', '768'] }]]
+	};
+
+	const panamaT1: DirectusImage = {
+		image: '14f275ef-b79a-4f76-b65a-e463bf6d7d00',
+		queries: [['', '14f275ef-b79a-4f76-b65a-e463bf6d7d00', { heights: ['1080', '900', '768'] }]]
+	};
+
+	const panamaT2: DirectusImage = {
+		image: 'cc275432-84b2-4d5e-84ce-c9ffe0880f20',
+		queries: [['', 'cc275432-84b2-4d5e-84ce-c9ffe0880f20', { heights: ['1080', '900', '768'] }]]
+	};
+
+	const dominicana: DirectusImage = {
+		image: 'fa310954-77e3-4cf9-b59f-11fbc6a909a9',
+		queries: [['', 'fa310954-77e3-4cf9-b59f-11fbc6a909a9', { heights: ['1080', '900', '768'] }]]
+	};
 
 	const clubs = [
 		{
@@ -90,7 +109,7 @@
 				{@const { location, details, image } = club}
 				<li>
 					<CopaClubCard.Root>
-						<CopaClubCard.Trigger image={{ only: image }}>
+						<CopaClubCard.Trigger {image}>
 							{location}
 						</CopaClubCard.Trigger>
 						<CopaClubCard.Details>
@@ -99,7 +118,8 @@
 							>
 								<EnhancedImage.Root
 									loading="lazy"
-									image={{ only: image }}
+									image={image.image}
+									queries={image.queries}
 									class="aspect-[21_/_9] w-full object-cover shadow-md landscape:aspect-square landscape:max-w-60"
 									alt=""
 								/>

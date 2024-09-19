@@ -2,7 +2,6 @@
 	import { Heading } from '$lib/components/ui/heading';
 	import * as Carousel from '$lib/components/ui/carrusel';
 	import * as Slide from '../slide';
-	import * as EnhancedImage from '$lib/components/ui/image';
 	import {
 		BaselinePlayArrow,
 		OutlineArrowBack,
@@ -14,40 +13,93 @@
 	import { cubicInOut } from 'svelte/easing';
 	import Autoplay from 'embla-carousel-autoplay';
 	import { Button } from '$lib/components/ui/button';
-	import refrigerio from '$lib/assets/refrigerio-a-bordo-de-aeronave.jpg?w=3840;2560;1920;1560;1366;1024;720&format=avif;webp;jpg&as=picture&imagetools';
-	import refrigerioPortrait from '$lib/assets/refrigerio-a-bordo-de-aeronave-portrait.jpg?w=3840;2560;1920;1560;1366;1024;720&format=avif;webp;jpg&as=picture&imagetools';
-	import equipaje from '$lib/assets/carry-on-sobre-asientos.jpg?w=3840;2560;1920;1560;1366;1024;720&format=avif;webp;jpg&as=picture&imagetools';
-	import equipajePortrait from '$lib/assets/carry-on-sobre-asientos-portrait.jpg?w=3840;2560;1920;1560;1366;1024;720&format=avif;webp;jpg&as=picture&imagetools';
-	import comodidad from '$lib/assets/persona-sentada-sonriendo-clase-economica.jpg?w=3840;2560;1920;1560;1366;1024;720&format=avif;webp;jpg&as=picture&imagetools';
-	import comodidadPortrait from '$lib/assets/persona-sentada-sonriendo-clase-economica-portrait.jpg?w=3840;2560;1920;1560;1366;1024;720&format=avif;webp;jpg&as=picture&imagetools';
-	import ejecutiva from '$lib/assets/disfrutando-clase-ejecutiva.jpg?w=3840;2560;1920;1560;1366;1024;720&format=avif;webp;jpg&as=picture&imagetools';
-	import ejecutivaPortrait from '$lib/assets/disfrutando-clase-ejecutiva-portrait.jpg?w=3840;2560;1920;1560;1366;1024;720&format=avif;webp;jpg&as=picture&imagetools';
+	import type { DirectusImage } from '$components/ui/image/image.svelte';
 
 	const [send, receive] = crossfade({
 		duration: 250,
 		easing: cubicInOut
 	});
 
-	const images: Record<string, EnhancedImage.ImageToolsPictureWithMediaQuery> = {
+	const images: Record<string, DirectusImage> = {
 		refrigerio: {
-			'(orientation: portrait)': refrigerioPortrait,
-			'(orientation: portait) and (min-width: 1367px)': refrigerio,
-			'(orientation: landscape)': refrigerio
+			image: '348351ea-9444-4658-8384-aa305851aae8',
+			queries: [
+				[
+					'(orientation: landscape)',
+					'560561f3-e3eb-4352-90f5-d0343cfdf8ff',
+					{ widths: ['3840', '2560', '1920', '1560', '1366', '1024', '720'] }
+				],
+				[
+					'(orientation: portait) and (min-width: 1367px)',
+					'560561f3-e3eb-4352-90f5-d0343cfdf8ff',
+					{ widths: ['3840', '2560', '1920', '1560', '1366', '1024', '720'] }
+				],
+				[
+					'(orientation: portrait)',
+					'348351ea-9444-4658-8384-aa305851aae8',
+					{ heights: ['2160', '1600', '1080', '900', '768'] }
+				]
+			]
 		},
 		equipaje: {
-			'(orientation: portrait)': equipajePortrait,
-			'(orientation: portait) and (min-width: 1367px)': equipaje,
-			'(orientation: landscape)': equipaje
+			image: '0f54aedc-b185-40a1-9f5f-9366c994c591',
+			queries: [
+				[
+					'(orientation: landscape)',
+					'45f3f88b-9b6f-4782-a71a-6b10a1c1b408',
+					{ widths: ['3840', '2560', '1920', '1560', '1366', '1024', '720'] }
+				],
+				[
+					'(orientation: portait) and (min-width: 1367px)',
+					'45f3f88b-9b6f-4782-a71a-6b10a1c1b408',
+					{ widths: ['3840', '2560', '1920', '1560', '1366', '1024', '720'] }
+				],
+				[
+					'(orientation: portrait)',
+					'0f54aedc-b185-40a1-9f5f-9366c994c591',
+					{ heights: ['2160', '1600', '1080', '900', '768'] }
+				]
+			]
 		},
 		comodidad: {
-			'(orientation: portrait)': comodidadPortrait,
-			'(orientation: portait) and (min-width: 1367px)': comodidad,
-			'(orientation: landscape)': comodidad
+			image: 'd70ed6f3-f680-4f07-a685-42c9ef053522',
+			queries: [
+				[
+					'(orientation: landscape)',
+					'a538a6ec-3d2c-4225-b1ca-b424989e652b',
+					{ widths: ['3840', '2560', '1920', '1560', '1366', '1024', '720'] }
+				],
+				[
+					'(orientation: portait) and (min-width: 1367px)',
+					'a538a6ec-3d2c-4225-b1ca-b424989e652b',
+					{ widths: ['3840', '2560', '1920', '1560', '1366', '1024', '720'] }
+				],
+				[
+					'(orientation: portrait)',
+					'd70ed6f3-f680-4f07-a685-42c9ef053522',
+					{ heights: ['2160', '1600', '1080', '900', '768'] }
+				]
+			]
 		},
 		ejecutiva: {
-			'(orientation: portrait)': ejecutivaPortrait,
-			'(orientation: portait) and (min-width: 1367px)': ejecutiva,
-			'(orientation: landscape)': ejecutiva
+			image: 'd6a95e9b-efc8-4f4b-b945-cd241a49c611',
+			queries: [
+				[
+					'(orientation: landscape)',
+					'6bde6b4e-58cb-4b96-b260-501fe14ee6c6',
+					{ widths: ['3840', '2560', '1920', '1560', '1366', '1024', '720'] }
+				],
+				[
+					'(orientation: portait) and (min-width: 1367px)',
+					'6bde6b4e-58cb-4b96-b260-501fe14ee6c6',
+					{ widths: ['3840', '2560', '1920', '1560', '1366', '1024', '720'] }
+				],
+				[
+					'(orientation: portrait)',
+					'd6a95e9b-efc8-4f4b-b945-cd241a49c611',
+					{ heights: ['2160', '1600', '1080', '900', '768'] }
+				]
+			]
 		}
 	} as const;
 </script>
