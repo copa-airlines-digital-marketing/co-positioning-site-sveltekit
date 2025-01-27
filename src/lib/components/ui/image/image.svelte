@@ -9,8 +9,7 @@
 		queries: [string, string, DirectusImageQuery][];
 	};
 
-	export const getDirectusImage = (id: string) =>
-		`https://cm-marketing.directus.app/assets/${id}?access_token=uXNBjo8n02SHfhfEH_DUqkMnHu7mDB7f`;
+	export const getDirectusImage = (id: string) => `https://cm-marketing.directus.app/assets/${id}`;
 </script>
 
 <script lang="ts">
