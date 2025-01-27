@@ -99,8 +99,9 @@
 									> en Colombia
 								</Heading>
 								<p class="my-2 max-w-prose sm:max-w-md">
-									Conectamos mejor desde y hacia 11 destinos: Armenia, Barranquilla, Bogotá,
-									Bucaramanga, Cartagena, Cúcuta, Cali, Medellín, San Andrés, Santa Marta y Pereira.
+									Conectamos mejor desde y hacia 11 destinos: Armenia(suspendido), Barranquilla,
+									Bogotá, Bucaramanga, Cartagena, Cúcuta, Cali, Medellín, San Andrés, Santa Marta y
+									Pereira.
 								</p>
 								<Button
 									class="bg-secondary border-secondary mt-4"
