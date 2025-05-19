@@ -105,7 +105,7 @@
 								</p>
 								<Button
 									class="bg-secondary border-secondary mt-4"
-									href="https://destinationsguide.copaair.com/es-co/vuelos-desde-colombia"
+									href="https://www.copaair.com/es-co/vuelos-desde-colombia"
 									target="blank">Descubre nuestros vuelos</Button
 								>
 							</div>

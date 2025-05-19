@@ -11,7 +11,7 @@
 	const india = 'd02511b9-c6bf-4bf6-af21-08862011da54';
 	const airnz = '088d819c-c1c2-4641-8f34-6e5285e865bf';
 	const ana = 'c8c97d1c-6b6f-422c-a25d-edc32deef320';
-	const asiana = '4321838a-b0ab-490e-a728-01a7bcbee831';
+	const asiana = '95905662-c88f-4658-b875-83d858fb027e';
 	const austrian = 'f20ef59c-ebe9-455f-bf67-f82194f022f8';
 	const avianca = '256359f2-871e-4b45-a736-eb83a9228278';
 	const croatia = 'd28c5508-6df8-4ef0-85d9-cb1117a38fd1';

@@ -8,7 +8,7 @@
 	import { getDirectusImage, type DirectusImage } from '$components/ui/image/image.svelte';
 
 	let image: DirectusImage = {
-		image: 'ae1c5d8a-ec65-45b5-b668-6bad998071c7',
+		image: 'cc384d28-6a56-4071-a410-ecf7f83c81bb',
 		queries: [
 			[
 				'(min-width: landscape)',
