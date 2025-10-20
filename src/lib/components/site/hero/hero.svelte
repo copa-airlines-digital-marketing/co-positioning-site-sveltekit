@@ -49,16 +49,16 @@
 			]
 		},
 		map: {
-			image: '5cda5e9b-9a76-4b5f-8d62-9b5c84de6448',
+			image: '48532c19-4d13-4657-8fc7-94cfd1978752',
 			queries: [
 				[
 					'(orientation: landscape)',
-					'5089daac-56e1-4fbd-b2cf-9d5091d60092',
+					'f8516dc5-6c92-4ee0-856f-3138c873836e',
 					{ widths: ['3840', '2560', '1920', '1560', '1366', '1024', '720'] }
 				],
 				[
 					'(orientation: portrait)',
-					'5cda5e9b-9a76-4b5f-8d62-9b5c84de6448',
+					'48532c19-4d13-4657-8fc7-94cfd1978752',
 					{ heights: ['2160', '1600', '1080', '900', '768'] }
 				]
 			]
@@ -232,12 +232,12 @@
 											on:loadstart={videoCTAClickHandler}
 										>
 											<source
-												src={getDirectusImage('79216bc0-4c13-4959-895c-4fff88653ebb')}
+												src={getDirectusImage('d1ce9b4f-d8b8-4f21-b406-712d1e613256')}
 												type="video/webm"
 												media="(orientation: landscape)"
 											/>
 											<source
-												src={getDirectusImage('305a8dae-dedb-4576-8c56-1221a8f697dd')}
+												src={getDirectusImage('54b960ae-b3ca-40b1-ad52-f476fe7d81be')}
 												type="video/webm"
 											/>
 											<track default srclang="es" kind="captions" />
@@ -289,7 +289,7 @@
 										>
 										en Colombia hacia más de
 										<span class="text-common-white md:text-secondary-faded"
-											>70&nbsp;destinos internacionales</span
+											>85&nbsp;destinos internacionales</span
 										>
 									</Heading>
 									<Button

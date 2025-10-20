@@ -7,21 +7,21 @@
 
 	const images: Record<string, DirectusImage> = {
 		hacia: {
-			image: '5cda5e9b-9a76-4b5f-8d62-9b5c84de6448',
+			image: '48532c19-4d13-4657-8fc7-94cfd1978752',
 			queries: [
 				[
 					'(orientation: landscape)',
-					'5089daac-56e1-4fbd-b2cf-9d5091d60092',
+					'f8516dc5-6c92-4ee0-856f-3138c873836e',
 					{ widths: ['3840', '2560', '1920', '1560', '1366', '1024', '720'] }
 				],
 				[
 					'(orientation: portait) and (min-width: 1367px)',
-					'5089daac-56e1-4fbd-b2cf-9d5091d60092',
+					'f8516dc5-6c92-4ee0-856f-3138c873836e',
 					{ widths: ['3840', '2560', '1920', '1560', '1366', '1024', '720'] }
 				],
 				[
 					'(orientation: portrait)',
-					'5cda5e9b-9a76-4b5f-8d62-9b5c84de6448',
+					'48532c19-4d13-4657-8fc7-94cfd1978752',
 					{ heights: ['2160', '1600', '1080', '900', '768'] }
 				]
 			]
@@ -75,10 +75,10 @@
 			</Carousel.Previous>
 			<Carousel.Next
 				variant="invert"
-				class="border-0 items-center text-right px-0"
+				class="border-0 items-center text-right bg-secondary border-secondary "
 				title="Siguiente"
 			>
-				A Tu Próximo Destino
+				Nuestros destinos
 			</Carousel.Next>
 		</div>
 		<Carousel.Content class="col-span-full row-span-full z-0">
@@ -87,27 +87,33 @@
 					<Slide.About image={images['desde']} class="relative mb-roomy min-h-[480px]">
 						<Slide.Content class="row-start-3">
 							<div
-								class="row-span-full col-span-full text-common-white flex flex-col justify-end md:justify-center items-start mb-roomy"
+								class="row-span-full col-span-full text-common-white flex flex-col justify-end md:justify-between mb-normal"
 							>
-								<Heading
-									variant="displayNormal"
-									tag="h3"
-									class="text-common-white max-w-sm landscape:max-w-sm"
-								>
-									Conecta <span class="text-common-white sm:text-secondary-faded"
-										>desde 11 ciudades</span
-									> en Colombia
-								</Heading>
-								<p class="my-2 max-w-prose sm:max-w-md">
-									Conectamos mejor desde y hacia 11 destinos: Armenia(suspendido), Barranquilla,
-									Bogotá, Bucaramanga, Cartagena, Cúcuta, Cali, Medellín, San Andrés, Santa Marta y
-									Pereira.
+								<div class="justify-center mt-huge">
+									<Heading
+										variant="displayNormal"
+										tag="h3"
+										class="text-common-white max-w-sm landscape:max-w-sm"
+									>
+										Conecta <span class="text-common-white sm:text-secondary-faded"
+											>desde 11 ciudades</span
+										> en Colombia
+									</Heading>
+									<p class="my-2 max-w-prose sm:max-w-md">
+										Conectamos mejor desde y hacia 11 destinos: Armenia*, Barranquilla, Bogotá,
+										Bucaramanga, Cartagena, Cúcuta, Cali, Medellín, San Andrés, Santa Marta y
+										Pereira.
+									</p>
+
+									<Button
+										class="bg-secondary border-secondary mt-4"
+										href="https://www.copaair.com/es-co/vuelos-desde-colombia"
+										target="blank">Descubre nuestros vuelos</Button
+									>
+								</div>
+								<p class="my-2 max-w-prose sm:max-w-md text-xs justify-end self-start md:self-end">
+									*Vuelo suspendido temporalmente
 								</p>
-								<Button
-									class="bg-secondary border-secondary mt-4"
-									href="https://www.copaair.com/es-co/vuelos-desde-colombia"
-									target="blank">Descubre nuestros vuelos</Button
-								>
 							</div>
 						</Slide.Content>
 					</Slide.About>
@@ -120,7 +126,7 @@
 								class="row-span-full col-span-full text-common-white mb-roomy flex flex-col justify-end items-start landscape:justify-end landscape:md:justify-center"
 							>
 								<Heading variant="displayNormal" tag="h3" class="text-common-white max-w-md">
-									A más de <span class="text-commo-white md:text-secondary-faded">70 destinos</span>
+									A más de <span class="text-commo-white md:text-secondary-faded">85 destinos</span>
 									Internacionales
 								</Heading>
 								<p class="my-2 max-w-prose sm:max-w-sm">

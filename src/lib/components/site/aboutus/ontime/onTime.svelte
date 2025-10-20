@@ -144,6 +144,12 @@
 				cite: ciriumCite,
 				title: ciriumPrize
 			}
+		},
+		'2025': {
+			cirium: {
+				cite: ciriumCite,
+				title: ciriumPrize
+			}
 		}
 	} as const;
 </script>
