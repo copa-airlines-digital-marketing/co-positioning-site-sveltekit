@@ -114,7 +114,7 @@
 								<p
 									class="md:row-start-3 md:row-end-3 self-end my-2 max-w-prose sm:max-w-md text-xs"
 								>
-									*Vuelo suspendido temporalmente
+									*Vuelo suspendido temporalmente.
 								</p>
 							</div>
 						</Slide.Content>
