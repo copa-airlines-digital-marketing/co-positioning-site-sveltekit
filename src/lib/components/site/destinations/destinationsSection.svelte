@@ -87,9 +87,9 @@
 					<Slide.About image={images['desde']} class="relative mb-roomy min-h-[480px]">
 						<Slide.Content class="row-start-3">
 							<div
-								class="row-span-full col-span-full text-common-white flex flex-col justify-end md:justify-between mb-normal"
+								class="row-span-full col-span-full text-common-white grid grid-rows-[auto_auto] self-end md:grid-rows-[1fr_1fr_1fr] mb-normal"
 							>
-								<div class="justify-center mt-huge">
+								<div class="row-start-1 row-end-1 md:row-start-2 md:row-end-2">
 									<Heading
 										variant="displayNormal"
 										tag="h3"
@@ -99,7 +99,7 @@
 											>desde 11 ciudades</span
 										> en Colombia
 									</Heading>
-									<p class="my-2 max-w-prose sm:max-w-md">
+									<p class="my-2 max-w-prose sm:max-w-md justify">
 										Conectamos mejor desde y hacia 11 destinos: Armenia*, Barranquilla, Bogotá,
 										Bucaramanga, Cartagena, Cúcuta, Cali, Medellín, San Andrés, Santa Marta y
 										Pereira.
@@ -111,7 +111,9 @@
 										target="blank">Descubre nuestros vuelos</Button
 									>
 								</div>
-								<p class="my-2 max-w-prose sm:max-w-md text-xs justify-end self-start md:self-end">
+								<p
+									class="md:row-start-3 md:row-end-3 self-end my-2 max-w-prose sm:max-w-md text-xs"
+								>
 									*Vuelo suspendido temporalmente
 								</p>
 							</div>
