@@ -261,12 +261,12 @@
 									on:loadstart={mapVideoLoadHandler}
 								>
 									<source
-										src={getDirectusImage('79a34d32-5296-42ae-bea6-e36cf27b053a')}
+										src={getDirectusImage('0c12a6d5-dc08-4ef6-ab21-79db386ba4ee')}
 										type="video/webm"
 										media="(orientation: landscape)"
 									/>
 									<source
-										src={getDirectusImage('fb59c830-977d-4b68-b600-d886c3a41336')}
+										src={getDirectusImage('6dbb8af7-2f6b-46e4-a9f0-67ed589e7f1f')}
 										type="video/webm"
 									/>
 									<track default srclang="es" kind="captions" />
