@@ -24,7 +24,8 @@ const headingVariants = tv({
 type Variant = VariantProps<typeof headingVariants>["variant"];
 type Tag = keyof Pick<HTMLElementTagNameMap, 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'>;
 
-type Props = HTMLAttributes<HTMLHeadElement> & {
+type Props = Omit<HTMLAttributes<HTMLHeadElement>, 'class'> & {
+	class?: string;
 	variant?: Variant;
   tag?: Tag
 };

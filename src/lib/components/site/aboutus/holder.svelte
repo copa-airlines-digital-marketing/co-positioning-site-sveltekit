@@ -9,12 +9,6 @@
 	export { className as class };
 </script>
 
-<div class={cn('col-start-2 row-span-1 relative line-grid', className)}>
+<div class={cn('col-start-2 row-span-1 relative grid grid-cols-[32px_1fr] gap-2', className)}>
 	<slot />
 </div>
-
-<style lang="postcss">
-	.line-grid {
-		@apply grid grid-cols-[32px_1fr] gap-2;
-	}
-</style>

@@ -129,12 +129,12 @@
 		<ul
 			class="my-tiny grid grid-cols-[repeat(auto-fit,_minmax(100px,_140px))] auto-rows-auto gap-4 sm:gap-4 justify-items-center"
 		>
-			{#each Object.keys(members) as memberName}
+			{#each Object.entries(members) as [memberName, image]}
 				<li class="bg-common-white shadow-sm shadow-primary-ultradark p-1">
 					<EnhancedImage.Root
 						loading="lazy"
-						image="{members[memberName]},"
-						queries={[['', members[memberName], {}]]}
+						{image}
+						queries={[['', image, {}]]}
 						class="w-full max-w-40"
 						alt=""
 					/>

@@ -15,6 +15,7 @@
 	method="get"
 	action="https://shopping.copaair.com/"
 	target="_blank"
+	rel="noopener noreferrer"
 	class={cn('bg-common-white shadow-lg', className)}
 	{...$$restProps}
 >

@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 import vidstack from 'vidstack/tailwind.cjs';
+import maskImage from '@designbycode/tailwindcss-mask-image';
 
 export default {
   content: ['./src/**/*.{html,js,svelte,ts}'],
@@ -13,26 +14,26 @@ export default {
       addComponents({
         '.container': {
           maxWidth: 'calc(100% - 2rem)',
-          '@screen sm': {
+          '@media (min-width: 600px)': {
             maxWidth: '560px',
           },
-          '@screen md': {
+          '@media (min-width: 960px)': {
             maxWidth: 'calc(100% - 144px)',
           },
-          '@screen lg': {
+          '@media (min-width: 1367px)': {
             maxWidth: '1224px',
           }
         },
         ".container-grid": {
           display: "grid",
           gridTemplateColumns: "16px 1fr 16px",
-          "@screen sm": {
+          "@media (min-width: 600px)": {
             gridTemplateColumns: "1fr 560px 1fr",
           },
-          "@screen md": {
+          "@media (min-width: 960px)": {
             gridTemplateColumns: "72px 1fr 72px",
           },
-          "@screen lg": {
+          "@media (min-width: 1367px)": {
             gridTemplateColumns: "1fr 1224px 1fr",
           },
         },
@@ -40,7 +41,7 @@ export default {
     },
     vidstack({prefix: 'media',
       webComponents: true}),
-    require("@designbycode/tailwindcss-mask-image"),
+    maskImage,
   ],
   theme: {
     screens: {

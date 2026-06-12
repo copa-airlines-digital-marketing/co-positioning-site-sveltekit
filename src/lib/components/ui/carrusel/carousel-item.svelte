@@ -2,7 +2,7 @@
 	import type { HTMLAttributes } from 'svelte/elements';
 	import { cn } from '$lib/utils.js';
 
-	type $$Props = HTMLAttributes<HTMLDivElement>;
+	type $$Props = Omit<HTMLAttributes<HTMLDivElement>, 'class'> & { class?: string | null };
 	let className: string | undefined | null = undefined;
 	export { className as class };
 </script>

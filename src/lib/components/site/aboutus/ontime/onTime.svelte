@@ -13,7 +13,12 @@
 
 	type Prize = {
 		cite: string;
-		title: string;
+		label: string;
+		rank?: {
+			value: string;
+			suffix: string;
+		};
+		trophy?: boolean;
 	};
 
 	const oag: DirectusImage = {
@@ -40,115 +45,122 @@
 		'2014': {
 			cirium: {
 				cite: ciriumCite,
-				title: ciriumPrize
+				label: ciriumPrize
 			}
 		},
 		'2015': {
 			cirium: {
 				cite: ciriumCite,
-				title: ciriumPrize
+				label: ciriumPrize
 			}
 		},
 		'2016': {
 			cirium: {
 				cite: ciriumCite,
-				title: ciriumPrize
+				label: ciriumPrize
 			},
 			oagLatam: {
 				cite: 'https://info.oag.com/hubfs/Free_Reports/Punctuality_League/PunctualityLeagueReport2015.pdf',
-				title: ciriumPrize
+				label: ciriumPrize
 			},
 			oag: {
 				cite: 'https://info.oag.com/hubfs/Free_Reports/Punctuality_League/PunctualityLeagueReport2015.pdf',
-				title: '2<sup>da</sup> Aerolínea más puntual del mundo.'
+				label: 'Aerolínea más puntual del mundo.',
+				rank: { value: '2', suffix: 'da' }
 			}
 		},
 		'2017': {
 			cirium: {
 				cite: ciriumCite,
-				title: ciriumPrize
+				label: ciriumPrize
 			},
 			oagLatam: {
 				cite: 'https://www.bbc.com/mundo/noticias-38514302',
-				title: '2<sup>da</sup> Aerolínea más puntual de Latinoamérica.'
+				label: 'Aerolínea más puntual de Latinoamérica.',
+				rank: { value: '2', suffix: 'da' }
 			},
 			oag: {
 				cite: 'https://www.bbc.com/mundo/noticias-38514302',
-				title: '2<sup>da</sup> Aerolínea más puntual del mundo.'
+				label: 'Aerolínea más puntual del mundo.',
+				rank: { value: '2', suffix: 'da' }
 			}
 		},
 		'2018': {
 			cirium: {
 				cite: ciriumCite,
-				title: ciriumPrize
+				label: ciriumPrize
 			},
 			oagLatam: {
 				cite: 'https://www.oag.com/hubfs/free-reports/2018-reports/2018-punctuality-league/PunctualityReport2018.pdf',
-				title: ciriumPrize
+				label: ciriumPrize
 			},
 			oag: {
 				cite: 'https://www.oag.com/hubfs/free-reports/2018-reports/2018-punctuality-league/PunctualityReport2018.pdf',
-				title: '4<sup>ta</sup> Aerolínea más puntual del mundo.'
+				label: 'Aerolínea más puntual del mundo.',
+				rank: { value: '4', suffix: 'ta' }
 			}
 		},
 		'2019': {
 			oag: {
 				cite: 'https://www.oag.com/reports/punctuality-league-2019',
-				title: '<span class="text-xl">🏆</span> Aerolínea más puntual del mundo.'
+				label: 'Aerolínea más puntual del mundo.',
+				trophy: true
 			},
 			cirium: {
 				cite: ciriumCite,
-				title: ciriumPrize
+				label: ciriumPrize
 			},
 			oagLatam: {
 				cite: 'https://www.oag.com/reports/punctuality-league-2019',
-				title: ciriumPrize
+				label: ciriumPrize
 			}
 		},
 		'2020': {
 			cirium: {
 				cite: ciriumCite,
-				title: ciriumPrize
+				label: ciriumPrize
 			},
 			oagLatam: {
 				cite: 'https://www.oag.com/hubfs/free-reports/2020-reports/punctuality-league-2020/Punctuality-League-2020.pdf',
-				title: ciriumPrize
+				label: ciriumPrize
 			},
 			oag: {
 				cite: 'https://www.oag.com/hubfs/free-reports/2020-reports/punctuality-league-2020/Punctuality-League-2020.pdf',
-				title: '2<sup>da</sup> Aerolínea más puntual del mundo.'
+				label: 'Aerolínea más puntual del mundo.',
+				rank: { value: '2', suffix: 'da' }
 			}
 		},
 		'2021': {
 			cirium: {
 				cite: ciriumCite,
-				title: ciriumPrize
+				label: ciriumPrize
 			}
 		},
 		'2023': {
 			cirium: {
 				cite: ciriumCite,
-				title: ciriumPrize
+				label: ciriumPrize
 			},
 			oagLatam: {
 				cite: 'https://www.oag.com/hubfs/free-reports/2023/OAG-Punctuality-League-2023.pdf',
-				title: ciriumPrize
+				label: ciriumPrize
 			},
 			oag: {
 				cite: 'https://www.oag.com/hubfs/free-reports/2023/OAG-Punctuality-League-2023.pdf',
-				title: '8<sup>va</sup> Aerolínea más puntual del mundo.'
+				label: 'Aerolínea más puntual del mundo.',
+				rank: { value: '8', suffix: 'va' }
 			}
 		},
 		'2024': {
 			cirium: {
 				cite: ciriumCite,
-				title: ciriumPrize
+				label: ciriumPrize
 			}
 		},
 		'2025': {
 			cirium: {
 				cite: ciriumCite,
-				title: ciriumPrize
+				label: ciriumPrize
 			}
 		}
 	} as const;
@@ -169,14 +181,15 @@
 					<Tick>
 						<Card>
 							<Heading variant="displayTiny" tag="h4" class="text-common-white">{year}</Heading>
-							{#each Object.keys(prizes) as prize}
-								{@const { cite, title } = prizes[prize]}
-								{@const logo = logos[prize]}
+							{#each Object.entries(prizes) as [prize, prizeDetails]}
+								{@const { cite, label, rank, trophy } = prizeDetails}
+								{@const logo = logos[prize as keyof typeof logos]}
 								<PrizeQuote
-									cite="https://www.cirium.com/resources/on-time-performance/cirium-on-time-performance-history/"
+									{cite}
 									logo={logo ?? undefined}
 								>
-									{@html title}
+									{#if trophy}<span class="text-xl">🏆</span>{/if}
+									{#if rank}{rank.value}<sup>{rank.suffix}</sup> {/if}{label}
 								</PrizeQuote>
 							{:else}
 								<PrizeQuote

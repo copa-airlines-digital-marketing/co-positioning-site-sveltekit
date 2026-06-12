@@ -1,5 +1,6 @@
 import Button from "./button.svelte";
 import type { Button as ButtonPrimitive } from 'bits-ui'
+import type { HTMLAnchorAttributes, HTMLButtonAttributes } from 'svelte/elements';
 import { tv, type VariantProps } from "tailwind-variants";
 
 const buttonVariants = tv({
@@ -30,9 +31,13 @@ const buttonVariants = tv({
 type Variant = VariantProps<typeof buttonVariants>["variant"];
 type Size = VariantProps<typeof buttonVariants>["size"];
 
-type Props = ButtonPrimitive.Props & {
+type Props = Omit<HTMLButtonAttributes, 'class'> &
+	Omit<HTMLAnchorAttributes, 'class' | 'type'> & {
+	class?: string;
 	variant?: Variant;
 	size?: Size;
+	target?: HTMLAnchorAttributes['target'];
+	rel?: HTMLAnchorAttributes['rel'];
 };
 
 type Events = ButtonPrimitive.Events;

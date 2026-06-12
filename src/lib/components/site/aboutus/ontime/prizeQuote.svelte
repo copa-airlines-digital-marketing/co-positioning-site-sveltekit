@@ -4,7 +4,7 @@
 	import * as EnhancedImage from '$lib/components/ui/image';
 
 	export let cite: string;
-	export let logo: DirectusImage;
+	export let logo: DirectusImage | undefined = undefined;
 </script>
 
 <div class="mb-6 last:mb-0 md:flex md:items-end">

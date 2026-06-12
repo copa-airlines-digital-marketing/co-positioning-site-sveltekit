@@ -11,7 +11,7 @@
 	export { className as class };
 </script>
 
-<div class={cn('flex gap-4 place-content-center')}>
+<div class={cn('flex gap-4 place-content-center', className)}>
 	<Button>
 		<OutlineMinus class="size-6" />
 		<slot name="decrease" />

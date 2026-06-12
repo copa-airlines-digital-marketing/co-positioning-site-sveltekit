@@ -31,63 +31,36 @@
 	$: pluginStore.set(plugins);
 	$: optionsStore.set(opts);
 
+	function handleAutoplayInteraction() {
+		const autoplay = api?.plugins()?.autoplay;
+
+		if (!autoplay) return;
+
+		if (autoplay.options.stopOnInteraction === true) {
+			autoplay.stop?.();
+		} else {
+			autoplay.reset?.();
+		}
+	}
+
 	const scrollPrev = () => {
 		api?.scrollPrev();
 		if (!api) return;
 		$selectedIndexStore = api.selectedScrollSnap();
-
-		const autoplay = api.plugins()?.autoplay;
-
-		if (!autoplay) return;
-
-		const stopOnInteraction = autoplay.options.stopOnInteraction;
-
-		if (!stopOnInteraction || typeof stopOnInteraction !== 'boolean') return;
-
-		const resetOrStop = stopOnInteraction ? autoplay.stop : autoplay.false;
-
-		if (!resetOrStop || typeof resetOrStop !== 'function') return;
-
-		resetOrStop();
+		handleAutoplayInteraction();
 	};
 	function scrollNext() {
 		api?.scrollNext();
 
 		if (!api) return;
 		$selectedIndexStore = api.selectedScrollSnap();
-
-		const autoplay = api.plugins()?.autoplay;
-
-		if (!autoplay) return;
-
-		const stopOnInteraction = autoplay.options.stopOnInteraction;
-
-		if (!stopOnInteraction || typeof stopOnInteraction !== 'boolean') return;
-
-		const resetOrStop = stopOnInteraction ? autoplay.stop : autoplay.false;
-
-		if (!resetOrStop || typeof resetOrStop !== 'function') return;
-
-		resetOrStop();
+		handleAutoplayInteraction();
 	}
 	function scrollTo(index: number, jump?: boolean) {
 		api?.scrollTo(index, jump);
 		if (!api) return;
 		$selectedIndexStore = api.selectedScrollSnap();
-
-		const autoplay = api.plugins()?.autoplay;
-
-		if (!autoplay) return;
-
-		const stopOnInteraction = autoplay.options.stopOnInteraction;
-
-		if (!stopOnInteraction || typeof stopOnInteraction !== 'boolean') return;
-
-		const resetOrStop = stopOnInteraction ? autoplay.stop : autoplay.false;
-
-		if (!resetOrStop || typeof resetOrStop !== 'function') return;
-
-		resetOrStop();
+		handleAutoplayInteraction();
 	}
 
 	function onSelect(api: CarouselAPI) {
@@ -112,7 +85,13 @@
 		if (!play || typeof play !== 'function') return;
 		if (!stop || typeof stop !== 'function') return;
 
-		playingState = isPlaying() ? stop() : play();
+		if (isPlaying()) {
+			stop();
+			stopPlaying();
+		} else {
+			play();
+			startPlaying();
+		}
 	}
 
 	function autoPlayReset() {

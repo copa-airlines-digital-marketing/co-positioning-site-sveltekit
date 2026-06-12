@@ -23,7 +23,8 @@ export type CarouselProps = {
 	plugins?: CarouselPlugins;
 	api?: CarouselAPI;
 	orientation?: "horizontal" | "vertical";
-} & HTMLAttributes<HTMLDivElement>;
+	class?: string;
+} & Omit<HTMLAttributes<HTMLDivElement>, "class">;
 
 const EMBLA_CAROUSEL_CONTEXT = Symbol("EMBLA_CAROUSEL_CONTEXT");
 

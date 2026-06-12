@@ -4,7 +4,7 @@
 
 	type $$Props = Props;
 
-	let className: $$Props['class'] = undefined;
+	let className: string | undefined = undefined;
 	export let variant: $$Props['variant'] = 'displayBig';
 	export let tag: $$Props['tag'] = 'h2';
 	export { className as class };

@@ -15,7 +15,7 @@
 	export let image: $$Props['image'];
 	export let loading: $$Props['loading'] = 'lazy';
 	export let position: $$Props['class'] = 'object-center';
-	export let id: $$Props['id'];
+	export let id: $$Props['id'] = undefined;
 </script>
 
 <div class={cn('grid grid-cols-1 grid-rows-[auto_1fr_auto]', className)}>

@@ -128,10 +128,10 @@
 										{location}
 									</Heading>
 									<ul class="text-sm">
-										{#each Object.keys(details) as detail}
+										{#each Object.entries(details) as [detail, value]}
 											<li>
 												<strong class="capitalize">{detail}</strong>
-												{details[detail]}
+												{value}
 											</li>
 										{/each}
 									</ul>
